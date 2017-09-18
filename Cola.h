@@ -12,7 +12,7 @@ class Cola {
     private:
         int numElem;
         int tamano;
-        int* arregloCircular();
+        int* arregloCircular;
         int primera;
         int ultima;
     public:
@@ -22,7 +22,7 @@ class Cola {
         int vacia();
         void encolar(int);
         int desencolar();
-        int numElem();
+        int numElementos();
         int frente();
         int ultimo();
 };

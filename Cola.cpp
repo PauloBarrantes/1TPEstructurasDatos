@@ -10,10 +10,10 @@ Cola::Cola(int M){ // Iniciamos la Cola Vacía
     ultima = 0;
 }
 
-~Cola(){
+Cola::~Cola(){
     delete arregloCircular;
 }
-void vaciar(){ //Vaciamos la cola
+void Cola::vaciar(){ //Vaciamos la cola
     numElem = 0;
     primera = 1;
     ultima=0;
@@ -24,8 +24,8 @@ void vaciar(){ //Vaciamos la cola
    \param "Param description"
    \return "Return of the function"
 */
-int vacia(){
-    return numElem;
+int Cola::vacia(){
+    return !numElem;
 }
 
 /*!
@@ -33,7 +33,7 @@ int vacia(){
    \param "Un número entero"
    \return "No retorna nada"
 */
-void encolar(int elemento){
+void Cola::encolar(int elemento){
     if (tamano != numElem){ // Si la cola no está llena hace el agregado
         if (ultima == tamano-1){
             ultima = 0;
@@ -43,7 +43,7 @@ void encolar(int elemento){
         arregloCircular[ultima] = elemento;
         numElem += 1;
     }  else{
-        std::cerr << "La Cola está llena, no se pueden agregar más elementos" << '\n';
+        cerr << "La Cola está llena, no se pueden agregar más elementos" << endl;
     }
 }
 /*!
@@ -51,9 +51,9 @@ void encolar(int elemento){
    \param "No recibe"
    \return "Retorna al elemento que sacamos"
 */
-int desencolar(){
+int Cola::desencolar(){
     if(!vacia()){
-        int frente = frente();
+        int frente = arregloCircular[primera];
         if (primera == tamano-1){
             primera = 0;
         }else{
@@ -62,23 +62,25 @@ int desencolar(){
         numElem -= 1;
         return frente;
     }else{
-        std::cerr << "La Cola está vacía" << '\n';
+        cerr << "La Cola está vacía" << endl;
+        return NULL;
     }
+
 }
 /*!
    \brief "Retorna el número de elementos"
    \param "No recibe"
    \return "Retorna un entero"
 */
-int numElem(){
-    return numElem;
+int Cola::numElementos(){
+    return this->numElem;
 }
 /*!
    \brief "Retorna al que esté al frente de la cola"
    \param "No recibe"
    \return "Retorna un entero"
 */
-int frente(){
+int Cola::frente(){
     if(!vacia()){
         return arregloCircular[primera];
     }
@@ -88,7 +90,7 @@ int frente(){
    \param "No recibe"
    \return "Retorna un entero"
 */
-int ultimo(){
+int Cola::ultimo(){
     if(!vacia()){
         return arregloCircular[ultima];
     }
