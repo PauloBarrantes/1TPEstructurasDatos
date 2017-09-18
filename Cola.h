@@ -1,3 +1,10 @@
+/*!
+   \file "Cola.h"
+   \brief "Description"
+   \author "PauloBarrantes"
+   \date "17"/"septiembre"/"2017"
+*/
+
 #ifndef _Cola2017
 #define _Cola2017
 
