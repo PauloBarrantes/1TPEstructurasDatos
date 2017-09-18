@@ -10,7 +10,7 @@ Cola::Cola(int M){ // Iniciamos la Cola Vacía
     ultima = 0;
 }
 
-Cola::~Cola(){
+Cola::~Cola(){ //Destruir de la Cola
     delete arregloCircular;
 }
 void Cola::vaciar(){ //Vaciamos la cola
