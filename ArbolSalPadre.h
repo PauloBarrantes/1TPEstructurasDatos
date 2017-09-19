@@ -11,20 +11,9 @@ class Arbol_SalPadre: public ModeloArbol {
     private:
         NodoArbol * arreglo;
         int ultima;
-        int numNodos
-        class NodoArbol{
-            private:
-                int etiqueta;
-                int padre;
-            public:
-                NodoArbol(int, int);
-                NodoArbol(int);
-                ~NodoArbol();
-                void setPadre(int);
-                void setEtiqueta(int);
-                int getPadre();
-                int getEtiqueta();
-        }
+        int numNodos;
+        int tamano;
+
     public:
         Arbol_SalPadre(int);
         ~Arbol_SalPadre();
@@ -32,17 +21,17 @@ class Arbol_SalPadre: public ModeloArbol {
         int vacia();
 
 
-        NodoArbol raiz();
-        NodoArbol hijoMasIzq(NodoArbol);
-        NodoArbol hermanoDer(NodoArbol);
-        NodoArbol padre(NodoArbol);
-        int esHoja(NodoArbol);
+        int raiz();
+        int hijoMasIzq(int);
+        int hermanoDer(int);
+        int padre(int);
+        int esHoja(int);
         int etiqueta();
         int numNodos();
-        int numHijos(NodoArbol);
-        void modificarEtiq(NodoArbol, int);
-        NodoArbol agregarHijoIesimo(NodoArbol, int, int);
-        void borrarHoja(NodoArbol);
+        int numHijos(int);
+        void modificarEtiq(int, int);
+        int agregarHijoIesimo(int, int, int);
+        void borrarHoja(int);
         void ponerRaiz(int);
 };
 

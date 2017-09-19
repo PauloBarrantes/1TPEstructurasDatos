@@ -3,32 +3,11 @@
 
 using namespace std;
 
-    //-- Metodos del NodoArbol --
-        Arbol_SalPadre::NodoArbol::NodoArbol(int etiqueta, int padre){
-            this->etiqueta = etiqueta;
-            this->padre = padre;
-        }
-        Arbol_SalPadre::NodoArbol::NodoArbol(int raiz){
-            this->etiqueta = raiz;
-            this->padre = -1; //No tiene padre por lo tanto colocamos un indice invalido
-        }
-        void Arbol_SalPadre::NodoArbol::setEtiqueta(int etiqueta){
-            this->etiqueta = etiqueta;
-        }
-        int Arbol_SalPadre::NodoArbol::getEtiqueta(){
-            return this->etiqueta;
-        }
-        void Arbol_SalPadre::NodoArbol::setPadre(int padre){
-            this->padre= padre;
-        }
-        int Arbol_SalPadre::NodoArbol::getPadre(){
-            return this->padre;
-        }
-    // Acaban los métodos del NodoArbol
     Arbol_SalPadre::Arbol_SalPadre(int M){ //Iniciamos
         ultima = 0;
-        arreglo = new int* [2];
-        for (int i = 0; i < 2; ++i){
+        arreglo = new int* [3];
+        tamano = M;
+        for (int i = 0; i < 3; ++i){
             arreglo[i] = new int[M];
         }
 
@@ -40,39 +19,66 @@ using namespace std;
         ultima = 0;
     }
     int Arbol_SalPadre::vacia(){
-        return ultima;
+        return !numNodos;
     }
-    NodoArbol Arbol_SalPadre::raiz(){
+    int Arbol_SalPadre::raiz(){
+        return 0;
+    }
+    int Arbol_SalPadre::hijoMasIzq(int nodoArbol){
+        if (!vacia()){
+
+        }else{
+
+        }
 
     }
-    NodoArbol Arbol_SalPadre::hijoMasIzq(nodoArbol){
+    int Arbol_SalPadre::hermanoDer(int nodoArbol){
+        if(){
 
+        }else{
+
+        }
     }
-    NodoArbol Arbol_SalPadre::hermanoDer(NodoArbol){
-
+    int Arbol_SalPadre::padre(int nodoArbol){
+        if (nodoArbol != 0){
+            return arreglo[1][nodoArbol];
+        }else{
+            std::cerr << "El nodo Raíz no tiene padre" << '\n';
+        }
     }
-    NodoArbol Arbol_SalPadre::padre(NodoArbol){
-
+    int Arbol_SalPadre::esHoja(int nodoArbol){
+        int esHoja = 1;
+        int contador = 0;
+        while ( contador > tamano && esHoja) {
+            if(arreglo[nodoArbol] == arreglo[contador]){
+                esHoja = 0;
+            }
+            ++contador;
+        }
+        return esHoja;
     }
-    int Arbol_SalPadre::esHoja(NodoArbol){
-
-    }
-    int Arbol_SalPadre::etiqueta(){
-
+    int Arbol_SalPadre::etiqueta(int nodoArbol){
+        return arreglo[0][nodoArbol];
     }
     int Arbol_SalPadre::numNodos(){
+        return numNodos;
+    }
+    int Arbol_SalPadre::numHijos(int nodoArbol){
+        int contadorHijos = 0;
+        for (int i = 0; i < tamano; ++i){
+            if (arreglo[1][i] == arreglo[1][nodoArbol]){
+
+            }
+        }
+        return contadorHijos;
+    }
+    void Arbol_SalPadre::modificarEtiq(int nodoArbol, int etiqueta){
+        arreglo[0][nodoArbol] = etiqueta;
+    }
+    int Arbol_SalPadre::agregarHijoIesimo(int nodoArbol, int, int){
 
     }
-    int Arbol_SalPadre::numHijos(NodoArbol){
-
-    }
-    void Arbol_SalPadre::modificarEtiq(NodoArbol, int){
-
-    }
-    NodoArbol Arbol_SalPadre::agregarHijoIesimo(nodoArbol, int, int){
-
-    }
-    void Arbol_SalPadre::borrarHoja(nodoArbol){
+    void Arbol_SalPadre::borrarHoja(int nodoArbol){
 
     }
     void Arbol_SalPadre::ponerRaiz(int){
