@@ -17,6 +17,7 @@ int main(){
         std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
         std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
         std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
+        //holi
     //Prueba de Arbol con senalador al padre
 
 }
