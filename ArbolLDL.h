@@ -11,7 +11,7 @@ class Arbol_ListaDeListas: public ModeloArbol {
     private:
         //NodoArbol * arreglo;
         //int ultima;
-        //int numNodos;
+        int numNodos;
         //int tamano;
 
     public:
@@ -21,18 +21,18 @@ class Arbol_ListaDeListas: public ModeloArbol {
         int vacia();
 
 
-        int raiz();
-        int hijoMasIzq(int);
-        int hermanoDer(int);
-        int padre(int);
-        int esHoja(int);
-        int etiqueta();
+        NodoArbol*  raiz();
+        NodoArbol*  hijoMasIzq(NodoArbol* );
+        NodoArbol*  hermanoDer(NodoArbol* );
+        NodoArbol*  padre(NodoArbol* );
+        int esHoja(NodoArbol*);
+        int etiqueta(NodoArbol*);
         int numNodos();
-        int numHijos(int);
+        int numHijos(NodoArbol*);
         void modificarEtiq(int, int);
-        int agregarHijoIesimo(int, int, int);
-        void borrarHoja(int);
-        void ponerRaiz(int);
+        int agregarHijoIesimo(NodoArbol* , int, int);
+        void borrarHoja(NodoArbol* );
+        void ponerRaiz(NodoArbol* );
 };
 
 #endif
