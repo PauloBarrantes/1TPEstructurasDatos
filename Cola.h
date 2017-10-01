@@ -16,7 +16,7 @@ class Cola {
         int primera;
         int ultima;
     public:
-        Cola(int); //Iniciar - Recibe M, el tamano máximo.
+        Cola(); //Iniciar - Recibe M, el tamano máximo.
         ~Cola(); // Destruir
         void vaciar();
         int vacia();

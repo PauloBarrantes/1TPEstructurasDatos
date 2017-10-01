@@ -1,19 +1,16 @@
 #include <iostream>
 #include "ArbolSalPadre.h"
-
+#define M 1000
 using namespace std;
 
-    Arbol_SalPadre::Arbol_SalPadre(int M){ //Iniciamos
+    Arbol_SalPadre::Arbol_SalPadre(){ //Iniciamos
+        typedef Arbol_SalPadre::NodoArbol NodoArbol;
         ultima = 0;
-        arreglo = new int* [3];
+        arreglo = new NodoArbol* [M];
         tamano = M;
-        for (int i = 0; i < 3; ++i){
-            arreglo[i] = new int[M];
-        }
-
     }
     Arbol_SalPadre::~Arbol_SalPadre(){
-        //Borrar el arrglo
+        delete arreglo[];
     }
     void Arbol_SalPadre::vaciar(){
         ultima = 0;
@@ -22,7 +19,7 @@ using namespace std;
         return !numNodos;
     }
     int Arbol_SalPadre::raiz(){
-        return 0;
+        return 0; // Retorna la celda 0 del array
     }
     int Arbol_SalPadre::hijoMasIzq(int nodoArbol){
         if (!vacia()){
@@ -39,9 +36,14 @@ using namespace std;
 
         }
     }
+    /*!
+       \brief "Devolvemos el padre del nodoarbol que entro como parametro"
+       \param "Entra un nodo arbol"
+       \return "Retorna el nodo padre"
+    */
     int Arbol_SalPadre::padre(int nodoArbol){
         if (nodoArbol != 0){
-            return arreglo[1][nodoArbol];
+            return arreglo[nodoArbol].getPadre();
         }else{
             std::cerr << "El nodo Raíz no tiene padre" << '\n';
         }
@@ -75,12 +77,39 @@ using namespace std;
     void Arbol_SalPadre::modificarEtiq(int nodoArbol, int etiqueta){
         arreglo[0][nodoArbol] = etiqueta;
     }
-    int Arbol_SalPadre::agregarHijoIesimo(int nodoArbol, int, int){
+    /*!
+       \brief "Description"
+       \param "Param description"
+       \return "Return of the function"
+    */
+    int Arbol_SalPadre::agregarHijoIesimo(int nodoArbol, int etiqueta, int posicion){
+        if(vacia()){
+            ponerRaiz(etiqueta);
+        }else{
+            if(numElem < M){ //Vemos si el arreglo está lleno
 
+                while (/* condition */) {
+                    /* code */
+                }
+                arreglo[ultima][0] = etiqueta;
+                arreglo[ultima][1] = nodoArbol;
+                arreglo[ultima][2] = posicion;
+            }else{
+                std::cerr << "El arreglo está lleno" << '\n';
+            }
+
+
+        }
     }
     void Arbol_SalPadre::borrarHoja(int nodoArbol){
+        if (vacia()){
+            std::cerr << "El arbol está vacio" << '\n';
+        }else{
 
+        }
     }
-    void Arbol_SalPadre::ponerRaiz(int){
-
+    void Arbol_SalPadre::ponerRaiz(int etiqueta){
+        arreglo[0][0] = etiqueta;
+        arreglo[0][1] = -1;
+        arreglo[0][2] = -1;
     }

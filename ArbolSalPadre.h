@@ -7,15 +7,30 @@
 #ifndef Arbol_SalPadre
 #define Arbol_SalPadre
 
-class Arbol_SalPadre: public ModeloArbol {
+class Arbol_SalPadre {
+
+    class NodoArbol; //Forward declaration
+
     private:
+        class NodoArbol{
+            private:
+                int elemento;
+                int padre;
+            public:
+                void setElemento(int elemento){
+                    this->elemento = elemento;
+                };
+                int getElemento(){
+                    return this->elemento;
+                };
+        };
         NodoArbol * arreglo;
         int ultima;
         int numNodos;
         int tamano;
 
     public:
-        Arbol_SalPadre(int);
+        Arbol_SalPadre();
         ~Arbol_SalPadre();
         void vaciar();
         int vacia();

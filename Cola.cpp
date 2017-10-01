@@ -1,8 +1,9 @@
 #include "Cola.h"
 #include <iostream>
+#define M 1000
 using namespace std;
 
-Cola::Cola(int M){ // Iniciamos la Cola Vacía
+Cola::Cola(){ // Iniciamos la Cola Vacía
     arregloCircular = new int [M];
     tamano = M;
     numElem = 0;
@@ -51,6 +52,9 @@ void Cola::encolar(int elemento){
    \param "No recibe"
    \return "Retorna al elemento que sacamos"
 */
+
+
+
 int Cola::desencolar(){
     if(!vacia()){
         int frente = arregloCircular[primera];
