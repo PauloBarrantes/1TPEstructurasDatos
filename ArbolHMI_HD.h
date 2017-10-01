@@ -8,8 +8,8 @@ class HijoDMasIzqHermanoDer{
 		
 		class NodoArbol{
 			public:
-				NodoArbol* hijoMasIzq;
-				NodoArbol* hermanoDer;
+				NodoArbol* hijoMasI;
+				NodoArbol* hermanoD;
 				int elemento;
 				
 				/*
