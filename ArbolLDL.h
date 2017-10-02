@@ -6,13 +6,14 @@
 */
 #ifndef Arbol_ListaDeListas
 #define Arbol_ListaDeListas
+#import "Lista.h"
 
-class Arbol_ListaDeListas: public ModeloArbol {
+class Arbol_ListaDeListas: {
     private:
-        //NodoArbol * arreglo;
-        //int ultima;
+        Lista * listaPrincipal;
         int numNodos;
-        //int tamano;
+        NodoArbol * raiz;
+        void _init();
 
     public:
         Arbol_ListaDeListas();
@@ -29,7 +30,7 @@ class Arbol_ListaDeListas: public ModeloArbol {
         int etiqueta(NodoArbol*);
         int numNodos();
         int numHijos(NodoArbol*);
-        void modificarEtiq(int, int);
+        void modificarEtiq(NodoArbol*, int);
         int agregarHijoIesimo(NodoArbol* , int, int);
         void borrarHoja(NodoArbol* );
         void ponerRaiz(NodoArbol* );

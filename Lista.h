@@ -11,8 +11,7 @@ class Lista {
 
    private:
 
-      Celda * primera;
-	    Celda * ultima;
+      NodoArbol * primera;
       int length;
 
     class NodoArbol {
@@ -20,20 +19,18 @@ class Lista {
 		  int etiqueta;
 			NodoArbol * anterior;
 			NodoArbol * siguiente;
-      Celda(int);
-      ~Celda();
+      NodoArbol(int);
+      ~NodoArbol();
 	  };
 
    public:
       Lista();
       ~Lista();
       int getLength();
-      void pushFront(int);
+      void pushFront(NodoArbol*);
       int popFront();
-      void pushBack(int);
+      void pushBack(NodoArbol*);
       int popBack();
-      Lista& insertar(Iterador,int);
-      Lista& borrar(Iterador);
 };
 
 #endif
