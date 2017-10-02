@@ -4,23 +4,17 @@
 using namespace std;
 
 int main(){
-    //Prueba de Cola
-    /*
-        Cola instancia(10);
-        for (int i = 0; i < 5; i++) {
-            instancia.encolar(i);
-        }
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        instancia.encolar(21241);
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        std::cout << "Desencolamos al: " << instancia.desencolar() << endl;
-        */
-    //Prueba de Arbol con senalador al padre
-        Arbol_SalPadre Arbol;
-        
+    ArbolSalPadre Arbol;
+    Arbol.ponerRaiz(123);
+    Arbol.agregarHijoIesimo(0,2,1);
+    Arbol.agregarHijoIesimo(0,3,2);
+    Arbol.agregarHijoIesimo(0,21,3);
+    Arbol.imprimir();
+    cout << "numHijos" << Arbol.numHijos(0) <<endl;
+
+    Arbol.borrarHoja(2);
+    cout << "Borrando..." <<endl;
+    Arbol.imprimir();
+    cout<< "nNodos" <<Arbol.numNodos()<< endl;
+    cout << "numHijos" << Arbol.numHijos(0) <<endl;
 }
