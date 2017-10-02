@@ -6,11 +6,11 @@
 using namespace std;
 
 class Lista {
-   // Estas son forward declarations o declaraciones adelantadas
+
    class NodoArbol;
 
    private:
-
+     
       NodoArbol * primera;
       int length;
 
@@ -27,10 +27,8 @@ class Lista {
       Lista();
       ~Lista();
       int getLength();
-      void pushFront(NodoArbol*);
-      int popFront();
-      void pushBack(NodoArbol*);
-      int popBack();
+      void agregar(int etiqueta);
+      void borrar();
 };
 
 #endif

@@ -1,6 +1,20 @@
 #import <iostream>
 #import "ArbolLDL.h"
 
+Arbol_ListaDeListas::Celda::Celda(NodoArbol* nodo){
+  this->nodo = nodo;
+  this->hermanoDer = 0;
+}
+
+Arbol_ListaDeListas::Celda::~Celda(){
+  delete nodo;
+  if(hermanoDer != 0){
+    delete hermanoDer;
+  }
+}
+
+NodoArbol* Arbol_ListaDeListas::buscar(NodoArbol* nodoRef){}
+
 Arbol_ListaDeListas::Arbol_ListaDeListas(){
   this->_init;
 }
@@ -31,11 +45,11 @@ NodoArbol* Arbol_ListaDeListas::raiz(){
   return raiz;
 }
 
-int Arbol_ListaDeListas::hijoMasIzq(NodoArbol* nodoRef){}
+NodoArbol* Arbol_ListaDeListas::hijoMasIzq(NodoArbol* nodoRef){}
 
-int Arbol_ListaDeListas::hermanoDer(NodoArbol* nodoRef){}
+NodoArbol* Arbol_ListaDeListas::hermanoDer(NodoArbol* nodoRef){}
 
-int Arbol_ListaDeListas::padre(NodoArbol* nodoRef){}
+NodoArbol* Arbol_ListaDeListas::padre(NodoArbol* nodoRef){}
 
 int Arbol_ListaDeListas::esHoja(NodoArbol* nodo){}
 
@@ -47,7 +61,7 @@ int Arbol_ListaDeListas::numHijos(NodoArbol* nodo){}
 
 void Arbol_ListaDeListas::modificarEtiq(NodoArbol* nodo, int nuevaEtiqueta){}
 
-int Arbol_ListaDeListas::agregarHijoIesimo(NodoArbol* nodo, int etiqueta, int posicion){}
+int Arbol_ListaDeListas::agregarHijoIesimo(NodoArbol* padre, int etiqueta, int posicion){}
 
 void Arbol_ListaDeListas::borrarHoja(NodoArbol* hoja){}
 

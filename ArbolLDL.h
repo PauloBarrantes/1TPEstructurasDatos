@@ -9,11 +9,32 @@
 #import "Lista.h"
 
 class Arbol_ListaDeListas: {
+
+    class NodoArbol;
+    class Celda;
+
     private:
-        Lista * listaPrincipal;
         int numNodos;
         NodoArbol * raiz;
         void _init();
+        NodoArbol * buscar(NodoArbol*);
+
+        class NodoArbol {
+         public:
+          int etiqueta;
+          Celda * hijoMasIzquierdo;
+          NodoArbol * siguiente;
+          NodoArbol(int);
+          ~NodoArbol();
+        };
+
+        class Celda {
+         public:
+          NodoArbol * nodo;
+          NodoArbol * hermanoDer;
+          Celda(NodoArbol *);
+          ~Celda();
+        };
 
     public:
         Arbol_ListaDeListas();
