@@ -34,6 +34,11 @@ using namespace std;
     int ArbolSalPadre::raiz(){
         return 0; // Retorna la celda 0 del array
     }
+    /*!
+       \brief "Description"
+       \param "Param description"s
+       \return "Return of the function"
+    */
     int ArbolSalPadre::hijoMasIzq(int nodoArbol){
         int hijoMasIzq = nodoArbol;
         int encontrado = 0;
@@ -46,6 +51,11 @@ using namespace std;
         }
         return hijoMasIzq;
     }
+    /*!
+       \brief "Description"
+       \param "Param description"s
+       \return "Return of the function"
+    */
     int ArbolSalPadre::hermanoDer(int nodoArbol){
         int hermanoDerecho = nodoArbol;
         int encontrado = 0;
@@ -66,6 +76,11 @@ using namespace std;
     int ArbolSalPadre::padre(int nodoArbol){
         return arreglo[nodoArbol].padre;
     }
+    /*!
+       \brief "Description"
+       \param "Param description"s
+       \return "Return of the function"
+    */
     int ArbolSalPadre::esHoja(int nodoArbol){
         int esHoja = 1;
         int contador = 0;
@@ -77,12 +92,27 @@ using namespace std;
         }
         return esHoja;
     }
+    /*!
+       \brief "Description"
+       \param "Param description"s
+       \return "Return of the function"
+    */
     int ArbolSalPadre::etiqueta(int nodoArbol){
         return arreglo[nodoArbol].etiqueta;
     }
+    /*!
+       \brief "Description"
+       \param "Param description"s
+       \return "Return of the function"
+    */
     int ArbolSalPadre::numNodos(){
         return nNodos;
     }
+    /*!
+       \brief "Description"
+       \param "Param description"s
+       \return "Return of the function"
+    */
     int ArbolSalPadre::numHijos(int nodoArbol){
         int contadorHijos = 0;
         for (int i = 0; i < ultima; ++i){
@@ -92,6 +122,11 @@ using namespace std;
         }
         return contadorHijos;
     }
+    /*!
+       \brief "Description"
+       \param "Param description"s
+       \return "Return of the function"
+    */
     void ArbolSalPadre::modificarEtiq(int nodoArbol, int etiqueta){
         arreglo[nodoArbol].setEtiqueta(etiqueta);
     }
@@ -102,47 +137,31 @@ using namespace std;
     */
     int ArbolSalPadre::agregarHijoIesimo(int nodoArbol, int etiqueta, int posicion){
         int contador = 0;
-        if(vacia()){
-            ponerRaiz(etiqueta);
-        }else{
-            if(nNodos < M){ //Vemos si el arreglo está lleno
-                int numHijo = 0;
-                cout << "Bueno acá genial" << endl;
-                while (contador < ultima && numHijo != posicion ) {
+            if(tamano > nNodos){ //Vemos si aun queda espacio en el array
+                int pos = 0;
+                while(contador <= ultima && pos != posicion){
                     if(arreglo[contador].padre == nodoArbol){
-                        numHijo++;
-                    }else{
-                        ++contador;
+                        pos ++;
                     }
+                ++contador;
                 }
-
-                if(numHijo < numHijos(nodoArbol)){
-                    int contador2 = ultima;
-                    while(contador2 > contador ){
-                        arreglo[contador2+1] = arreglo[contador];
-                        contador2--;
+                if(pos == posicion){ // hay que insertar en medio del array lógico
+                    for(int i = ultima; i >= contador-1; --i){
+                        arreglo[i+1] = arreglo[i];
                     }
+                    arreglo[contador-1].padre = nodoArbol;
+                    arreglo[contador-1].etiqueta = etiqueta;
+                }else{
                     arreglo[contador].padre = nodoArbol;
                     arreglo[contador].etiqueta = etiqueta;
-                    ultima++;
-                    nNodos++;
-                }else{
-                    ultima++;
-                    arreglo[ultima].padre = nodoArbol;
-                    arreglo[ultima].etiqueta = etiqueta;
-                    nNodos++;
                 }
-
-            }else{
-                std::cerr << "El arreglo está lleno" << '\n';
+            ++nNodos;
+            ++ultima;
             }
-        }
-
         return contador;
-
     }
     void ArbolSalPadre::imprimir(){
-        for (int i = 0; i < ultima; ++i){
+        for (int i = 0; i <= ultima; ++i){
             std::cout << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[i].padre <<'\n';
         }
     }
@@ -170,6 +189,6 @@ using namespace std;
     void ArbolSalPadre::ponerRaiz(int etiqueta){
         arreglo[0].etiqueta = etiqueta;
         arreglo[0].padre = -1;
-        ultima += 1;
+        ultima = 0;
         nNodos+= 1;
     }
