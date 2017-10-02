@@ -4,13 +4,15 @@
 class HijoDMasIzqHermanoDer{
 	class NodoArbol; //Declaracion de antemano
 	private:
-		NodoArbol raiz;
+		int nNodos;
+		HijoDMasIzqHermanoDer::NodoArbol* nRaiz;
 		
 		class NodoArbol{
 			public:
 				NodoArbol* hijoMasI;
 				NodoArbol* hermanoD;
-				int elemento;
+				int etqta;
+				int nHijos;
 				
 				/*
 				** Require:
@@ -26,7 +28,7 @@ class HijoDMasIzqHermanoDer{
 				** Parámetros:
 				** Retorna:
 				*/
-				NodoArbol(int,NodoArbol*,NodoArbol*);
+				NodoArbol(int,NodoArbol*);
 				
 				/*
 				** Require:
@@ -35,15 +37,7 @@ class HijoDMasIzqHermanoDer{
 				** Retorna:
 				*/
 				~NodoArbol();
-				
-				/*
-				** Require:
-				** Modifica:
-				** Parámetros:
-				** Retorna:
-				toString();
-				*/
-		}
+		};
 	public:
 		/*
 		** Require:
@@ -91,7 +85,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-		int raiz();
+		HijoDMasIzqHermanoDer::NodoArbol* raiz();
 		
 		/*
 		** Require:
@@ -99,7 +93,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int hijoMasIzq(int);
+        HijoDMasIzqHermanoDer::NodoArbol* hijoMasIzq(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -107,7 +101,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int hermanoDer(int);
+        HijoDMasIzqHermanoDer::NodoArbol* hermanoDer(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -115,7 +109,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int padre(int);
+        HijoDMasIzqHermanoDer::NodoArbol* padre(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -123,7 +117,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int esHoja(int);
+        int esHoja(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -131,7 +125,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int etiqueta();
+        int etiqueta(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -147,7 +141,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int numHijos(int);
+        int numHijos(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -155,7 +149,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        void modificarEtiq(int, int);
+        void modificarEtiq(HijoDMasIzqHermanoDer::NodoArbol*, int);
 		
 		/*
 		** Require:
@@ -163,7 +157,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int agregarHijoIesimo(int, int, int);
+        HijoDMasIzqHermanoDer::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol*, int, int);
 		
 		/*
 		** Require:
@@ -171,7 +165,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        void borrarHoja(int);
+        void borrarHoja(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -180,6 +174,6 @@ class HijoDMasIzqHermanoDer{
 		** Retorna:
 		*/
         void ponerRaiz(int);
-}
+};
 
 #endif
