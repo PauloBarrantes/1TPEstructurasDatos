@@ -4,15 +4,15 @@
 class HijoDMasIzqHermanoDer{
 	class NodoArbol; //Declaracion de antemano
 	private:
-		int numNodos;
-		NodoArbol raiz;
+		int nNodos;
+		HijoDMasIzqHermanoDer::NodoArbol* nRaiz;
 		
 		class NodoArbol{
 			public:
 				NodoArbol* hijoMasI;
 				NodoArbol* hermanoD;
-				int etiqueta;
-				int numHijos;
+				int etqta;
+				int nHijos;
 				
 				/*
 				** Require:
@@ -37,15 +37,7 @@ class HijoDMasIzqHermanoDer{
 				** Retorna:
 				*/
 				~NodoArbol();
-				
-				/*
-				** Require:
-				** Modifica:
-				** Parámetros:
-				** Retorna:
-				toString();
-				*/
-		}
+		};
 	public:
 		/*
 		** Require:
@@ -125,7 +117,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int esHoja(int);
+        int esHoja(HijoDMasIzqHermanoDer::NodoArbol*);
 		
 		/*
 		** Require:
@@ -165,7 +157,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol*, int, int);
+        HijoDMasIzqHermanoDer::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol*, int, int);
 		
 		/*
 		** Require:
@@ -182,6 +174,6 @@ class HijoDMasIzqHermanoDer{
 		** Retorna:
 		*/
         void ponerRaiz(int);
-}
+};
 
 #endif
