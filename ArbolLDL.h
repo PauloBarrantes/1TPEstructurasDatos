@@ -10,29 +10,29 @@
 
 class Arbol_ListaDeListas: {
 
-    class NodoArbol;
+    class Caja;
     class Celda;
 
     private:
         int numNodos;
-        NodoArbol * raiz;
+        Caja * raiz;
         void _init();
-        NodoArbol * buscar(NodoArbol*);
+        Caja * buscar(Caja*);
 
-        class NodoArbol {
+        class Caja {
          public:
           int etiqueta;
           Celda * hijoMasIzquierdo;
-          NodoArbol * siguiente;
-          NodoArbol(int);
-          ~NodoArbol();
+          Caja * siguiente;
+          Caja(int);
+          ~Caja();
         };
 
-        class Celda {
+        class Cajita {
          public:
-          NodoArbol * nodo;
-          NodoArbol * hermanoDer;
-          Celda(NodoArbol *);
+          Caja * nodo;
+          Cajita * hermanoDer;
+          Celda(Caja *);
           ~Celda();
         };
 
@@ -43,18 +43,18 @@ class Arbol_ListaDeListas: {
         int vacia();
 
 
-        NodoArbol*  raiz();
-        NodoArbol*  hijoMasIzq(NodoArbol* );
-        NodoArbol*  hermanoDer(NodoArbol* );
-        NodoArbol*  padre(NodoArbol* );
-        int esHoja(NodoArbol*);
-        int etiqueta(NodoArbol*);
+        Caja*  raiz();
+        Caja*  hijoMasIzq(Caja* );
+        Caja*  hermanoDer(Caja* );
+        Caja*  padre(Caja* );
+        int esHoja(Caja*);
+        int etiqueta(Caja*);
         int numNodos();
-        int numHijos(NodoArbol*);
-        void modificarEtiq(NodoArbol*, int);
-        int agregarHijoIesimo(NodoArbol* , int, int);
-        void borrarHoja(NodoArbol* );
-        void ponerRaiz(NodoArbol* );
+        int numHijos(Caja*);
+        void modificarEtiq(Caja*, int);
+        int agregarHijoIesimo(Caja* , int, int);
+        void borrarHoja(Caja* );
+        void ponerRaiz(Caja* );
 };
 
 #endif

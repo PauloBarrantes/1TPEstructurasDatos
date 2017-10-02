@@ -1,7 +1,7 @@
 #import <iostream>
 #import "ArbolLDL.h"
 
-Arbol_ListaDeListas::Celda::Celda(NodoArbol* nodo){
+Arbol_ListaDeListas::Cajita::Cajita(Caja* nodo){
   this->nodo = nodo;
   this->hermanoDer = 0;
 }
@@ -13,7 +13,7 @@ Arbol_ListaDeListas::Celda::~Celda(){
   }
 }
 
-NodoArbol* Arbol_ListaDeListas::buscar(NodoArbol* nodoRef){}
+Caja* Arbol_ListaDeListas::buscar(Caja* nodoRef){}
 
 Arbol_ListaDeListas::Arbol_ListaDeListas(){
   this->_init;
@@ -41,31 +41,31 @@ int Arbol_ListaDeListas::vacia(){
   return raiz == 0;
 }
 
-NodoArbol* Arbol_ListaDeListas::raiz(){
+Caja* Arbol_ListaDeListas::raiz(){
   return raiz;
 }
 
-NodoArbol* Arbol_ListaDeListas::hijoMasIzq(NodoArbol* nodoRef){}
+Caja* Arbol_ListaDeListas::hijoMasIzq(Caja* nodoRef){}
 
-NodoArbol* Arbol_ListaDeListas::hermanoDer(NodoArbol* nodoRef){}
+Caja* Arbol_ListaDeListas::hermanoDer(Caja* nodoRef){}
 
-NodoArbol* Arbol_ListaDeListas::padre(NodoArbol* nodoRef){}
+Caja* Arbol_ListaDeListas::padre(Caja* nodoRef){}
 
-int Arbol_ListaDeListas::esHoja(NodoArbol* nodo){}
+int Arbol_ListaDeListas::esHoja(Caja* nodo){}
 
 int Arbol_ListaDeListas::etiqueta(){}
 
 int Arbol_ListaDeListas::numNodos(){}
 
-int Arbol_ListaDeListas::numHijos(NodoArbol* nodo){}
+int Arbol_ListaDeListas::numHijos(Caja* nodo){}
 
-void Arbol_ListaDeListas::modificarEtiq(NodoArbol* nodo, int nuevaEtiqueta){}
+void Arbol_ListaDeListas::modificarEtiq(Caja* nodo, int nuevaEtiqueta){}
 
-int Arbol_ListaDeListas::agregarHijoIesimo(NodoArbol* padre, int etiqueta, int posicion){}
+int Arbol_ListaDeListas::agregarHijoIesimo(Caja* padre, int etiqueta, int posicion){}
 
-void Arbol_ListaDeListas::borrarHoja(NodoArbol* hoja){}
+void Arbol_ListaDeListas::borrarHoja(Caja* hoja){}
 
-void Arbol_ListaDeListas::ponerRaiz(NodoArbol* nuevaRaiz){
+void Arbol_ListaDeListas::ponerRaiz(Caja* nuevaRaiz){
   if(vacia()){
     raiz = nuevaRaiz;
   }
