@@ -6,12 +6,14 @@ HijoDMasIzqHermanoDer::NodoArbol::NodoArbol(int etiqueta){
 	this.etiqueta = etiqueta;
 	this.hijoMasI = 0;
 	this.hermanoD = 0;
+	numHijos = 0;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol::NodoArbol(int etiqueta,NodoArbol* hijoMasIzq,NodoArbol* hermanoDer){
+HijoDMasIzqHermanoDer::NodoArbol::NodoArbol(int etiqueta,NodoArbol* hermanoDer){
 	this.etiqueta = etiqueta;
-	this.hijoMasI = hijoMasI;
+	this.hijoMasI = 0;
 	this.hermanoD = hermanoD;
+	numHijos = 0;
 }
 
 HijoDMasIzqHermanoDer::NodoArbol::~NodoArbol(){
@@ -28,6 +30,7 @@ HijoDMasIzqHermanoDer::NodoArbol::~NodoArbol(){
 //Métodos del ArbolHMI_HD
 HijoDMasIzqHermanoDer::HijoDMasIzqHermanoDer(){
 	raiz = 0;
+	numNodos = 0;
 }
 
 HijoDMasIzqHermanoDer::HijoDMasIzqHermanoDer(int etiqueta){
@@ -60,16 +63,16 @@ HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::hermanoDer(HijoDMasIzqH
 }
 
 HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::padre(HijoDMasIzqHermanoDer::NodoArbol* nodo){
-	NodoArbol* padre = 0;
+	NodoArbol*nPadre = 0;
 	NodoArbol* actual = raiz;
 	queue<NodoArbol*> cola;
 	NodoArbol* nHijo = 0;
 	
-	while(!padre && actual){
+	while(!nPadre && actual){
 		nHijo = hijoMasIzq(actual);
-		while(nHijo != 0 && !padre){
+		while(nHijo != 0 && !nPadre){
 			if(nHijo == nodo){
-				padre = actual;
+				nPadre = actual;
 			}else{
 				cola.push_back(nHijo);
 				nHijo = hermanoDer(nHijo);
@@ -82,7 +85,7 @@ HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::padre(HijoDMasIzqHerman
 			actual = 0;
 		}
 	}
-	return padre;
+	return nPadre;
 }
 
 int HijoDMasIzqHermanoDer::esHoja(HijoDMasIzqHermanoDer::NodoArbol* nodo){
@@ -105,12 +108,38 @@ void HijoDMasIzqHermanoDer::modificarEtiq(HijoDMasIzqHermanoDer::NodoArbol* nodo
 	nodo.etiqueta = etiqueta;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol* nodo,int etiqueta, int);
+HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol* nodo,int etiqueta, int posicion){
+	NodoArbol* actual = hijoMasIzq(nodo);
+	//Empieza en la dos por el hecho de que la pos 1 es el hijoMasIzq
+	for(int i = 2;i < posicion; ++i){
+		actual = hermanoDer(actual);
+	}
+	
+	NodoArbol* nuevoHijo = new NodoArbol(etiqueta,hermanoDer(actual));
+	actual.hermanoD = nuevoHijo;
+}
 
-void HijoDMasIzqHermanoDer::borrarHoja(int);
+void HijoDMasIzqHermanoDer::borrarHoja(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+	NodoArbol* nPadre = padre(nodo);
+	
+	
+	if(hijoMasIzq(nPadre) == nodo){
+		nPadre.hijoMasI = hermanoDer(nodo);
+		nodo.hermanoD = 0;
+	}else{
+		NodoArbol* actual = hijoMasIzq(nPadre);
+		while(hermanoDer(actual) != nodo){
+			actual = hermanoDer(actual);
+		}
+		actual.hermanoD = nodo.hermanoD;
+		nodo.hermanoD = 0;
+	}
+	delete nodo;
+}
 
 void HijoDMasIzqHermanoDer::ponerRaiz(int etiqueta){
 	if(!raiz){
 		raiz = new NodoArbol(etiqueta);
+		++numNodos;
 	}
 }

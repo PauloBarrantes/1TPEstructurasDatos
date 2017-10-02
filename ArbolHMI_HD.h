@@ -28,7 +28,7 @@ class HijoDMasIzqHermanoDer{
 				** Parámetros:
 				** Retorna:
 				*/
-				NodoArbol(int,NodoArbol*,NodoArbol*);
+				NodoArbol(int,NodoArbol*);
 				
 				/*
 				** Require:
