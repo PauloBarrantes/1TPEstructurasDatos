@@ -4,36 +4,34 @@
    \author "André Flastestein"
    \date "01"/"Octubre"/"2017"
 */
-#ifndef Arbol_ListaDeListas
-#define Arbol_ListaDeListas
-#import "Lista.h"
+#ifndef Arbol_ListaDeListas_2017
+#define Arbol_ListaDeListas_2017
 
-class Arbol_ListaDeListas: {
+class Arbol_ListaDeListas {
 
     class Caja;
-    class Celda;
 
     private:
-        int numNodos;
-        Caja * raiz;
+        int numeroNodos;
+        Caja * raizArbol;
         void _init();
         Caja * buscar(Caja*);
-
-        class Caja {
-         public:
-          int etiqueta;
-          Celda * hijoMasIzquierdo;
-          Caja * siguiente;
-          Caja(int);
-          ~Caja();
-        };
 
         class Cajita {
          public:
           Caja * nodo;
           Cajita * hermanoDer;
-          Celda(Caja *);
-          ~Celda();
+          Cajita(Caja *);
+          ~Cajita();
+        };
+
+        class Caja {
+         public:
+          int etiqueta;
+          Cajita * hijoMasIzquierdo;
+          Caja * siguiente;
+          Caja(int);
+          ~Caja();
         };
 
     public:
