@@ -10,18 +10,20 @@
 class Arbol_ListaDeListas {
 
     class Caja;
+    class Cajita;
+    typedef Caja* Nodo;
 
     private:
         int numeroNodos;
-        Caja * raizArbol;
+        Nodo raizArbol;
         void _init();
-        Caja * buscar(Caja*);
+        Cajita* buscar(Nodo);
 
         class Cajita {
          public:
-          Caja * nodo;
-          Cajita * hermanoDer;
-          Cajita(Caja *);
+          Nodo nodo;
+          Cajita * hermanoDerecho;
+          Cajita(Nodo);
           ~Cajita();
         };
 
@@ -29,7 +31,7 @@ class Arbol_ListaDeListas {
          public:
           int etiqueta;
           Cajita * hijoMasIzquierdo;
-          Caja * siguiente;
+          Nodo siguiente;
           Caja(int);
           ~Caja();
         };
@@ -41,18 +43,18 @@ class Arbol_ListaDeListas {
         int vacia();
 
 
-        Caja*  raiz();
-        Caja*  hijoMasIzq(Caja* );
-        Caja*  hermanoDer(Caja* );
-        Caja*  padre(Caja* );
-        int esHoja(Caja*);
-        int etiqueta(Caja*);
+        Nodo  raiz();
+        Nodo  hijoMasIzq(Nodo);
+        Nodo  hermanoDer(Nodo);
+        Nodo  padre(Nodo);
+        int esHoja(Nodo);
+        int etiqueta(Nodo);
         int numNodos();
-        int numHijos(Caja*);
-        void modificarEtiq(Caja*, int);
-        int agregarHijoIesimo(Caja* , int, int);
-        void borrarHoja(Caja* );
-        void ponerRaiz(Caja* );
+        int numHijos(Nodo);
+        void modificarEtiq(Nodo, int);
+        int agregarHijoIesimo(Nodo, int, int);
+        void borrarHoja(Nodo);
+        void ponerRaiz(Nodo);
 };
 
 #endif

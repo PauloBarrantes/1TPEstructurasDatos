@@ -1,25 +1,34 @@
 #import <iostream>
 #import "ArbolLDL.h"
 
-Arbol_ListaDeListas::Cajita::Cajita(Caja* nodo){
+Arbol_ListaDeListas::Cajita::Cajita(Nodo nodo){
   this->nodo = nodo;
-  this->hermanoDer = 0;
+  this->hermanoDerecho = 0;
 }
 
 Arbol_ListaDeListas::Cajita::~Cajita(){
   delete this->nodo;
-  if(this->hermanoDer != 0){
-    delete this->hermanoDer;
+  if(this->hermanoDerecho != 0){
+    delete this->hermanoDerecho;
   }
 }
 
 Arbol_ListaDeListas::Caja::Caja(int etiqueta){
+  this->etiqueta = etiqueta;
+  this->hijoMasIzquierdo = 0;
+  this->siguiente = 0;
 }
 
 Arbol_ListaDeListas::Caja::~Caja(){
+  if(this->hijoMasIzquierdo != 0){
+    delete hijoMasIzquierdo;
+  }
+  if(this->siguiente != 0){
+    delete siguiente;
+  }
 }
 
-Caja* Arbol_ListaDeListas::buscar(Caja* nodoRef){}
+Arbol_ListaDeListas::Cajita* Arbol_ListaDeListas::buscar(Nodo nodoRef){}
 
 Arbol_ListaDeListas::Arbol_ListaDeListas(){
   this->_init();
@@ -30,7 +39,9 @@ void Arbol_ListaDeListas::_init(){
   raizArbol = 0;
 }
 
-Arbol_ListaDeListas::~Arbol_ListaDeListas(){}
+Arbol_ListaDeListas::~Arbol_ListaDeListas(){
+  delete raizArbol;
+}
 
 void Arbol_ListaDeListas::vaciar(){
   delete this;
@@ -38,35 +49,58 @@ void Arbol_ListaDeListas::vaciar(){
 }
 
 int Arbol_ListaDeListas::vacia(){
-  return raizArbol
-   == 0;
+  return raizArbol == 0;
 }
 
-Caja* Arbol_ListaDeListas::raiz(){
+Nodo Arbol_ListaDeListas::raiz(){
   return this->raizArbol;
 }
 
-Caja* Arbol_ListaDeListas::hijoMasIzq(Caja* nodoRef){}
+Nodo Arbol_ListaDeListas::hijoMasIzq(Nodo nodoRef){
+  return nodoRef->hijoMasIzquierdo;
+}
 
-Caja* Arbol_ListaDeListas::hermanoDer(Caja* nodoRef){}
+Nodo Arbol_ListaDeListas::hermanoDer(Nodo nodoRef){
+  return buscar(nodoRef)->hermanoDerecho;
+}
 
-Caja* Arbol_ListaDeListas::padre(Caja* nodoRef){}
+Nodo Arbol_ListaDeListas::padre(Nodo nodoRef){
+  /*recorrer guardando en cual sublista estoy, si no lo encuentro,
+    paso a la siguiente caja
+  */
+}
 
-int Arbol_ListaDeListas::esHoja(Caja* nodo){}
+int Arbol_ListaDeListas::esHoja(Nodo nodoRef){
+  return (nodoRef->hijoMasIzquierdo == 0);
+}
 
-int Arbol_ListaDeListas::etiqueta(){}
+int Arbol_ListaDeListas::etiqueta(Nodo nodoRef){
+  return nodoRef->etiqueta;
+}
 
-int Arbol_ListaDeListas::numNodos(){}
+int Arbol_ListaDeListas::numNodos(){
+  return numeroNodos;
+}
 
-int Arbol_ListaDeListas::numHijos(Caja* nodo){}
+int Arbol_ListaDeListas::numHijos(Nodo nodoRef){
+  int numeroHijos = 0;
+  Arbol_ListaDeListas::Cajita* siguiente = nodoRef->hijoMasIzquierdo;
+  while (siguiente != 0) {
+    ++numeroHijos;
+    siguiente = siguiente->hermanoDerecho;
+  }
+  return numeroHijos;
+}
 
-void Arbol_ListaDeListas::modificarEtiq(Caja* nodo, int nuevaEtiqueta){}
+void Arbol_ListaDeListas::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
+  nodoRef->etiqueta = nuevaEtiqueta;
+}
 
-int Arbol_ListaDeListas::agregarHijoIesimo(Caja* padre, int etiqueta, int posicion){}
+int Arbol_ListaDeListas::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){}
 
-void Arbol_ListaDeListas::borrarHoja(Caja* hoja){}
+void Arbol_ListaDeListas::borrarHoja(Nodo hoja){}
 
-void Arbol_ListaDeListas::ponerRaiz(Caja* nuevaRaiz){
+void Arbol_ListaDeListas::ponerRaiz(Nodo nuevaRaiz){
   if(vacia()){
     raizArbol = nuevaRaiz;
   }
