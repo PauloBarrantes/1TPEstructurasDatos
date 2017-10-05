@@ -31,17 +31,17 @@ Arbol::NodoArbol::~NodoArbol(){
 	}
 }
 
-ostream& Arbol::NodoArbol::toString(ostream& salida){
+ostream& Arbol::NodoArbol::imprimir(ostream& salida){
 	salida<<etqta;
 	if(hijoMasI){
 		salida<<" { ";
-		hijoMasI->toString(salida);
+		hijoMasI->imprimir(salida);
 		salida<<" }";
 	}
 	
 	if(hermanoD){
 		salida<<" , ";
-		hermanoD->toString(salida);
+		hermanoD->imprimir(salida);
 	}
 	return salida;
 }
@@ -172,6 +172,6 @@ void Arbol::ponerRaiz(int etqta){
 	}
 }
 
-ostream& Arbol::toString(ostream& salida){
-	return nRaiz->toString(salida);
+ostream& Arbol::imprimir(ostream& salida){
+	return nRaiz->imprimir(salida);
 }

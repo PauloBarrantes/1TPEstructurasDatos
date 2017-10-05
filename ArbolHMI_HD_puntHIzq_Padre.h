@@ -45,7 +45,7 @@ class Arbol{
 					\param "int etiqueta"
 					\return "No retorna nada"
 				*/
-				std::ostream& toString(std::ostream&);
+				std::ostream& imprimir(std::ostream&);
 		};
 	public:
 		/*!
@@ -168,7 +168,7 @@ class Arbol{
 			\param "int etiqueta"
 			\return "No retorna nada"
 		*/
-		std::ostream& toString(std::ostream&);
+		std::ostream& imprimir(std::ostream&);
 };
 
 #endif
