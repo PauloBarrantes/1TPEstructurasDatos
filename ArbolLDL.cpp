@@ -97,7 +97,29 @@ void Arbol_ListaDeListas::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
 }
 
 Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
-
+  Nodo nuevoNodo = new Caja();
+  nuevoNodo->etiqueta = etiqueta;
+  nuevoNodo->siguiente = raizArbol->siguiente;
+  raizArbol->siguiente = nuevoNodo;
+  Nodo nodoActual = raizArbol;
+  while(nodoActual != padre){
+    nodoActual = nodoActual->siguiente;
+  }
+  Cajita* nuevaCajita = new Cajita();
+  nuevaCajita->nodo = nuevoNodo;
+  Cajita* cajitaActual = padre->hijoMasIzquierdo;
+  if(posicion > 1){
+    for(int i = 1; i < posicion-1; ++i){
+      cajitaActual = cajitaActual->hermanoDerecho;
+    }
+    nuevaCajita->hermanoDerecho = cajitaActual->hermanoDerecho;
+    cajitaActual->hermanoDerecho = nuevaCajita;
+  }
+  else{
+    nuevaCajita->hermanoDerecho = cajitaActual;
+    padre->hijoMasIzquierdo = nuevaCajita;
+  }
+  return nuevoNodo;
 }
 
 void Arbol_ListaDeListas::borrarHoja(Nodo hoja){
@@ -108,19 +130,19 @@ void Arbol_ListaDeListas::borrarHoja(Nodo hoja){
   nodoActual->siguiente = hoja->siguiente;
   hoja->siguiente = 0;
   Cajita* victima = buscarCajita(hoja);
-  nodoActual = padre(victima);
-  if(nodoActual->hijoMasIzq() == victima){
-    nodoActual->hijoMasIzquierdo = victima->hermanoDer();
+  nodoActual = padre(hoja);
+  if(nodoActual->hijoMasIzquierdo == victima){
+    nodoActual->hijoMasIzquierdo = victima->hermanoDerecho;
   }
   else{
     Cajita* cajitaActual = nodoActual->hijoMasIzquierdo;
-    while(cajitaActual->hermanoDer() != victima){
-      cajitaActual = cajitaActual->hermanoDer();
+    while(cajitaActual->hermanoDerecho != victima){
+      cajitaActual = cajitaActual->hermanoDerecho;
     }
-    cajitaActual->hermanoDer() = victima->hermanoDer();
+    cajitaActual->hermanoDerecho = victima->hermanoDerecho;
   }
-  victima->hermanoDer() = 0;
-  delete victima
+  victima->hermanoDerecho = 0;
+  delete victima;
 }
 
 void Arbol_ListaDeListas::ponerRaiz(int etiqueta){

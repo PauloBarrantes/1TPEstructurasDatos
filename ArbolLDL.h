@@ -52,7 +52,7 @@ class Arbol_ListaDeListas {
         int numNodos();
         int numHijos(Nodo);
         void modificarEtiq(Nodo, int);
-        int agregarHijoIesimo(Nodo, int, int);
+        Nodo agregarHijoIesimo(Nodo, int, int);
         void borrarHoja(Nodo);
         void ponerRaiz(int);
 };
