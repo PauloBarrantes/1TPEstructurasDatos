@@ -3,21 +3,21 @@
 using namespace std;
 
 //Métodos del NodoArbol
-HijoDMasIzqHermanoDer::NodoArbol::NodoArbol(int etqta){
+Arbol::NodoArbol::NodoArbol(int etqta){
 	this->etqta = etqta;
 	this->hijoMasI = 0;
 	this->hermanoD = 0;
 	this->nHijos = 0;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol::NodoArbol(int etqta,NodoArbol* hermanoDer){
+Arbol::NodoArbol::NodoArbol(int etqta,NodoArbol* hermanoDer){
 	this->etqta = etqta;
 	this->hijoMasI = 0;
 	this->hermanoD = hermanoD;
 	this->nHijos = 0;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol::~NodoArbol(){
+Arbol::NodoArbol::~NodoArbol(){
 	if(hermanoD){
 		delete hermanoD;
 	}
@@ -27,7 +27,7 @@ HijoDMasIzqHermanoDer::NodoArbol::~NodoArbol(){
 	}
 }
 
-ostream& HijoDMasIzqHermanoDer::NodoArbol::toString(ostream& salida){
+ostream& Arbol::NodoArbol::toString(ostream& salida){
 	salida<<etqta;
 	if(hijoMasI){
 		salida<<" { ";
@@ -44,41 +44,41 @@ ostream& HijoDMasIzqHermanoDer::NodoArbol::toString(ostream& salida){
 
 
 //Métodos del ArbolHMI_HD
-HijoDMasIzqHermanoDer::HijoDMasIzqHermanoDer(){
+Arbol::Arbol(){
 	this->nRaiz = 0;
 	this->nNodos = 0;
 }
 
-HijoDMasIzqHermanoDer::HijoDMasIzqHermanoDer(int etqta){
+Arbol::Arbol(int etqta){
 	ponerRaiz(etqta);
 }
 
-HijoDMasIzqHermanoDer::~HijoDMasIzqHermanoDer(){
+Arbol::~Arbol(){
 	delete nRaiz;
 }
 
-void HijoDMasIzqHermanoDer::vaciar(){
+void Arbol::vaciar(){
 	delete nRaiz;
 	nRaiz = 0;
 }
 
-int HijoDMasIzqHermanoDer::vacia(){
+int Arbol::vacia(){
 	return !nRaiz;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::raiz(){
+Arbol::NodoArbol* Arbol::raiz(){
 	return nRaiz;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::hijoMasIzq(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+Arbol::NodoArbol* Arbol::hijoMasIzq(Arbol::NodoArbol* nodo){
 	return nodo->hijoMasI;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::hermanoDer(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+Arbol::NodoArbol* Arbol::hermanoDer(Arbol::NodoArbol* nodo){
 	return nodo->hermanoD;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::padre(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+Arbol::NodoArbol* Arbol::padre(Arbol::NodoArbol* nodo){
 	NodoArbol*nPadre = 0;
 	NodoArbol* actual = nRaiz;
 	queue<NodoArbol*> cola;
@@ -105,27 +105,27 @@ HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::padre(HijoDMasIzqHerman
 	return nPadre;
 }
 
-int HijoDMasIzqHermanoDer::esHoja(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+int Arbol::esHoja(Arbol::NodoArbol* nodo){
 	return !hijoMasIzq(nodo);
 }
 
-int HijoDMasIzqHermanoDer::etiqueta(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+int Arbol::etiqueta(Arbol::NodoArbol* nodo){
 	return nodo->etqta;
 }
 
-int HijoDMasIzqHermanoDer::numNodos(){
+int Arbol::numNodos(){
 	return nNodos;
 }
 
-int HijoDMasIzqHermanoDer::numHijos(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+int Arbol::numHijos(Arbol::NodoArbol* nodo){
 	return nodo->nHijos;
 }
 
-void HijoDMasIzqHermanoDer::modificarEtiq(HijoDMasIzqHermanoDer::NodoArbol* nodo, int etqta){
+void Arbol::modificarEtiq(Arbol::NodoArbol* nodo, int etqta){
 	nodo->etqta = etqta;
 }
 
-HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol* nodo,int etqta, int posicion){
+Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int posicion){
 	NodoArbol* nuevoHijo = 0;
 	int seInserto = 0;
 	
@@ -156,7 +156,7 @@ HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::agregarHijoIesimo(HijoD
 	return nuevoHijo;
 }
 
-void HijoDMasIzqHermanoDer::borrarHoja(HijoDMasIzqHermanoDer::NodoArbol* nodo){
+void Arbol::borrarHoja(Arbol::NodoArbol* nodo){
 	NodoArbol* nPadre = padre(nodo);
 	
 	if(nPadre){
@@ -179,13 +179,13 @@ void HijoDMasIzqHermanoDer::borrarHoja(HijoDMasIzqHermanoDer::NodoArbol* nodo){
 	delete nodo;
 }
 
-void HijoDMasIzqHermanoDer::ponerRaiz(int etqta){
+void Arbol::ponerRaiz(int etqta){
 	if(!nRaiz){
 		nRaiz = new NodoArbol(etqta);
 		++nNodos;
 	}
 }
 
-ostream& HijoDMasIzqHermanoDer::toString(ostream& salida){
+ostream& Arbol::toString(ostream& salida){
 	return nRaiz->toString(salida);
 }

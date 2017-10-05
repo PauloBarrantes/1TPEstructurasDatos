@@ -2,11 +2,11 @@
 #define _HijoMasIzqHermanoDer
 #include <iostream>
 
-class HijoDMasIzqHermanoDer{
+class Arbol{
 	class NodoArbol; //Declaracion de antemano
 	private:
 		int nNodos;
-		HijoDMasIzqHermanoDer::NodoArbol* nRaiz;
+		Arbol::NodoArbol* nRaiz;
 		
 		class NodoArbol{
 			public:
@@ -15,156 +15,180 @@ class HijoDMasIzqHermanoDer{
 				int etqta;
 				int nHijos;
 				
-				/*!
-					\brief "Crea un nodo, pero sin hijos ni hermanos"
-					\param "int etiqueta"
-					\return "No retorna nada"
+				/*
+				** Require:
+				** Modifica:
+				** Parámetros:
+				** Retorna:
 				*/
 				NodoArbol(int);
 				
-				/*!
-					\brief "Crea un nodo, pero sin hijos pero con hermanos"
-					\param "int etiqueta"
-					\param "NodoArbol* hermanoD"
-					\return "No retorna nada"
+				/*
+				** Require:
+				** Modifica:
+				** Parámetros:
+				** Retorna:
 				*/
 				NodoArbol(int,NodoArbol*);
 				
-				/*!
-					\brief "Destruye el nodo y manda a destruir su hermano derecho y
-					su hijo mas izquierdo"
-					\param "No tiene parámetros"
-					\return "No retorna nada"
+				/*
+				** Require:
+				** Modifica:
+				** Parámetros:
+				** Retorna:
 				*/
 				~NodoArbol();
 				
-				/*!
-					\brief "Crea un nodo, pero sin hijos ni hermanos"
-					\param "int etiqueta"
-					\return "No retorna nada"
+				/*
+				** Require:
+				** Modifica:
+				** Parámetros:
+				** Retorna:
 				*/
 				std::ostream& toString(std::ostream&);
 		};
 	public:
-		/*!
-			\brief "Crea un arbol vacio"
-			\param "No tiene parámetros"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-		HijoDMasIzqHermanoDer();
+		Arbol();
 		
-		/*!
-			\brief "Crea un árbol, al cual se le pone una raiz"
-			\param "int etiqueta"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-		HijoDMasIzqHermanoDer(int);
+		Arbol(int);
 		
-		/*!
-			\brief "Destruye el árbol"
-			\param "No tiene parámetros"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        ~HijoDMasIzqHermanoDer();
+        ~Arbol();
 		
-		/*!
-			\brief "Deja el a´rbol vacío para poder volverlo
-			a usar"
-			\param "No tiene parámetros"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
         void vaciar();
 		
-		/*!
-			\brief "Dice si el árbol está vacío"
-			\param "No tiene parámetros"
-			\return "Retorna verdadero, si el árbol está vacío"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
         int vacia();
 	
-		/*!
-			\param "No tiene parámetros"
-			\return "Retorna la raíz"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-		HijoDMasIzqHermanoDer::NodoArbol* raiz();
+		Arbol::NodoArbol* raiz();
 		
-		/*!
-			\param "NodoArbol* nodo"
-			\return "Retorna el hijo más izquierdo del nodo"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* hijoMasIzq(HijoDMasIzqHermanoDer::NodoArbol*);
+        Arbol::NodoArbol* hijoMasIzq(Arbol::NodoArbol*);
 		
-		/*!
-			\param "NodoArbol* nodo"
-			\return "Retorna el hermano derecho del nodo"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* hermanoDer(HijoDMasIzqHermanoDer::NodoArbol*);
+        Arbol::NodoArbol* hermanoDer(Arbol::NodoArbol*);
 		
-		/*!
-			\param "NodoArbol* nodo"
-			\return "Retorna el padre del nodo"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* padre(HijoDMasIzqHermanoDer::NodoArbol*);
+        Arbol::NodoArbol* padre(Arbol::NodoArbol*);
 		
-		/*!
-			\param "NodoArbol* nodo"
-			\return "Retorna verdadero, sí el nodo es hoja"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        int esHoja(HijoDMasIzqHermanoDer::NodoArbol*);
+        int esHoja(Arbol::NodoArbol*);
 		
-		/*!
-			\param "NodoArbol* nodo"
-			\return "Retorna la etiqueta del nodo"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        int etiqueta(HijoDMasIzqHermanoDer::NodoArbol*);
+        int etiqueta(Arbol::NodoArbol*);
 		
-		/*!
-			\param "NodoArbol* etiqueta"
-			\return "Retorna el número de nodos"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
         int numNodos();
 		
-		/*!
-			\param "NodoArbol* nodo"
-			\return "Retorna el número de hijos del nodo"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        int numHijos(HijoDMasIzqHermanoDer::NodoArbol*);
+        int numHijos(Arbol::NodoArbol*);
 		
-		/*!
-			\brief "Modifica la etiqueta actual"
-			\param "NodoArbol* nodo"
-			\param "int etiqueta"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        void modificarEtiq(HijoDMasIzqHermanoDer::NodoArbol*, int);
+        void modificarEtiq(Arbol::NodoArbol*, int);
 		
-		/*!
-			\brief "Agrega un hijo en la poscición i-ésima del nodo"
-			\param "NodoArbol* nodo"
-			\param "int etiqueta"
-			\param "int posicion"
-			\return "Retorna el nuevo nodo formado"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol*, int, int);
+        Arbol::NodoArbol* agregarHijoIesimo(Arbol::NodoArbol*, int, int);
 		
-		/*!
-			\brief "Borra la hoja, que se recibe como parámetro"
-			\param "NodoArbol* nodo"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
-        void borrarHoja(HijoDMasIzqHermanoDer::NodoArbol*);
+        void borrarHoja(Arbol::NodoArbol*);
 		
-		/*!
-			\brief "Crea una raíz con la etiqueta recibida como parámetro"
-			\param "int etiqueta"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
         void ponerRaiz(int);
 		
-		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
 		*/
 		std::ostream& toString(std::ostream&);
 };

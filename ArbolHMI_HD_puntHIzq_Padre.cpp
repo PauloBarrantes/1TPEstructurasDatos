@@ -3,7 +3,7 @@
 using namespace std;
 
 //Métodos del NodoArbol
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::NodoArbol(int etqta){
+Arbol::NodoArbol::NodoArbol(int etqta){
 	this->etqta = etqta;
 	this->hijoMasI = 0;
 	this->hermanoD = 0;
@@ -12,7 +12,7 @@ HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::NodoArbol(int etqta){
 	this->nHijos = 0;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::NodoArbol(int etqta,NodoArbol* hermanoI,NodoArbol* hermanoD,NodoArbol* nPadre){
+Arbol::NodoArbol::NodoArbol(int etqta,NodoArbol* hermanoI,NodoArbol* hermanoD,NodoArbol* nPadre){
 	this->etqta = etqta;
 	this->hijoMasI = 0;
 	this->hermanoD = hermanoD;
@@ -21,7 +21,7 @@ HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::NodoArbol(int etqta,NodoArbol* he
 	this->nHijos = 0;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::~NodoArbol(){
+Arbol::NodoArbol::~NodoArbol(){
 	if(hermanoD){
 		delete hermanoD;
 	}
@@ -31,7 +31,7 @@ HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::~NodoArbol(){
 	}
 }
 
-ostream& HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::toString(ostream& salida){
+ostream& Arbol::NodoArbol::toString(ostream& salida){
 	salida<<etqta;
 	if(hijoMasI){
 		salida<<" { ";
@@ -48,65 +48,65 @@ ostream& HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol::toString(ostream& salida
 
 
 //Métodos del ArbolHMI_HD
-HijoDMasIzqHermanoDer_puntIzqPadre::HijoDMasIzqHermanoDer_puntIzqPadre(){
+Arbol::Arbol(){
 	this->nRaiz = 0;
 	this->nNodos = 0;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::HijoDMasIzqHermanoDer_puntIzqPadre(int etqta){
+Arbol::Arbol(int etqta){
 	ponerRaiz(etqta);
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::~HijoDMasIzqHermanoDer_puntIzqPadre(){
+Arbol::~Arbol(){
 	delete nRaiz;
 }
 
-void HijoDMasIzqHermanoDer_puntIzqPadre::vaciar(){
+void Arbol::vaciar(){
 	delete nRaiz;
 	nRaiz = 0;
 }
 
-int HijoDMasIzqHermanoDer_puntIzqPadre::vacia(){
+int Arbol::vacia(){
 	return !nRaiz;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* HijoDMasIzqHermanoDer_puntIzqPadre::raiz(){
+Arbol::NodoArbol* Arbol::raiz(){
 	return nRaiz;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* HijoDMasIzqHermanoDer_puntIzqPadre::hijoMasIzq(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
+Arbol::NodoArbol* Arbol::hijoMasIzq(Arbol::NodoArbol* nodo){
 	return nodo->hijoMasI;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* HijoDMasIzqHermanoDer_puntIzqPadre::hermanoDer(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
+Arbol::NodoArbol* Arbol::hermanoDer(Arbol::NodoArbol* nodo){
 	return nodo->hermanoD;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* HijoDMasIzqHermanoDer_puntIzqPadre::padre(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
+Arbol::NodoArbol* Arbol::padre(Arbol::NodoArbol* nodo){
 	return nodo->nPadre;
 }
 
-int HijoDMasIzqHermanoDer_puntIzqPadre::esHoja(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
+int Arbol::esHoja(Arbol::NodoArbol* nodo){
 	return !hijoMasIzq(nodo);
 }
 
-int HijoDMasIzqHermanoDer_puntIzqPadre::etiqueta(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
+int Arbol::etiqueta(Arbol::NodoArbol* nodo){
 	return nodo->etqta;
 }
 
-int HijoDMasIzqHermanoDer_puntIzqPadre::numNodos(){
+int Arbol::numNodos(){
 	return nNodos;
 }
 
-int HijoDMasIzqHermanoDer_puntIzqPadre::numHijos(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
+int Arbol::numHijos(Arbol::NodoArbol* nodo){
 	return nodo->nHijos;
 }
 
-void HijoDMasIzqHermanoDer_puntIzqPadre::modificarEtiq(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo, int etqta){
+void Arbol::modificarEtiq(Arbol::NodoArbol* nodo, int etqta){
 	nodo->etqta = etqta;
 }
 
-HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* HijoDMasIzqHermanoDer_puntIzqPadre::agregarHijoIesimo(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo,int etqta, int posicion){
+Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int posicion){
 	NodoArbol* actual = nodo->hijoMasI;
 	NodoArbol* nuevoHijo = 0;
 	int seInserto = 0;
@@ -144,7 +144,7 @@ HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* HijoDMasIzqHermanoDer_puntIzqPadr
 	return nuevoHijo;
 }
 
-void HijoDMasIzqHermanoDer_puntIzqPadre::borrarHoja(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
+void Arbol::borrarHoja(Arbol::NodoArbol* nodo){
 	if(nodo->hermanoI){
 		cout<<"1"<<endl;
 		nodo->hermanoI->hermanoD = nodo->hermanoD;
@@ -165,13 +165,13 @@ void HijoDMasIzqHermanoDer_puntIzqPadre::borrarHoja(HijoDMasIzqHermanoDer_puntIz
 	delete nodo;
 }
 
-void HijoDMasIzqHermanoDer_puntIzqPadre::ponerRaiz(int etqta){
+void Arbol::ponerRaiz(int etqta){
 	if(!nRaiz){
 		nRaiz = new NodoArbol(etqta);
 		++nNodos;
 	}
 }
 
-ostream& HijoDMasIzqHermanoDer_puntIzqPadre::toString(ostream& salida){
+ostream& Arbol::toString(ostream& salida){
 	return nRaiz->toString(salida);
 }
