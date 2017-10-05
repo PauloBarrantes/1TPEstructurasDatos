@@ -98,7 +98,16 @@ void Arbol_ListaDeListas::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
 
 int Arbol_ListaDeListas::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){}
 
-void Arbol_ListaDeListas::borrarHoja(Nodo hoja){}
+void Arbol_ListaDeListas::borrarHoja(Nodo hoja){
+  Nodo nodoActual = raizArbol;
+  while(nodoActual->siguiente != hoja){
+    nodoActual = nodoActual->siguiente;
+  }
+  nodoActual->siguiente = hoja->siguiente;
+  hoja->siguiente = 0;
+  Cajita* victima = buscarCajita(hoja);
+  
+}
 
 void Arbol_ListaDeListas::ponerRaiz(int etiqueta){
   if(vacia()){
