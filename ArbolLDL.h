@@ -7,7 +7,7 @@
 #ifndef Arbol_ListaDeListas_2017
 #define Arbol_ListaDeListas_2017
 
-class Arbol_ListaDeListas {
+class Arbol {
 
     class Caja;
     class Cajita;
@@ -37,8 +37,8 @@ class Arbol_ListaDeListas {
         };
 
     public:
-        Arbol_ListaDeListas();
-        ~Arbol_ListaDeListas();
+        Arbol();
+        ~Arbol();
         void vaciar();
         int vacia();
 

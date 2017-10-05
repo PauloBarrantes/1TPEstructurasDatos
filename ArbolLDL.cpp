@@ -1,25 +1,25 @@
 #import <iostream>
 #import "ArbolLDL.h"
 
-Arbol_ListaDeListas::Cajita::Cajita(Nodo nodo){
+Arbol::Cajita::Cajita(Nodo nodo){
   this->nodo = nodo;
   this->hermanoDerecho = 0;
 }
 
-Arbol_ListaDeListas::Cajita::~Cajita(){
+Arbol::Cajita::~Cajita(){
   delete this->nodo;
   if(this->hermanoDerecho != 0){
     delete this->hermanoDerecho;
   }
 }
 
-Arbol_ListaDeListas::Caja::Caja(int etiqueta){
+Arbol::Caja::Caja(int etiqueta){
   this->etiqueta = etiqueta;
   this->hijoMasIzquierdo = 0;
   this->siguiente = 0;
 }
 
-Arbol_ListaDeListas::Caja::~Caja(){
+Arbol::Caja::~Caja(){
   if(this->hijoMasIzquierdo != 0){
     delete hijoMasIzquierdo;
   }
@@ -28,65 +28,87 @@ Arbol_ListaDeListas::Caja::~Caja(){
   }
 }
 
-Arbol_ListaDeListas::Cajita* Arbol_ListaDeListas::buscarCajita(Nodo nodoRef){
-  //recorrrer cajitas para encontrar la que le apunta al nodoRef.
+Arbol::Cajita* Arbol::buscarCajita(Nodo nodoRef){
+  Cajita* buscado = 0;
+  Nodo padreActual = raizArbol;
+  Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
+  while (padreActual->siguiente != 0) {
+    while (cajitaActual->hermanoDerecho != 0){
+      if(cajitaActual->nodo == nodoRef){
+        buscado = cajitaActual;
+      }
+      cajitaActual = cajitaActual->hermanoDerecho;
+    }
+    padreActual = padreActual->siguiente;
+  }
+  return buscado;
 }
 
-Arbol_ListaDeListas::Arbol_ListaDeListas(){
+Arbol::Arbol(){
   this->_init();
 }
 
-void Arbol_ListaDeListas::_init(){
+void Arbol::_init(){
   numeroNodos = 0;
   raizArbol = 0;
 }
 
-Arbol_ListaDeListas::~Arbol_ListaDeListas(){
+Arbol::~Arbol(){
   delete raizArbol;
 }
 
-void Arbol_ListaDeListas::vaciar(){
+void Arbol::vaciar(){
   delete this;
   this->_init();
 }
 
-int Arbol_ListaDeListas::vacia(){
+int Arbol::vacia(){
   return raizArbol == 0;
 }
 
-Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::raiz(){
+Arbol::Nodo Arbol::raiz(){
   return this->raizArbol;
 }
 
-Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::hijoMasIzq(Nodo nodoRef){
+Arbol::Nodo Arbol::hijoMasIzq(Nodo nodoRef){
   return nodoRef->hijoMasIzquierdo->nodo;
 }
 
-Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::hermanoDer(Nodo nodoRef){
+Arbol::Nodo Arbol::hermanoDer(Nodo nodoRef){
   return buscarCajita(nodoRef)->hermanoDerecho->nodo;
 }
 
-Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::padre(Nodo nodoRef){
-  /*recorrer guardando en cual sublista estoy, si no lo encuentro,
-    paso a la siguiente caja.
-  */
+Arbol::Nodo Arbol::padre(Nodo nodoRef){
+  Nodo padre = 0;
+  Nodo padreActual = raizArbol;
+  Cajita* cajitaActual = padre->hijoMasIzquierdo;
+  while (padre->siguiente != 0) {
+    while (cajitaActual->hermanoDerecho != 0){
+      if(cajitaActual->nodo == padre){
+        padre = padreActual;
+      }
+      cajitaActual = cajitaActual->hermanoDerecho;
+    }
+    padre = padre->siguiente;
+  }
+  return padre;
 }
 
-int Arbol_ListaDeListas::esHoja(Nodo nodoRef){
+int Arbol::esHoja(Nodo nodoRef){
   return nodoRef->hijoMasIzquierdo == 0;
 }
 
-int Arbol_ListaDeListas::etiqueta(Nodo nodoRef){
+int Arbol::etiqueta(Nodo nodoRef){
   return nodoRef->etiqueta;
 }
 
-int Arbol_ListaDeListas::numNodos(){
+int Arbol::numNodos(){
   return numeroNodos;
 }
 
-int Arbol_ListaDeListas::numHijos(Nodo nodoRef){
+int Arbol::numHijos(Nodo nodoRef){
   int numeroHijos = 0;
-  Arbol_ListaDeListas::Cajita* siguiente = nodoRef->hijoMasIzquierdo;
+  Arbol::Cajita* siguiente = nodoRef->hijoMasIzquierdo;
   while (siguiente != 0) {
     ++numeroHijos;
     siguiente = siguiente->hermanoDerecho;
@@ -94,11 +116,11 @@ int Arbol_ListaDeListas::numHijos(Nodo nodoRef){
   return numeroHijos;
 }
 
-void Arbol_ListaDeListas::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
+void Arbol::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
   nodoRef->etiqueta = nuevaEtiqueta;
 }
 
-Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
+Arbol::Nodo Arbol::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
   Nodo nuevoNodo = new Caja(etiqueta);
   nuevoNodo->siguiente = raizArbol->siguiente;
   raizArbol->siguiente = nuevoNodo;
@@ -122,7 +144,7 @@ Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::agregarHijoIesimo(Nodo padre, int
   return nuevoNodo;
 }
 
-void Arbol_ListaDeListas::borrarHoja(Nodo hoja){
+void Arbol::borrarHoja(Nodo hoja){
   Nodo nodoActual = raizArbol;
   while(nodoActual->siguiente != hoja){
     nodoActual = nodoActual->siguiente;
@@ -145,7 +167,7 @@ void Arbol_ListaDeListas::borrarHoja(Nodo hoja){
   delete victima;
 }
 
-void Arbol_ListaDeListas::ponerRaiz(int etiqueta){
+void Arbol::ponerRaiz(int etiqueta){
   if(vacia()){
     raizArbol->etiqueta = etiqueta;
   }
