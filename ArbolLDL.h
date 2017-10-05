@@ -54,7 +54,7 @@ class Arbol_ListaDeListas {
         void modificarEtiq(Nodo, int);
         int agregarHijoIesimo(Nodo, int, int);
         void borrarHoja(Nodo);
-        void ponerRaiz(Nodo);
+        void ponerRaiz(int);
 };
 
 #endif

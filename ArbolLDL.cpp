@@ -57,11 +57,11 @@ Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::raiz(){
 }
 
 Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::hijoMasIzq(Nodo nodoRef){
-  return nodoRef->hijoMasIzquierdo;
+  return nodoRef->hijoMasIzquierdo->nodo;
 }
 
 Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::hermanoDer(Nodo nodoRef){
-  return buscar(nodoRef)->hermanoDerecho;
+  return buscarCajita(nodoRef)->hermanoDerecho->nodo;
 }
 
 Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::padre(Nodo nodoRef){
@@ -100,8 +100,8 @@ int Arbol_ListaDeListas::agregarHijoIesimo(Nodo padre, int etiqueta, int posicio
 
 void Arbol_ListaDeListas::borrarHoja(Nodo hoja){}
 
-void Arbol_ListaDeListas::ponerRaiz(Nodo nuevaRaiz){
+void Arbol_ListaDeListas::ponerRaiz(int etiqueta){
   if(vacia()){
-    raizArbol = nuevaRaiz;
+    raizArbol->etiqueta = etiqueta;
   }
 }
