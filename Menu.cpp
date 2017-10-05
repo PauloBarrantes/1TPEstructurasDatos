@@ -1,41 +1,71 @@
 #include "Menu.h"
 #include <iostream>
-
+#include <string>
+#include "Cola.h"
 using namespace std;
 
 Menu::Menu(){
     controlador();
 }
 Menu::~Menu(){
-
+    std::cout << "Hola" << '\n';
 }
 void Menu::controlador(){
     cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
-    cout<< "Presiona 1 para hacer pruebas con el arbol" <<endl;
-    cout<< "Presiona 2 para hacer pruebas con la cola"<<endl;
+    cout<< "Escriba arbol para hacer pruebas con el arbol" <<endl;
+    cout<< "Escriba cola para hacer pruebas con la cola"<<endl;
+    string respuesta = 0;
+
     do {
-        int res = 0;
-        cin >>res;
-        if(res == 1){
+        cin >>respuesta;
+        if( respuesta == "arbol"){
             pruebaArbol();
         }else{
-            if(res == 2){
+            if(respuesta == "cola"){
                 pruebaCola();
             }else{
                 std::cerr << "Número Invalido" << '\n';
             }
         }
-    } while(res != 1 && res !=2);
+    } while(respuesta != "arbol" && respuesta !="cola");
 
 
 }
 
 void Menu::pruebaArbol(){
-    cout << "Hola!, te guiare en la prueba del modelo arbol" <<endl
-    cout << "------ Instrucciones ------" <<endl
+    cout << "Hola!, te guiaré en la prueba del modelo arbol" <<endl;
+    instruccionesArbol();
+    do {
+        string instruccion;
+        cin >> instruccion;
+
+    } while(1);
+
+
+}
+void Menu::instruccionesArbol(){
+    cout << "------ Instrucciones ------" <<endl;
+    cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
 }
 
 void Menu::pruebaCola(){
-    cout << "Hola!, te guiare en la prueba del modelo cola" <<endl
-    cout << "------ Instrucciones ------" <<endl
+    cout << "Hola!, te guiaré en la prueba del modelo cola" <<endl;
+    cout << "------ Instrucciones ------" <<endl;
+    instruccionesCola();
+}
+void Menu::instruccionesCola(){
+    cout << "------ Instrucciones ------" <<endl;
+    cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
 }
