@@ -28,7 +28,7 @@ Arbol_ListaDeListas::Caja::~Caja(){
   }
 }
 
-Arbol_ListaDeListas::Cajita* Arbol_ListaDeListas::buscar(Nodo nodoRef){}
+Arbol_ListaDeListas::Cajita* Arbol_ListaDeListas::buscarCajita(Nodo nodoRef){}
 
 Arbol_ListaDeListas::Arbol_ListaDeListas(){
   this->_init();
@@ -52,19 +52,19 @@ int Arbol_ListaDeListas::vacia(){
   return raizArbol == 0;
 }
 
-Nodo Arbol_ListaDeListas::raiz(){
+Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::raiz(){
   return this->raizArbol;
 }
 
-Nodo Arbol_ListaDeListas::hijoMasIzq(Nodo nodoRef){
+Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::hijoMasIzq(Nodo nodoRef){
   return nodoRef->hijoMasIzquierdo;
 }
 
-Nodo Arbol_ListaDeListas::hermanoDer(Nodo nodoRef){
+Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::hermanoDer(Nodo nodoRef){
   return buscar(nodoRef)->hermanoDerecho;
 }
 
-Nodo Arbol_ListaDeListas::padre(Nodo nodoRef){
+Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::padre(Nodo nodoRef){
   /*recorrer guardando en cual sublista estoy, si no lo encuentro,
     paso a la siguiente caja
   */

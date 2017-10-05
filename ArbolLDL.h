@@ -17,7 +17,7 @@ class Arbol_ListaDeListas {
         int numeroNodos;
         Nodo raizArbol;
         void _init();
-        Cajita* buscar(Nodo);
+        Cajita* buscarCajita(Nodo);
 
         class Cajita {
          public:
