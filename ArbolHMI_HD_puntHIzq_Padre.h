@@ -78,91 +78,86 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
         void vaciar();
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\brief "Dice si el árbol está vacío"
+			\param "No tiene parámetros"
+			\return "Retorna verdadero, si el árbol está vacío"
 		*/
         int vacia();
 	
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "No tiene parámetros"
+			\return "Retorna la raíz"
 		*/
 		HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* raiz();
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "NodoArbol* nodo"
+			\return "Retorna el hijo más izquierdo del nodo"
 		*/
         HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* hijoMasIzq(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "NodoArbol* nodo"
+			\return "Retorna el hermano derecho del nodo"
 		*/
         HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* hermanoDer(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "NodoArbol* nodo"
+			\return "Retorna el padre del nodo"
 		*/
         HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* padre(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "NodoArbol* nodo"
+			\return "Retorna verdadero, sí el nodo es hoja"
 		*/
         int esHoja(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "NodoArbol* nodo"
+			\return "Retorna la etiqueta del nodo"
 		*/
         int etiqueta(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "NodoArbol* etiqueta"
+			\return "Retorna el número de nodos"
 		*/
         int numNodos();
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "NodoArbol* nodo"
+			\return "Retorna el número de hijos del nodo"
 		*/
         int numHijos(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
+			\brief "Modifica la etiqueta actual"
+			\param "NodoArbol* nodo"
 			\param "int etiqueta"
 			\return "No retorna nada"
 		*/
         void modificarEtiq(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*, int);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
+			\brief "Agrega un hijo en la poscición i-ésima del nodo"
+			\param "NodoArbol* nodo"
 			\param "int etiqueta"
-			\return "No retorna nada"
+			\param "int posicion"
+			\return "Retorna el nuevo nodo formado"
 		*/
         HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*, int, int);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
+			\brief "Borra la hoja, que se recibe como parámetro"
+			\param "NodoArbol* nodo"
 			\return "No retorna nada"
 		*/
         void borrarHoja(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
+			\brief "Crea una raíz con la etiqueta recibida como parámetro"
 			\param "int etiqueta"
 			\return "No retorna nada"
 		*/
