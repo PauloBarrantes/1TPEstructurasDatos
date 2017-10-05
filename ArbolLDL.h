@@ -60,6 +60,7 @@ class Arbol {
         Nodo agregarHijoIesimo(Nodo, int, int);
         void borrarHoja(Nodo);
         void ponerRaiz(int);
+        Nodo buscarNodo(int);
         ostream& toString(ostream&);
 };
 

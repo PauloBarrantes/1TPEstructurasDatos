@@ -209,6 +209,14 @@ void Arbol::ponerRaiz(int etiqueta){
   }
 }
 
+Arbol::Nodo Arbol::buscarNodo(int etiqueta){
+  Nodo buscado = raizArbol;
+  while(buscado->etiqueta != etiqueta && buscado){
+    buscado = buscado->siguiente;
+  }
+  return buscado;
+}
+
 ostream& Arbol::toString(ostream& salida){
   return raizArbol->toString(salida);
 }
