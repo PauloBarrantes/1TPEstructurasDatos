@@ -1,6 +1,9 @@
 #include "Menu.h"
 #include <iostream>
 #include <string>
+#include "ArbolSalPadre.h"
+//#include ""
+#include ""
 #include "Cola.h"
 using namespace std;
 
@@ -38,6 +41,9 @@ void Menu::pruebaArbol(){
     do {
         string instruccion;
         cin >> instruccion;
+        cout <<instruccion <<endl;
+
+        if()
 
     } while(1);
 

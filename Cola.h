@@ -8,6 +8,7 @@
 #ifndef _Cola2017
 #define _Cola2017
 
+#define M 1000
 class Cola {
     private:
         int numElem;

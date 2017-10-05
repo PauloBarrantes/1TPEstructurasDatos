@@ -5,6 +5,7 @@
 class Menu {
     private:
         ArbolSalPadre Arbol;
+        Cola cola1;
     public:
         Menu();
         ~Menu();
@@ -16,5 +17,6 @@ class Menu {
 
 
 };
+// g++ main.cpp cola.cpp arbolsalpadre.cpp menu.cpp -o ejecutable
 
 #endif
