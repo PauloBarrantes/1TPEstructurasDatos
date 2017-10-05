@@ -61,25 +61,35 @@ void Menu::pruebaArbol(){
 void Menu::instruccionesArbol(){
     cout << "------ Instrucciones ------" <<endl;
     cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
-    cout << "Escriba ponerraiz para agregar una etiqueta como raiz " <<endl;
-    cout << "Escriba agregarhijoiesimo para añadir un hijo iesimo de una etiqueta " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba iniciar" <<endl;
+    cout << "Escriba destruir" <<endl;
+    cout << "Escriba vaciar" <<endl;
+    cout << "Escriba vacia" <<endl;
+
+    cout << "Escriba raiz para ver la etiqueta que tiene la raiz " <<endl;
+    cout << "Escriba hijomasizq " <<endl;
+    cout << "Escriba hermanoder para " <<endl;
+    cout << "Escriba padre para " <<endl;
+    cout << "Escriba eshoja para " <<endl;
+    cout << "Escriba etiqueta para " <<endl;
+    cout << "Escriba numnodos para " <<endl;
+    cout << "Escriba numhijos para " <<endl;
+    cout << "Escriba modificaretiqueta para " <<endl;
+    cout << "Escriba agregarhijoiesimo para " <<endl;
+    cout << "Escriba borrarhoja para " <<endl;
+    cout << "Escriba ponerraiz para " <<endl;
+
 }
 void Menu::iniciar(){
     arbol1 = new Arbol();
 }
 void Menu::destruir(){
+
     delete arbol1;
 }
 void Menu::vaciar(){
 
+    arbol1.vaciar();
 }
 void Menu::vacia(){
 
@@ -115,6 +125,18 @@ void Menu::modificarEtiq(){
 
 }
 void Menu::agregarHijoIesimo(){
+    int etiqueta = 0;
+    int padre = 0;
+    int posicion = 0;
+    cout << "Digite el padre al que le vamos a agregar un hijo" <<endl;
+    cin >> padre;
+    cout << "Digite la etiqueta que vamos a agregar" <<endl;
+    cin >> etiqueta;
+    cout << "Digite la posicion donde vamos a agregar el hijo" <<endl;
+    cin >> posicion;
+
+    arbol1.agregarHijoIesimo(arbol1.buscarNodo(padre),etiqueta,posicion)
+    arbol1.imprimir();
 
 }
 void Menu::borrarHoja(){

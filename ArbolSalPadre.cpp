@@ -6,34 +6,34 @@ using namespace std;
 
 
     //Métodos del nodo Arbol //
-    ArbolSalPadre::Caja::Caja(int etiqueta, ArbolSalPadre::Nodo padre){
+    Arbol::Caja::Caja(int etiqueta, Arbol::Nodo padre){
         this->etiqueta = etiqueta;
         this->padre = padre;
     }
-    ArbolSalPadre::Caja::Caja(){
+    Arbol::Caja::Caja(){
         this->etiqueta = 0;
         this->padre = 0;
     }
-    void ArbolSalPadre::Caja::setEtiqueta(int etiqueta){
+    void Arbol::Caja::setEtiqueta(int etiqueta){
         this->etiqueta = etiqueta;
     }
     //Métodos del árbol //
-    ArbolSalPadre::ArbolSalPadre(){ //Iniciamos
+    Arbol::Arbol(){ //Iniciamos
         ultima = 0;
         nNodos = 0;
-        arreglo = new ArbolSalPadre::Caja[M];
+        arreglo = new Arbol::Caja[M];
         tamano = M;
     }
-    ArbolSalPadre::~ArbolSalPadre(){
+    Arbol::~Arbol(){
         delete arreglo;
     }
-    void ArbolSalPadre::vaciar(){
+    void Arbol::vaciar(){
         ultima = 0;
     }
-    int ArbolSalPadre::vacia(){
+    int Arbol::vacia(){
         return !nNodos;
     }
-    ArbolSalPadre::Nodo ArbolSalPadre::raiz(){
+    Arbol::Nodo Arbol::raiz(){
         return 0; // Retorna la celda 0 del array
     }
     /*!
@@ -41,8 +41,8 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    ArbolSalPadre::Nodo ArbolSalPadre::hijoMasIzq(ArbolSalPadre::Nodo nodoArbol){
-        ArbolSalPadre::Nodo hijoMasIzq = nodoArbol;
+    Arbol::Nodo Arbol::hijoMasIzq(Arbol::Nodo nodoArbol){
+        Arbol::Nodo hijoMasIzq = nodoArbol;
         int encontrado = 0;
         while (hijoMasIzq < ultima && !encontrado) {
             if(arreglo[hijoMasIzq].padre == nodoArbol){
@@ -53,14 +53,14 @@ using namespace std;
         }
         return hijoMasIzq;
     }
-    
+
     /*!
        \brief "Description"
        \param "Param description"s
        \return "Return of the function"
     */
-    ArbolSalPadre::Nodo ArbolSalPadre::hermanoDer(ArbolSalPadre::Nodo nodoArbol){
-        ArbolSalPadre::Nodo hermanoDerecho = nodoArbol;
+    Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoArbol){
+        Arbol::Nodo hermanoDerecho = nodoArbol;
         int encontrado = 0;
         while (hermanoDerecho < ultima && !encontrado) {
             if(arreglo[hermanoDerecho].padre == nodoArbol){
@@ -76,7 +76,7 @@ using namespace std;
        \param "Entra un nodo arbol"
        \return "Retorna el nodo padre"
     */
-    ArbolSalPadre::Nodo ArbolSalPadre::padre(ArbolSalPadre::Nodo nodoArbol){
+    Arbol::Nodo Arbol::padre(Arbol::Nodo nodoArbol){
         return arreglo[nodoArbol].padre;
     }
     /*!
@@ -84,7 +84,7 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    int ArbolSalPadre::esHoja(ArbolSalPadre::Nodo nodoArbol){
+    int Arbol::esHoja(Arbol::Nodo nodoArbol){
         int esHoja = 1;
         int contador = 0;
         while ( contador < ultima && esHoja) {
@@ -100,7 +100,7 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    int ArbolSalPadre::etiqueta(ArbolSalPadre::Nodo nodoArbol){
+    int Arbol::etiqueta(Arbol::Nodo nodoArbol){
         return arreglo[nodoArbol].etiqueta;
     }
     /*!
@@ -108,7 +108,7 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    int ArbolSalPadre::numNodos(){
+    int Arbol::numNodos(){
         return nNodos;
     }
     /*!
@@ -116,7 +116,7 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    int ArbolSalPadre::numHijos(ArbolSalPadre::Nodo nodoArbol){
+    int Arbol::numHijos(Arbol::Nodo nodoArbol){
         int contadorHijos = 0;
         for (int i = 0; i < ultima; ++i){
             if (arreglo[i].padre == nodoArbol){
@@ -130,7 +130,7 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    void ArbolSalPadre::modificarEtiq(ArbolSalPadre::Nodo nodoArbol, int etiqueta){
+    void Arbol::modificarEtiq(Arbol::Nodo nodoArbol, int etiqueta){
         arreglo[nodoArbol].setEtiqueta(etiqueta);
     }
     /*!
@@ -138,7 +138,7 @@ using namespace std;
        \param "Param description"
        \return "Return of the function"
     */
-    int ArbolSalPadre::agregarHijoIesimo(ArbolSalPadre::Nodo nodoArbol, int etiqueta, int posicion){
+    int Arbol::agregarHijoIesimo(Arbol::Nodo nodoArbol, int etiqueta, int posicion){
         int contador = 0;
             if(tamano > nNodos){ //Vemos si aun queda espacio en el array
                 int pos = 0;
@@ -163,7 +163,7 @@ using namespace std;
             }
         return contador;
     }
-    void ArbolSalPadre::imprimir(){
+    void Arbol::imprimir(){
         for (int i = 0; i <= ultima; ++i){
             std::cout << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[i].padre <<'\n';
         }
@@ -173,7 +173,7 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    void ArbolSalPadre::borrarHoja(ArbolSalPadre::Nodo nodoArbol){
+    void Arbol::borrarHoja(Arbol::Nodo nodoArbol){
         if (vacia()){
             std::cerr << "El arbol está vacio" << '\n';
         }else{
@@ -189,9 +189,21 @@ using namespace std;
        \param "Param description"s
        \return "Return of the function"
     */
-    void ArbolSalPadre::ponerRaiz(int etiqueta){
+    void Arbol::ponerRaiz(int etiqueta){
         arreglo[0].etiqueta = etiqueta;
         arreglo[0].padre = -1;
         ultima = 0;
         nNodos+= 1;
+    }
+    Nodo Arbol::buscarNodo(int etiqueta){
+        int nodo = 0;
+        int encontrado = 0;
+        while(nodo < tamano && !encontrado){
+            if(arreglo[nodo].etiqueta == etiqueta){
+                encontrado = 1;
+            }
+
+            ++nodo;
+        }
+        return nodo
     }

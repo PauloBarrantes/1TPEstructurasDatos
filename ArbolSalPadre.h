@@ -7,7 +7,7 @@
 #ifndef ArbolSalPadre2017
 #define ArbolSalPadre2017
 #define M 1000
-class ArbolSalPadre {
+class Arbol {
     typedef int Nodo;
     class Caja; //Forward declaration
 
@@ -26,8 +26,8 @@ class ArbolSalPadre {
         int tamano;
 
     public:
-        ArbolSalPadre();
-        ~ArbolSalPadre();
+        Arbol();
+        ~Arbol();
         void vaciar();
         int vacia();
         Nodo raiz();
@@ -43,6 +43,7 @@ class ArbolSalPadre {
         void borrarHoja(Nodo);
         void ponerRaiz(int);
         void imprimir();
+        Nodo buscarNodo(int);
 };
 
 #endif
