@@ -21,7 +21,6 @@ void Menu::controlador(){
     cout<< "Escriba arbol para hacer pruebas con el arbol" <<endl;
     cout<< "Escriba cola para hacer pruebas con la cola"<<endl;
     string respuesta = "";
-    cout << "hola" <<endl;
     do {
         cin >>respuesta;
         if( respuesta == "arbol"){
@@ -30,7 +29,7 @@ void Menu::controlador(){
             if(respuesta == "cola"){
                 pruebaCola();
             }else{
-                std::cerr << "Número Invalido" << '\n';
+                std::cerr << "No coincide con ninguna palabra" << '\n';
             }
         }
     } while(respuesta != "arbol" && respuesta !="cola");
@@ -45,8 +44,15 @@ void Menu::pruebaArbol(){
         string instruccion;
         cin >> instruccion;
         cout <<instruccion <<endl;
+        if(instruccion == "ponerraiz"){
+            ponerRaiz();
+        }else{
+            if(instruccion == "agregarhijoiesimo"){
+                agregarHijoIesimo();
+            }else{
 
-        if()
+            }
+        }
 
     } while(1);
 
@@ -55,12 +61,76 @@ void Menu::pruebaArbol(){
 void Menu::instruccionesArbol(){
     cout << "------ Instrucciones ------" <<endl;
     cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
+    cout << "Escriba ponerraiz para agregar una etiqueta como raiz " <<endl;
+    cout << "Escriba agregarhijoiesimo para añadir un hijo iesimo de una etiqueta " <<endl;
     cout << "Escriba -n- para " <<endl;
     cout << "Escriba -n- para " <<endl;
     cout << "Escriba -n- para " <<endl;
     cout << "Escriba -n- para " <<endl;
     cout << "Escriba -n- para " <<endl;
     cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+    cout << "Escriba -n- para " <<endl;
+}
+void Menu::iniciar(){
+    arbol1 = new Arbol();
+}
+void Menu::destruir(){
+    delete arbol1;
+}
+void Menu::vaciar(){
+
+}
+void Menu::vacia(){
+
+}
+void Menu::vaciar(){
+
+}
+void Menu::raiz(){
+
+}
+void Menu::hijoMasIzq(){
+
+}
+void Menu::hermanoDer(){
+
+}
+void Menu::padre(){
+
+}
+void Menu::esHoja(){
+
+}
+void Menu::etiqueta(){
+
+}
+void Menu::numNodos(){
+
+}
+void Menu::numHijos(){
+
+}
+void Menu::modificarEtiq(){
+
+}
+void Menu::agregarHijoIesimo(){
+
+}
+void Menu::borrarHoja(){
+
+}
+void Menu::ponerRaiz(){
+    int etiqueta = 0;
+    cout << "Digite la etiqueta que desea colocar como raíz" <<endl;
+    cin >> etiqueta;
+
+    arbol1.ponerRaiz(etiqueta);
+    arbol1.imprimir();
+
+}
+void Menu::imprimir(){
+
 }
 
 void Menu::pruebaCola(){
