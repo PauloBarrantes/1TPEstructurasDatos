@@ -8,19 +8,19 @@
 #define ArbolSalPadre2017
 #define M 1000
 class ArbolSalPadre {
-
-    class NodoArbol; //Forward declaration
+    typedef int Nodo;
+    class Caja; //Forward declaration
 
     private:
-        class NodoArbol{
+        class Caja{
             public:
                 int etiqueta;
                 int padre;
-                NodoArbol();
-                NodoArbol(int, int);
+                Caja();
+                Caja(int, int);
                 void setEtiqueta(int);
         };
-        NodoArbol* arreglo;
+        Caja* arreglo;
         int ultima;
         int nNodos;
         int tamano;
@@ -30,17 +30,17 @@ class ArbolSalPadre {
         ~ArbolSalPadre();
         void vaciar();
         int vacia();
-        int raiz();
-        int hijoMasIzq(int);
-        int hermanoDer(int);
-        int padre(int);
-        int esHoja(int);
-        int etiqueta(int);
+        Nodo raiz();
+        Nodo hijoMasIzq(Nodo);
+        Nodo hermanoDer(Nodo);
+        Nodo padre(Nodo);
+        int esHoja(Nodo);
+        int etiqueta(Nodo);
         int numNodos();
-        int numHijos(int);
-        void modificarEtiq(int, int);
-        int agregarHijoIesimo(int, int, int);
-        void borrarHoja(int);
+        int numHijos(Nodo);
+        void modificarEtiq(Nodo, int);
+        Nodo agregarHijoIesimo(Nodo, int, int);
+        void borrarHoja(Nodo);
         void ponerRaiz(int);
         void imprimir();
 };

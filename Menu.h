@@ -4,11 +4,16 @@
 #include "Cola.h"
 class Menu {
     private:
-        Arbol arbol;
-        Cola.h
+        ArbolSalPadre Arbol;
+        Cola colita;
     public:
         Menu();
         ~Menu();
+        void controlador();
+        void pruebaArbol();
+        void pruebaCola();
+        void instruccionesArbol();
+        void instruccionesCola();
 
 
 };
