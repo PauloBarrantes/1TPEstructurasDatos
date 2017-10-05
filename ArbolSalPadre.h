@@ -42,7 +42,7 @@ class Arbol {
         Nodo agregarHijoIesimo(Nodo, int, int);
         void borrarHoja(Nodo);
         void ponerRaiz(int);
-        void imprimir();
+        void toString();
         Nodo buscarNodo(int);
 };
 

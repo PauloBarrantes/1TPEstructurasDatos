@@ -20,9 +20,9 @@ void Cola::vaciar(){ //Vaciamos la cola
 
 }
 /*!
-   \brief "Description"
-   \param "Param description"
-   \return "Return of the function"
+   \brief "Determinar si la cola está vacía o no"
+   \param "No recibe"
+   \return "Retorna verdadero si está vacía, sino retorna falso"
 */
 int Cola::vacia(){
     return !numElem;
@@ -52,7 +52,7 @@ void Cola::encolar(int elemento){
    \return "Retorna al elemento que sacamos"
 */
 int Cola::desencolar(){
-    
+
     if(!vacia()){
         int frente = arregloCircular[primera];
         if (primera == tamano-1){

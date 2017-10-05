@@ -4,8 +4,8 @@
 #include "Cola.h"
 class Menu {
     private:
-        ArbolSalPadre Arbol;
-        Cola cola1;
+        Arbol* arbol1;
+        Cola* cola1;
     public:
         Menu();
         ~Menu();
@@ -20,7 +20,6 @@ class Menu {
         void destruir();
         void vaciar();
         void vacia();
-        void vaciar();
         void raiz();
         void hijoMasIzq();
         void hermanoDer();
@@ -35,15 +34,15 @@ class Menu {
         void ponerRaiz();
         void imprimir();
         //Cola
-        void iniciar();
-        void destruir();
-        void vaciar();
-        void vacia();
-        void encolar();
-        void desencolar();
-        void numElementos();
-        void frente();
-        void ultimo();
+        void iniciarC();
+        void destruirC();
+        void vaciarC();
+        void vaciaC();
+        void encolarC();
+        void desencolarC();
+        void numElementosC();
+        void frenteC();
+        void ultimoC();
 };
 // g++ main.cpp cola.cpp arbolsalpadre.cpp menu.cpp -o ejecutable
 

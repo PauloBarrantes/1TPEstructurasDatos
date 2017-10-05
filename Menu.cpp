@@ -6,7 +6,6 @@
 //#include "ArbolHMI_HD.h"
 //#include "ArbolHMI_HD_utimoPadre.h"
 //#include ""
-#include ""
 #include "Cola.h"
 using namespace std;
 
@@ -14,7 +13,6 @@ Menu::Menu(){
     controlador();
 }
 Menu::~Menu(){
-    std::cout << "Hola" << '\n';
 }
 void Menu::controlador(){
     cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
@@ -43,17 +41,20 @@ void Menu::pruebaArbol(){
     do {
         string instruccion;
         cin >> instruccion;
-        cout <<instruccion <<endl;
-        if(instruccion == "ponerraiz"){
-            ponerRaiz();
-        }else{
-            if(instruccion == "agregarhijoiesimo"){
-                agregarHijoIesimo();
-            }else{
 
+        if(instruccion == "iniciar"){
+            iniciar();
+        }else{
+            if(instruccion == "ponerraiz"){
+                ponerRaiz();
+            }else{
+                if(instruccion == "agregarhijoiesimo"){
+                    agregarHijoIesimo();
+                }else{
+
+                }
             }
         }
-
     } while(1);
 
 
@@ -82,23 +83,26 @@ void Menu::instruccionesArbol(){
 }
 void Menu::iniciar(){
     arbol1 = new Arbol();
+    cout<< "El árbol se ha inicializado satisfactoriamente" <<endl;
 }
 void Menu::destruir(){
 
     delete arbol1;
+    cout << "El arbol se ha destruido satisfactoriamente" <<endl;
 }
 void Menu::vaciar(){
-
-    arbol1.vaciar();
+    arbol1->vaciar();
+    cout << "El árbol se ha vaciado" <<endl;
 }
 void Menu::vacia(){
-
-}
-void Menu::vaciar(){
-
+    if(arbol1->vacia()){
+        cout << "El árbol se encuentra vacío" <<endl;
+    }else{
+        cout << "El árbol no está vacío" <<endl;
+    }
 }
 void Menu::raiz(){
-
+    cout << "La raiz de el árbol es: " << arbol1->raiz() <<endl;
 }
 void Menu::hijoMasIzq(){
 
@@ -107,9 +111,17 @@ void Menu::hermanoDer(){
 
 }
 void Menu::padre(){
-
+    int nodo = 0;
+    cout << "El padre de la etiqueta: ";
+    cin >> nodo;
+    cout << endl;
+    cout<<"El padre de" << nodo << " es:" << arbol1->padre(arbol1->buscarNodo(nodo));
 }
 void Menu::esHoja(){
+    int nodo = 0;
+    cout << "Digite la etiqueta que deseas ver si es una hoja" <<endl;
+    cin >>nodo;
+
 
 }
 void Menu::etiqueta(){
@@ -135,8 +147,8 @@ void Menu::agregarHijoIesimo(){
     cout << "Digite la posicion donde vamos a agregar el hijo" <<endl;
     cin >> posicion;
 
-    arbol1.agregarHijoIesimo(arbol1.buscarNodo(padre),etiqueta,posicion)
-    arbol1.imprimir();
+    arbol1->agregarHijoIesimo(arbol1->buscarNodo(padre),etiqueta,posicion);
+    arbol1->toString();
 
 }
 void Menu::borrarHoja(){
@@ -147,9 +159,8 @@ void Menu::ponerRaiz(){
     cout << "Digite la etiqueta que desea colocar como raíz" <<endl;
     cin >> etiqueta;
 
-    arbol1.ponerRaiz(etiqueta);
-    arbol1.imprimir();
-
+    arbol1->ponerRaiz(etiqueta);
+    arbol1->toString();
 }
 void Menu::imprimir(){
 
@@ -157,7 +168,6 @@ void Menu::imprimir(){
 
 void Menu::pruebaCola(){
     cout << "Hola!, te guiaré en la prueba del modelo cola" <<endl;
-    cout << "------ Instrucciones ------" <<endl;
     instruccionesCola();
 }
 void Menu::instruccionesCola(){
@@ -170,3 +180,20 @@ void Menu::instruccionesCola(){
     cout << "Escriba -n- para " <<endl;
     cout << "Escriba -n- para " <<endl;
 }
+void iniciarC(){
+    cola1 = new Cola();
+}
+void destruirC(){
+    delete cola1;
+}
+void vaciarC(){
+    cola1->vaciar();
+}
+void vaciaC(){
+
+}
+void encolarC();
+void desencolarC();
+void numElementosC();
+void frenteC();
+void ultimoC();

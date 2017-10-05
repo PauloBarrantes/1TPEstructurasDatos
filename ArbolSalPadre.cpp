@@ -163,7 +163,7 @@ using namespace std;
             }
         return contador;
     }
-    void Arbol::imprimir(){
+    void Arbol::toString(){
         for (int i = 0; i <= ultima; ++i){
             std::cout << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[i].padre <<'\n';
         }
@@ -195,15 +195,17 @@ using namespace std;
         ultima = 0;
         nNodos+= 1;
     }
-    Nodo Arbol::buscarNodo(int etiqueta){
+    Arbol::Nodo Arbol::buscarNodo(int etiqueta){
         int nodo = 0;
         int encontrado = 0;
         while(nodo < tamano && !encontrado){
             if(arreglo[nodo].etiqueta == etiqueta){
                 encontrado = 1;
             }
-
             ++nodo;
         }
-        return nodo
+        if(nodo == tamano){
+            nodo = -1;
+        }
+        return nodo;
     }
