@@ -6,6 +6,9 @@
 */
 #ifndef Arbol_ListaDeListas_2017
 #define Arbol_ListaDeListas_2017
+#import <iostream>
+
+using namespace std;
 
 class Arbol {
 
@@ -25,6 +28,7 @@ class Arbol {
           Cajita * hermanoDerecho;
           Cajita(Nodo);
           ~Cajita();
+          ostream& toString(ostream&);
         };
 
         class Caja {
@@ -34,6 +38,7 @@ class Arbol {
           Nodo siguiente;
           Caja(int);
           ~Caja();
+          ostream& toString(ostream&);
         };
 
     public:
@@ -55,6 +60,7 @@ class Arbol {
         Nodo agregarHijoIesimo(Nodo, int, int);
         void borrarHoja(Nodo);
         void ponerRaiz(int);
+        ostream& toString(ostream&);
 };
 
 #endif

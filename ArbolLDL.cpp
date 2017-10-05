@@ -1,16 +1,29 @@
 #import <iostream>
 #import "ArbolLDL.h"
 
+using namespace std;
+
 Arbol::Cajita::Cajita(Nodo nodo){
   this->nodo = nodo;
   this->hermanoDerecho = 0;
 }
 
 Arbol::Cajita::~Cajita(){
-  delete this->nodo;
+  if(nodo){
+    delete this->nodo;
+  }
   if(this->hermanoDerecho != 0){
     delete this->hermanoDerecho;
   }
+}
+
+ostream& Arbol::Cajita::toString(ostream& salida){
+  this->nodo->toString(salida);
+  salida<< ", ";
+  if(hermanoDerecho){
+    this->hermanoDerecho->toString(salida);
+  }
+  return salida;
 }
 
 Arbol::Caja::Caja(int etiqueta){
@@ -28,12 +41,22 @@ Arbol::Caja::~Caja(){
   }
 }
 
+ostream& Arbol::Caja::toString(ostream& salida){
+  salida<< this->etiqueta;
+  if(hijoMasIzquierdo){
+    salida<<" {";
+    hijoMasIzquierdo->toString(salida);
+    salida<<"} ";
+  }
+  return salida;
+}
+
 Arbol::Cajita* Arbol::buscarCajita(Nodo nodoRef){
   Cajita* buscado = 0;
   Nodo padreActual = raizArbol;
   Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
   while (padreActual->siguiente != 0) {
-    while (cajitaActual->hermanoDerecho != 0){
+    while (cajitaActual != 0){
       if(cajitaActual->nodo == nodoRef){
         buscado = cajitaActual;
       }
@@ -63,7 +86,7 @@ void Arbol::vaciar(){
 }
 
 int Arbol::vacia(){
-  return raizArbol == 0;
+  return numeroNodos == 0;
 }
 
 Arbol::Nodo Arbol::raiz(){
@@ -81,15 +104,15 @@ Arbol::Nodo Arbol::hermanoDer(Nodo nodoRef){
 Arbol::Nodo Arbol::padre(Nodo nodoRef){
   Nodo padre = 0;
   Nodo padreActual = raizArbol;
-  Cajita* cajitaActual = padre->hijoMasIzquierdo;
-  while (padre->siguiente != 0) {
-    while (cajitaActual->hermanoDerecho != 0){
-      if(cajitaActual->nodo == padre){
+  Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
+  while (padreActual->siguiente != 0) {
+    while (cajitaActual != 0){
+      if(cajitaActual->nodo == nodoRef){
         padre = padreActual;
       }
       cajitaActual = cajitaActual->hermanoDerecho;
     }
-    padre = padre->siguiente;
+    padreActual = padreActual->siguiente;
   }
   return padre;
 }
@@ -141,6 +164,7 @@ Arbol::Nodo Arbol::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
     nuevaCajita->hermanoDerecho = cajitaActual;
     padre->hijoMasIzquierdo = nuevaCajita;
   }
+  ++numeroNodos;
   return nuevoNodo;
 }
 
@@ -151,24 +175,40 @@ void Arbol::borrarHoja(Nodo hoja){
   }
   nodoActual->siguiente = hoja->siguiente;
   hoja->siguiente = 0;
+  std::cout << "aisla nodo victima" << '\n';
   Cajita* victima = buscarCajita(hoja);
+  std::cout << "encuentra a la cajita victima" << '\n';
   nodoActual = padre(hoja);
+  std::cout << "encuentra al padre del nodo victima" << '\n';
+
   if(nodoActual->hijoMasIzquierdo == victima){
+    std::cout << "va a hacer el if" << '\n';
     nodoActual->hijoMasIzquierdo = victima->hermanoDerecho;
+    std::cout << "hizo el if" << '\n';
+
   }
   else{
+    std::cout << "va a hacer el else" << '\n';
     Cajita* cajitaActual = nodoActual->hijoMasIzquierdo;
     while(cajitaActual->hermanoDerecho != victima){
       cajitaActual = cajitaActual->hermanoDerecho;
     }
+    std::cout << "encuentra al hermano izquierdo de la victima" << '\n';
     cajitaActual->hermanoDerecho = victima->hermanoDerecho;
   }
   victima->hermanoDerecho = 0;
+  std::cout << "aisla la cajita" << '\n';
   delete victima;
+  --numeroNodos;
 }
 
 void Arbol::ponerRaiz(int etiqueta){
   if(vacia()){
-    raizArbol->etiqueta = etiqueta;
+    raizArbol = new Caja(etiqueta);
+    ++numeroNodos;
   }
+}
+
+ostream& Arbol::toString(ostream& salida){
+  return raizArbol->toString(salida);
 }
