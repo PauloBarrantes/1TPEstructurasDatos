@@ -28,7 +28,7 @@ class Arbol {
           Cajita * hermanoDerecho;
           Cajita(Nodo);
           ~Cajita();
-          ostream& toString(ostream&);
+          ostream& imprimir(ostream&);
         };
 
         class Caja {
@@ -38,7 +38,7 @@ class Arbol {
           Nodo siguiente;
           Caja(int);
           ~Caja();
-          ostream& toString(ostream&);
+          ostream& imprimir(ostream&);
         };
 
     public:
@@ -61,7 +61,7 @@ class Arbol {
         void borrarHoja(Nodo);
         void ponerRaiz(int);
         Nodo buscarNodo(int);
-        ostream& toString(ostream&);
+        ostream& imprimir(ostream&);
 };
 
 #endif
