@@ -28,7 +28,9 @@ Arbol_ListaDeListas::Caja::~Caja(){
   }
 }
 
-Arbol_ListaDeListas::Cajita* Arbol_ListaDeListas::buscarCajita(Nodo nodoRef){}
+Arbol_ListaDeListas::Cajita* Arbol_ListaDeListas::buscarCajita(Nodo nodoRef){
+  //recorrrer cajitas para encontrar la que le apunta al nodoRef.
+}
 
 Arbol_ListaDeListas::Arbol_ListaDeListas(){
   this->_init();
@@ -97,16 +99,14 @@ void Arbol_ListaDeListas::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
 }
 
 Arbol_ListaDeListas::Nodo Arbol_ListaDeListas::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
-  Nodo nuevoNodo = new Caja();
-  nuevoNodo->etiqueta = etiqueta;
+  Nodo nuevoNodo = new Caja(etiqueta);
   nuevoNodo->siguiente = raizArbol->siguiente;
   raizArbol->siguiente = nuevoNodo;
   Nodo nodoActual = raizArbol;
   while(nodoActual != padre){
     nodoActual = nodoActual->siguiente;
   }
-  Cajita* nuevaCajita = new Cajita();
-  nuevaCajita->nodo = nuevoNodo;
+  Cajita* nuevaCajita = new Cajita(nuevoNodo);
   Cajita* cajitaActual = padre->hijoMasIzquierdo;
   if(posicion > 1){
     for(int i = 1; i < posicion-1; ++i){
