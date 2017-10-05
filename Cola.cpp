@@ -1,6 +1,6 @@
 #include "Cola.h"
 #include <iostream>
-#define M 1000
+#define M 1000;
 using namespace std;
 
 Cola::Cola(){ // Iniciamos la Cola Vacía
@@ -52,8 +52,6 @@ void Cola::encolar(int elemento){
    \param "No recibe"
    \return "Retorna al elemento que sacamos"
 */
-
-
 
 int Cola::desencolar(){
     if(!vacia()){

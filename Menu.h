@@ -5,7 +5,6 @@
 class Menu {
     private:
         ArbolSalPadre Arbol;
-        Cola colita;
     public:
         Menu();
         ~Menu();

@@ -14,8 +14,8 @@ void Menu::controlador(){
     cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
     cout<< "Escriba arbol para hacer pruebas con el arbol" <<endl;
     cout<< "Escriba cola para hacer pruebas con la cola"<<endl;
-    string respuesta = 0;
-
+    string respuesta = "";
+    cout << "hola" <<endl;
     do {
         cin >>respuesta;
         if( respuesta == "arbol"){
