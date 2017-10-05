@@ -2,11 +2,11 @@
 #define _HijoMasIzqHermanoDer
 #include <iostream>
 
-class HijoDMasIzqHermanoDer{
+class HijoDMasIzqHermanoDer_Ult_puntPadre{
 	class NodoArbol; //Declaracion de antemano
 	private:
 		int nNodos;
-		HijoDMasIzqHermanoDer::NodoArbol* nRaiz;
+		HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol* nRaiz;
 		
 		class NodoArbol{
 			public:
@@ -55,7 +55,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-		HijoDMasIzqHermanoDer();
+		HijoDMasIzqHermanoDer_Ult_puntPadre();
 		
 		/*
 		** Require:
@@ -63,7 +63,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-		HijoDMasIzqHermanoDer(int);
+		HijoDMasIzqHermanoDer_Ult_puntPadre(int);
 		
 		/*
 		** Require:
@@ -71,7 +71,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        ~HijoDMasIzqHermanoDer();
+        ~HijoDMasIzqHermanoDer_Ult_puntPadre();
 		
 		/*
 		** Require:
@@ -95,7 +95,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-		HijoDMasIzqHermanoDer::NodoArbol* raiz();
+		HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol* raiz();
 		
 		/*
 		** Require:
@@ -103,7 +103,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* hijoMasIzq(HijoDMasIzqHermanoDer::NodoArbol*);
+        HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol* hijoMasIzq(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -111,7 +111,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* hermanoDer(HijoDMasIzqHermanoDer::NodoArbol*);
+        HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol* hermanoDer(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -119,7 +119,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* padre(HijoDMasIzqHermanoDer::NodoArbol*);
+        HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol* padre(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -127,7 +127,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int esHoja(HijoDMasIzqHermanoDer::NodoArbol*);
+        int esHoja(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -135,7 +135,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int etiqueta(HijoDMasIzqHermanoDer::NodoArbol*);
+        int etiqueta(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -151,7 +151,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        int numHijos(HijoDMasIzqHermanoDer::NodoArbol*);
+        int numHijos(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -159,7 +159,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        void modificarEtiq(HijoDMasIzqHermanoDer::NodoArbol*, int);
+        void modificarEtiq(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*, int);
 		
 		/*
 		** Require:
@@ -167,7 +167,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol*, int, int);
+        HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*, int, int);
 		
 		/*
 		** Require:
@@ -175,7 +175,7 @@ class HijoDMasIzqHermanoDer{
 		** Parámetros:
 		** Retorna:
 		*/
-        void borrarHoja(HijoDMasIzqHermanoDer::NodoArbol*);
+        void borrarHoja(HijoDMasIzqHermanoDer_Ult_puntPadre::NodoArbol*);
 		
 		/*
 		** Require:

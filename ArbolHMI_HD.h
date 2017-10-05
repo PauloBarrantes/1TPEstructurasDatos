@@ -1,5 +1,6 @@
 #ifndef _HijoMasIzqHermanoDer
 #define _HijoMasIzqHermanoDer
+#include <iostream>
 
 class HijoDMasIzqHermanoDer{
 	class NodoArbol; //Declaracion de antemano
@@ -37,6 +38,14 @@ class HijoDMasIzqHermanoDer{
 				** Retorna:
 				*/
 				~NodoArbol();
+				
+				/*
+				** Require:
+				** Modifica:
+				** Parámetros:
+				** Retorna:
+				*/
+				std::ostream& toString(std::ostream&);
 		};
 	public:
 		/*
@@ -174,6 +183,14 @@ class HijoDMasIzqHermanoDer{
 		** Retorna:
 		*/
         void ponerRaiz(int);
+		
+		/*
+		** Require:
+		** Modifica:
+		** Parámetros:
+		** Retorna:
+		*/
+		std::ostream& toString(std::ostream&);
 };
 
 #endif

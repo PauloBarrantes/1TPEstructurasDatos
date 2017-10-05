@@ -27,6 +27,21 @@ HijoDMasIzqHermanoDer::NodoArbol::~NodoArbol(){
 	}
 }
 
+ostream& HijoDMasIzqHermanoDer::NodoArbol::toString(ostream& salida){
+	salida<<etqta;
+	if(hijoMasI){
+		salida<<" { ";
+		hijoMasI->toString(salida);
+		salida<<" }";
+	}
+	
+	if(hermanoD){
+		salida<<" , ";
+		hermanoD->toString(salida);
+	}
+	return salida;
+}
+
 
 //Métodos del ArbolHMI_HD
 HijoDMasIzqHermanoDer::HijoDMasIzqHermanoDer(){
@@ -111,32 +126,56 @@ void HijoDMasIzqHermanoDer::modificarEtiq(HijoDMasIzqHermanoDer::NodoArbol* nodo
 }
 
 HijoDMasIzqHermanoDer::NodoArbol* HijoDMasIzqHermanoDer::agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol* nodo,int etqta, int posicion){
-	NodoArbol* actual = hijoMasIzq(nodo);
-	//Empieza en la dos por el hecho de que la pos 1 es el hijoMasIzq
-	for(int i = 2;i < posicion; ++i){
-		actual = hermanoDer(actual);
+	NodoArbol* nuevoHijo = 0;
+	int seInserto = 0;
+	
+	if(posicion == 1){
+		nuevoHijo = new NodoArbol(etqta,nodo->hijoMasI);
+		nodo->hijoMasI = nuevoHijo;
+		seInserto = 1;
+	}else{
+		NodoArbol* actual = nodo->hijoMasI;
+		
+		//Empieza en la dos por el hecho de que la pos 1 es el hijoMasIzq
+		for(int i = 2;i < posicion && actual; ++i){
+			actual = actual->hermanoD;
+		}
+		
+		if(actual){
+			nuevoHijo = new NodoArbol(etqta,actual->hermanoD);
+			actual->hermanoD = nuevoHijo;
+			seInserto = 1;
+		}
 	}
 	
-	NodoArbol* nuevoHijo = new NodoArbol(etqta,hermanoDer(actual));
-	actual->hermanoD = nuevoHijo;
+	if(seInserto){
+		++nodo->nHijos;
+		++nNodos;
+	}
+	
 	return nuevoHijo;
 }
 
 void HijoDMasIzqHermanoDer::borrarHoja(HijoDMasIzqHermanoDer::NodoArbol* nodo){
 	NodoArbol* nPadre = padre(nodo);
 	
-	
-	if(hijoMasIzq(nPadre) == nodo){
-		nPadre->hijoMasI = hermanoDer(nodo);
-		nodo->hermanoD = 0;
-	}else{
-		NodoArbol* actual = hijoMasIzq(nPadre);
-		while(hermanoDer(actual) != nodo){
-			actual = hermanoDer(actual);
+	if(nPadre){
+		if(nPadre->hijoMasI == nodo){
+			nPadre->hijoMasI = nodo->hermanoD;
+		}else{
+			NodoArbol* actual = nPadre->hijoMasI;
+			while(actual->hermanoD != nodo){
+				actual = hermanoDer(actual);
+			}
+			actual->hermanoD = nodo->hermanoD;
 		}
-		actual->hermanoD = nodo->hermanoD;
 		nodo->hermanoD = 0;
+		
+		--nNodos;
+		--nPadre->nHijos;
+		
 	}
+	
 	delete nodo;
 }
 
@@ -145,4 +184,8 @@ void HijoDMasIzqHermanoDer::ponerRaiz(int etqta){
 		nRaiz = new NodoArbol(etqta);
 		++nNodos;
 	}
+}
+
+ostream& HijoDMasIzqHermanoDer::toString(ostream& salida){
+	return nRaiz->toString(salida);
 }

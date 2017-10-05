@@ -1,4 +1,4 @@
-#include "ArbolHMI_HD.h"
+#include "ArbolHMI_HD_puntHIzq_Padre.h"
 #include <queue>
 using namespace std;
 
@@ -108,25 +108,48 @@ void HijoDMasIzqHermanoDer_puntIzqPadre::modificarEtiq(HijoDMasIzqHermanoDer_pun
 
 HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* HijoDMasIzqHermanoDer_puntIzqPadre::agregarHijoIesimo(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo,int etqta, int posicion){
 	NodoArbol* actual = nodo->hijoMasI;
-	//Empieza en la dos por el hecho de que la pos 1 es el hijoMasIzq
-	for(int i = 2;i < posicion; ++i){
-		actual = actual->hermanoD;
+	NodoArbol* nuevoHijo = 0;
+	int seInserto = 0;
+	
+	if(posicion == 1){
+		nuevoHijo = new NodoArbol(etqta);
+		nuevoHijo->hermanoD = actual;
+		nuevoHijo->nPadre = nodo;
+		nodo->hijoMasI = nuevoHijo;
+		seInserto = 1;
+	}else{
+		for(int i = 2; i < posicion && actual; ++i){
+			actual = actual->hermanoD;
+		}
+		
+		if(actual){
+			nuevoHijo = new NodoArbol(etqta);
+			nuevoHijo->hermanoD = actual->hermanoD;
+			nuevoHijo->nPadre = nodo;
+			nuevoHijo->hermanoI = actual;
+			actual->hermanoD = nuevoHijo;
+			seInserto = 1;
+		}
 	}
 	
-	NodoArbol* nuevoHijo = new NodoArbol(etqta,actual,actual->hermanoD,nodo);
-	actual->hermanoD->hermanoI = nuevoHijo;
-	actual->hermanoD = nuevoHijo;
-	++nodo->nHijos;
-	++nNodos;
+	if(seInserto){
+		if(nuevoHijo->hermanoD){
+			nuevoHijo->hermanoD->hermanoI = nuevoHijo;			
+		}
+		
+		++nodo->nHijos;
+		++nNodos;
+	}
 	
 	return nuevoHijo;
 }
 
 void HijoDMasIzqHermanoDer_puntIzqPadre::borrarHoja(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* nodo){
 	if(nodo->hermanoI){
-		nodo->hermanoI->hermanoD
+		cout<<"1"<<endl;
+		nodo->hermanoI->hermanoD = nodo->hermanoD;
 	}else{
-		nodo->nPadre->hijoMasI = hermanoDer(nodo);
+		nodo->nPadre->hijoMasI = nodo->hermanoD;
 	}
 	
 	if(nodo->hermanoD){

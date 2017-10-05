@@ -96,7 +96,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-		HijoDMasIzqHermanoDer::NodoArbol* raiz();
+		HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* raiz();
 		
 		/*
 		** Require:
@@ -104,7 +104,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* hijoMasIzq(HijoDMasIzqHermanoDer::NodoArbol*);
+        HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* hijoMasIzq(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -112,7 +112,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* hermanoDer(HijoDMasIzqHermanoDer::NodoArbol*);
+        HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* hermanoDer(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -120,7 +120,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* padre(HijoDMasIzqHermanoDer::NodoArbol*);
+        HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* padre(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -128,7 +128,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        int esHoja(HijoDMasIzqHermanoDer::NodoArbol*);
+        int esHoja(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -136,7 +136,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        int etiqueta(HijoDMasIzqHermanoDer::NodoArbol*);
+        int etiqueta(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -152,7 +152,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        int numHijos(HijoDMasIzqHermanoDer::NodoArbol*);
+        int numHijos(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*
 		** Require:
@@ -160,7 +160,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        void modificarEtiq(HijoDMasIzqHermanoDer::NodoArbol*, int);
+        void modificarEtiq(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*, int);
 		
 		/*
 		** Require:
@@ -168,7 +168,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        HijoDMasIzqHermanoDer::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer::NodoArbol*, int, int);
+        HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol* agregarHijoIesimo(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*, int, int);
 		
 		/*
 		** Require:
@@ -176,7 +176,7 @@ class HijoDMasIzqHermanoDer_puntIzqPadre{
 		** Parámetros:
 		** Retorna:
 		*/
-        void borrarHoja(HijoDMasIzqHermanoDer::NodoArbol*);
+        void borrarHoja(HijoDMasIzqHermanoDer_puntIzqPadre::NodoArbol*);
 		
 		/*
 		** Require:
