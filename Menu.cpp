@@ -162,14 +162,14 @@ void Menu::hijoMasIzq(){
     cout << "Digite al nodo que desea ver al hijo más izquierdo" <<endl;
     cin >> nodo;
     cout << endl;
-    cout << "El hijo más izquierdo de " << nodo << " es " << arbol1->hijoMasIzq(arbol1->buscarNodo(nodo))->etqta<<endl;
+    cout << "El hijo más izquierdo de " << nodo << " es " << arbol1->etiqueta(arbol1->hijoMasIzq(arbol1->buscarNodo(nodo)))<<endl;
 }
 void Menu::hermanoDer(){
     int nodo = 0;
     cout << "Digite al nodo que desea ver al hermano derecho" <<endl;
     cin >> nodo;
     cout << endl;
-    cout << "El hermano derecho de " << nodo << " es " << arbol1->hermanoDer(arbol1->buscarNodo(nodo))->etqta<<endl;
+    cout << "El hermano derecho de " << nodo << " es " << arbol1->etiqueta(arbol1->hermanoDer(arbol1->buscarNodo(nodo)))<<endl;
 }
 void Menu::padre(){
     int nodo = 0;
