@@ -43,7 +43,7 @@ class Arbol{
 					\param "int etiqueta"
 					\return "No retorna nada"
 				*/
-				std::ostream& imprimr(std::ostream&);
+				std::ostream& imprimir(std::ostream&);
 		};
 	public:
 		/*!
@@ -173,7 +173,7 @@ class Arbol{
 			\param "int etiqueta"
 			\return "Retorna el nodo que tiene esa etiqueta"
 		*/
-		Arbol::NodoArbol* buescarNodo(int);
+		Arbol::NodoArbol* buscarNodo(int);
 };
 
 #endif

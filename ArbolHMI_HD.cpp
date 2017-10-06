@@ -196,9 +196,9 @@ Arbol::NodoArbol* Arbol::buscarNodo(int etqta){
 	queue<NodoArbol*> cola;
 	NodoArbol* nHijo = 0;
 	
-	while(!nPadre && cola.size() != 0){
+	while(!nBuscado && cola.size() != 0){
 		nHijo = hijoMasIzq(actual);
-		while(nHijo != 0 && !nPadre){
+		while(nHijo != 0 && !nBuscado){
 			if(nHijo->etqta == etqta){
 				nBuscado = nHijo;
 			}else{
