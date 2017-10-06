@@ -1,7 +1,7 @@
 /*!
    \file "Arbol implementado con la E.D. Lista de listas"
    \brief "Arbol con lista de listas"
-   \author "André Flastestein"
+   \author "André Flasterstein"
    \date "01"/"Octubre"/"2017"
 */
 #ifndef Arbol_ListaDeListas_2017
@@ -48,7 +48,7 @@ class Arbol {
         int vacia();
 
 
-        Nodo  raiz();
+        int  raiz();
         Nodo  hijoMasIzq(Nodo);
         Nodo  hermanoDer(Nodo);
         Nodo  padre(Nodo);

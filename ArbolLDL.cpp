@@ -137,7 +137,6 @@ Arbol::~Arbol(){
    \return ""
 */
 void Arbol::vaciar(){
-  delete this;
   this->_init();
 }
 
@@ -153,10 +152,10 @@ int Arbol::vacia(){
 /*!
    \brief "Pide la raiz del Arbol"
    \param ""
-   \return "Retorna el atributo raizArbol"
+   \return "Retorna la etiqueta el atributo raizArbol"
 */
-Arbol::Nodo Arbol::raiz(){
-  return this->raizArbol;
+int Arbol::raiz(){
+  return this->raizArbol->etiqueta;
 }
 
 /*!
@@ -291,29 +290,19 @@ void Arbol::borrarHoja(Nodo hoja){
   }
   nodoActual->siguiente = hoja->siguiente;
   hoja->siguiente = 0;
-  std::cout << "aisla nodo victima" << '\n';
   Cajita* victima = buscarCajita(hoja);
-  std::cout << "encuentra a la cajita victima" << '\n';
   nodoActual = padre(hoja);
-  std::cout << "encuentra al padre del nodo victima" << '\n';
-
   if(nodoActual->hijoMasIzquierdo == victima){
-    std::cout << "va a hacer el if" << '\n';
     nodoActual->hijoMasIzquierdo = victima->hermanoDerecho;
-    std::cout << "hizo el if" << '\n';
-
   }
   else{
-    std::cout << "va a hacer el else" << '\n';
     Cajita* cajitaActual = nodoActual->hijoMasIzquierdo;
     while(cajitaActual->hermanoDerecho != victima){
       cajitaActual = cajitaActual->hermanoDerecho;
     }
-    std::cout << "encuentra al hermano izquierdo de la victima" << '\n';
     cajitaActual->hermanoDerecho = victima->hermanoDerecho;
   }
   victima->hermanoDerecho = 0;
-  std::cout << "aisla la cajita" << '\n';
   delete victima;
   --numeroNodos;
 }
