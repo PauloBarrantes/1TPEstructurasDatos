@@ -24,7 +24,7 @@ using namespace std;
         arreglo = new Arbol::Caja[M];
         tamano = M;
     }
-    Arbol::~Arbol(){
+    Arbol::~Arbol(){ //destruimos
         delete arreglo;
     }
     void Arbol::vaciar(){
@@ -36,11 +36,7 @@ using namespace std;
     Arbol::Nodo Arbol::raiz(){
         return 0; // Retorna la celda 0 del array
     }
-    /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
-    */
+
     Arbol::Nodo Arbol::hijoMasIzq(Arbol::Nodo nodoArbol){
         Arbol::Nodo hijoMasIzq = nodoArbol;
         int encontrado = 0;
@@ -54,11 +50,6 @@ using namespace std;
         return hijoMasIzq;
     }
 
-    /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
-    */
     Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoArbol){
         Arbol::Nodo hermanoDerecho = nodoArbol;
         int encontrado = 0;
@@ -71,19 +62,11 @@ using namespace std;
         }
         return hermanoDerecho;
     }
-    /*!
-       \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-       \param "Entra un nodo arbol"
-       \return "Retorna el nodo padre"
-    */
+
     Arbol::Nodo Arbol::padre(Arbol::Nodo nodoArbol){
         return arreglo[nodoArbol].padre;
     }
-    /*!
-       \brief "Para determinar si un nodo es hoja o no"
-       \param "Entra como parametro un nodo "
-       \return "Retorna un entero 1-Si es Hoja 0-Si no es hoja"
-    */
+
     int Arbol::esHoja(Arbol::Nodo nodoArbol){
         int esHoja = 1;
         int contador = 0;
@@ -95,27 +78,15 @@ using namespace std;
         }
         return esHoja;
     }
-    /*!
-       \brief "Ver la etiqueta de un nodo"
-       \param "Recibe un nodo"
-       \return "La etiqueta del nodo"
-    */
+
     int Arbol::etiqueta(Arbol::Nodo nodoArbol){
         return arreglo[nodoArbol].etiqueta;
     }
-    /*!
-       \brief "Ver la cantidad de nodos que tiene el árbol "
-       \param "No recibe"
-       \return "Retorna el número nodos"
-    */
+
     int Arbol::numNodos(){
         return nNodos;
     }
-    /*!
-       \brief "Averigua el número de hijos que tiene un nodo"
-       \param "Recibe un nodo"
-       \return "Retorna el número de hijos que tiene un nodo"
-    */
+
     int Arbol::numHijos(Arbol::Nodo nodoArbol){
         int contadorHijos = 0;
         for (int i = 0; i < ultima; ++i){
@@ -125,19 +96,11 @@ using namespace std;
         }
         return contadorHijos;
     }
-    /*!
-       \brief "Modifica la etiqueta de un nodo ya creado"
-       \param "Recibe un nodo y un entero etiqueta"
-       \return "No retorna nada"
-    */
+
     void Arbol::modificarEtiq(Arbol::Nodo nodoArbol, int etiqueta){
         arreglo[nodoArbol].setEtiqueta(etiqueta);
     }
-    /*!
-       \brief "Le agrega un hijo a un nodo en la iesima posición "
-       \param "Recibe un nodo, una etiqueta y un entero posición"
-       \return "Retorna el nodo del hijo que se creo"
-    */
+
     Arbol::Nodo Arbol::agregarHijoIesimo(Arbol::Nodo nodoArbol, int etiqueta, int posicion){
         int contador = 0;
             if(tamano > nNodos){ //Vemos si aun queda espacio en el array
@@ -163,11 +126,7 @@ using namespace std;
             }
         return contador;
     }
-    /*!
-       \brief "Imprime las etiquetas y el padre del árbol"
-       \param "No recibe"
-       \return "No retorna nada"
-    */
+
     std::ostream& Arbol::imprimir(std::ostream& salida){
 
         for (int i = 0; i <= ultima; ++i){
@@ -175,11 +134,7 @@ using namespace std;
         }
         return salida;
     }
-    /*!
-       \brief "Borra la hoja de un árbol"
-       \param "Recibe un nodo"
-       \return "No retorna nada"
-    */
+
     void Arbol::borrarHoja(Arbol::Nodo nodoArbol){
         if (vacia()){
             std::cerr << "El arbol está vacio" << '\n';
@@ -191,22 +146,14 @@ using namespace std;
             nNodos -= 1;
         }
     }
-    /*!
-       \brief "Crea la raiz del árbol"
-       \param "Recibe una etiqueta"
-       \return "No retorna nada"
-    */
+
     void Arbol::ponerRaiz(int etiqueta){
         arreglo[0].etiqueta = etiqueta;
         arreglo[0].padre = -1;
         ultima = 0;
         nNodos+= 1;
     }
-    /*!
-       \brief "Busca el nodo que contiene esa etiqueta"
-       \param "Recibe una etiqueta "
-       \return "Un nodo que le corresponde esa etiqueta"
-    */
+
     Arbol::Nodo Arbol::buscarNodo(int etiqueta){
         int nodo = 0;
         int encontrado = 0;
