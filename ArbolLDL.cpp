@@ -151,35 +151,35 @@ int Arbol::vacia(){
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Pide la raiz del Arbol"
+   \param ""
+   \return "Retorna el atributo raizArbol"
 */
 Arbol::Nodo Arbol::raiz(){
   return this->raizArbol;
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Pide el hijoMasIzquierdo de un Nodo pasado por parámetro"
+   \param "Entra un Nodo para buscar su hijoMasIzquierdo"
+   \return "Retorna el hijoMasIzquierdo del Nodo que entró como parámetro"
 */
 Arbol::Nodo Arbol::hijoMasIzq(Nodo nodoRef){
   return nodoRef->hijoMasIzquierdo->nodo;
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Busca la Cajita que apunta al Nodo que entra como parámetro y accede a su hermanoDerecho"
+   \param "Entra un Nodo de referencia del que se busa el hermanoDerecho"
+   \return "Retorna el hermanoDerecho del Nodo que entró como parámetro"
 */
 Arbol::Nodo Arbol::hermanoDer(Nodo nodoRef){
   return buscarCajita(nodoRef)->hermanoDerecho->nodo;
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
+   \brief "Devolvemos el padre del Nodo que entro como parámetro"
+   \param "Entra el Nodo del que se va a buscar el padre"
    \return "Retorna el nodo padre"
 */
 Arbol::Nodo Arbol::padre(Nodo nodoRef){
@@ -199,36 +199,36 @@ Arbol::Nodo Arbol::padre(Nodo nodoRef){
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Revisa si un Nodo tiene hijos para ver si es una hoja"
+   \param "Entra un Nodo a verificar si es hoja"
+   \return "Retorna 1 si es hoja, 0 si no"
 */
 int Arbol::esHoja(Nodo nodoRef){
   return nodoRef->hijoMasIzquierdo == 0;
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Accede a la etiqueta de un Nodo pasado por parámetro"
+   \param "Entra un Nodo del que se quiere obtener la etiqueta"
+   \return "Retorna la etiqueta del Nodo"
 */
 int Arbol::etiqueta(Nodo nodoRef){
   return nodoRef->etiqueta;
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Accede al atributo numeroNodos para dar la cantidad de Nodos del Arbol"
+   \param ""
+   \return "Retorna la cantidad de Nodos que tiene el Arbol"
 */
 int Arbol::numNodos(){
   return numeroNodos;
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Cuenta el número de hijos que tiene un Nodo"
+   \param "Entra el Nodo del que se quieren contar los hijos"
+   \return "Retorna la cantidad de hijos"
 */
 int Arbol::numHijos(Nodo nodoRef){
   int numeroHijos = 0;
@@ -241,9 +241,9 @@ int Arbol::numHijos(Nodo nodoRef){
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Modifica la etiqueta de un Nodo"
+   \param "El Nodo al que se quiere modificar y su nueva etiqueta"
+   \return ""
 */
 void Arbol::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
   nodoRef->etiqueta = nuevaEtiqueta;
@@ -251,8 +251,8 @@ void Arbol::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
 
 /*!
    \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \param "Entra un Nodo padre, la etiqueta del nuevo nodo y su posicion en la sublista de hijos"
+   \return "Retorna el Nodo creado"
 */
 Arbol::Nodo Arbol::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
   Nodo nuevoNodo = new Caja(etiqueta);
@@ -280,9 +280,9 @@ Arbol::Nodo Arbol::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Borra la Cajita que apunta al Nodo y el Nodo que entra como parámetro"
+   \param "Nodo hoja que se quiere borrar"
+   \return ""
 */
 void Arbol::borrarHoja(Nodo hoja){
   Nodo nodoActual = raizArbol;
@@ -319,9 +319,9 @@ void Arbol::borrarHoja(Nodo hoja){
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Coloca la raiz del Arbol, cuando este está vacío"
+   \param "Etiqueta que se le quiere poner a la raíz"
+   \return ""
 */
 void Arbol::ponerRaiz(int etiqueta){
   if(vacia()){
@@ -331,9 +331,9 @@ void Arbol::ponerRaiz(int etiqueta){
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Busca el nodo que tiene la etiqueta que entra como parámetro"
+   \param "Una etiqueta"
+   \return ""
 */
 Arbol::Nodo Arbol::buscarNodo(int etiqueta){
   Nodo buscado = raizArbol;
@@ -344,9 +344,9 @@ Arbol::Nodo Arbol::buscarNodo(int etiqueta){
 }
 
 /*!
-   \brief "Devolvemos el padre del nodoarbol que entro como parametro"
-   \param "Entra un nodo arbol"
-   \return "Retorna el nodo padre"
+   \brief "Imprime el Arbol"
+   \param "Ostream"
+   \return "Ostream con el que se imprimió el raizArbol"
 */
 ostream& Arbol::imprimir(ostream& salida){
   return raizArbol->imprimir(salida);
