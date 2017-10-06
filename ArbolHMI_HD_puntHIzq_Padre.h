@@ -169,6 +169,13 @@ class Arbol{
 			\return "No retorna nada"
 		*/
 		std::ostream& imprimir(std::ostream&);
+		
+		/*!
+			\brief "Busca el nodo que tiene la etiqueta que se recibe como parámetro"
+			\param "int etiqueta"
+			\return "Retorna el nodo que tiene esa etiqueta"
+		*/
+		Arbol::NodoArbol* buescarNodo(int);
 };
 
 #endif

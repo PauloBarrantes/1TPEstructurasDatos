@@ -189,3 +189,25 @@ void Arbol::ponerRaiz(int etqta){
 ostream& Arbol::imprimir(ostream& salida){
 	return nRaiz->imprimir(salida);
 }
+
+Arbol::NodoArbol* Arbol::buscarNodo(int etqta){
+	NodoArbol*nBuscado = 0;
+	NodoArbol* actual = nRaiz;
+	queue<NodoArbol*> cola;
+	NodoArbol* nHijo = 0;
+	
+	while(!nPadre && cola.size() != 0){
+		nHijo = hijoMasIzq(actual);
+		while(nHijo != 0 && !nPadre){
+			if(nHijo->etqta == etqta){
+				nBuscado = nHijo;
+			}else{
+				cola.push(nHijo);
+				nHijo = hermanoDer(nHijo);
+			}
+		}
+		actual = cola.front();
+		cola.pop();
+	}
+	return nBuscado;
+}

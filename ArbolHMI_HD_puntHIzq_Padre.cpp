@@ -175,3 +175,26 @@ void Arbol::ponerRaiz(int etqta){
 ostream& Arbol::imprimir(ostream& salida){
 	return nRaiz->imprimir(salida);
 }
+
+Arbol::NodoArbol* Arbol::buescarNodo(int etqta){
+	NodoArbol* actual = nRaiz;
+	while(actual && actual->etqta != etqta){
+		if(actual->hijoMasI){
+			actual = actual->hijoMasI;
+		}else{
+			if(actual->hermanoD){
+				actual = actual->hermanoD;
+			}else{
+				while(actual->padre && !actual->padre->hermanoD){
+					actual->padre;
+				}
+				if(actual->padre){
+					actual->padre->hermanoD;
+				}else{
+					actual = 0;
+				}
+			}
+		}
+	}
+	return actual;
+}
