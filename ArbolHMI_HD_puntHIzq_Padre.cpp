@@ -176,7 +176,7 @@ ostream& Arbol::imprimir(ostream& salida){
 	return nRaiz->imprimir(salida)<<endl;
 }
 
-Arbol::NodoArbol* Arbol::buescarNodo(int etqta){
+Arbol::NodoArbol* Arbol::buscarNodo(int etqta){
 	NodoArbol* actual = nRaiz;
 	while(actual && actual->etqta != etqta){
 		if(actual->hijoMasI){

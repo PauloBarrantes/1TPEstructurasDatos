@@ -174,7 +174,7 @@ class Arbol{
 			\param "int etiqueta"
 			\return "Retorna el nodo que tiene esa etiqueta"
 		*/
-		Arbol::NodoArbol* buescarNodo(int);
+		Arbol::NodoArbol* buscarNodo(int);
 };
 
 #endif
