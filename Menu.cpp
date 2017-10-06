@@ -60,7 +60,7 @@ void Menu::pruebaArbol(){
 
 }
 void Menu::instruccionesArbol(){
-    cout << "------ Instrucciones ------" <<endl;
+    cout << "------- Instrucciones -------" <<endl;
     cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
     cout << "Escriba iniciar" <<endl;
     cout << "Escriba destruir" <<endl;
@@ -169,31 +169,79 @@ void Menu::imprimir(){
 void Menu::pruebaCola(){
     cout << "Hola!, te guiaré en la prueba del modelo cola" <<endl;
     instruccionesCola();
+    string instruccion;
+
+    do {
+        cin >> instruccion;
+        if(instruccion == "iniciar"){
+            iniciarC();
+        }else{
+            if(instruccion == "destruir"){
+                destruirC();
+            }else{
+                if(instruccion == "encolar"){
+                    encolarC();
+                }else{
+                    if(instruccion == "frente"){
+                        frenteC();
+                    }
+                }
+            }
+        }
+
+
+    } while(instruccion != "salir");
 }
 void Menu::instruccionesCola(){
-    cout << "------ Instrucciones ------" <<endl;
-    cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-    cout << "Escriba -n- para " <<endl;
-}
-void iniciarC(){
-    cola1 = new Cola();
-}
-void destruirC(){
-    delete cola1;
-}
-void vaciarC(){
-    cola1->vaciar();
-}
-void vaciaC(){
+    cout << "------- Instrucciones -------" <<endl;
+    cout << "Escriba ayuda para ver las instrucciones de nuevo" <<endl;
+    cout << "Escriba salir para salir al menú principal " <<endl;
+    cout << "Escriba iniciar para inicializar la cola" <<endl;
+    cout << "Escriba destruir para destruir la cola " <<endl;
+    cout << "Escriba vaciar para vaciar la cola" <<endl;
+    cout << "Escriba vacia para ver si la cola está vacía" <<endl;
+    cout << "Escriba encolar para encolar un número" <<endl;
+    cout << "Escriba desencolar para un número " <<endl;
+    cout << "Escriba numElem para ver la cantidad de elementos que tiene la cola " <<endl;
+    cout << "Escriba frente para ver el número que está de primero en la cola " <<endl;
+    cout << "Escriba ultimo para ver el número que está de último en la cola " <<endl;
 
 }
-void encolarC();
-void desencolarC();
-void numElementosC();
-void frenteC();
-void ultimoC();
+void Menu::iniciarC(){
+    cola1 = new Cola();
+    cout << "La cola ha sido inicializada " <<endl;
+}
+void Menu::destruirC(){
+    delete cola1;
+    cout <<"La cola ha sido destruida satisfactoriamente" <<endl;
+}
+void Menu::vaciarC(){
+    cola1->vaciar();
+    cout<< "La cola se ha vaciado satisfactoriamente" <<endl;
+}
+void Menu::vaciaC(){
+    if(cola1->vacia()){
+        cout << "La cola está vacía" <<endl;
+    }else{
+        cout << "La cola no está vacía"<<endl;
+    }
+}
+void Menu::encolarC(){
+    int numero =0;
+    cout<< "Digite el número que desea encolar" <<endl;
+    cin >> numero;
+    cola1->encolar(numero);
+}
+void Menu::desencolarC(){
+    cout << "Desencolamos" <<endl;
+    cola1->desencolar();
+}
+void Menu::numElementosC(){
+    cout <<"El número de elementos en la cola es: " << cola1->numElementos() <<endl;
+}
+void Menu::frenteC(){
+    cout <<"El frente de la cola es: " << cola1->frente() <<endl;
+}
+void Menu::ultimoC(){
+    cout << "El último de la cola es: " <<cola1->ultimo() << endl;
+}

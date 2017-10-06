@@ -80,9 +80,9 @@ using namespace std;
         return arreglo[nodoArbol].padre;
     }
     /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
+       \brief "Para determinar si un nodo es hoja o no"
+       \param "Entra como parametro un nodo "
+       \return "Retorna un entero 1-Si es Hoja 0-Si no es hoja"
     */
     int Arbol::esHoja(Arbol::Nodo nodoArbol){
         int esHoja = 1;
@@ -96,25 +96,25 @@ using namespace std;
         return esHoja;
     }
     /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
+       \brief "Ver la etiqueta de un nodo"
+       \param "Recibe un nodo"
+       \return "La etiqueta del nodo"
     */
     int Arbol::etiqueta(Arbol::Nodo nodoArbol){
         return arreglo[nodoArbol].etiqueta;
     }
     /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
+       \brief "Ver la cantidad de nodos que tiene el árbol "
+       \param "No recibe"
+       \return "Retorna el número nodos"
     */
     int Arbol::numNodos(){
         return nNodos;
     }
     /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
+       \brief "Averigua el número de hijos que tiene un nodo"
+       \param "Recibe un nodo"
+       \return "Retorna el número de hijos que tiene un nodo"
     */
     int Arbol::numHijos(Arbol::Nodo nodoArbol){
         int contadorHijos = 0;
@@ -126,19 +126,19 @@ using namespace std;
         return contadorHijos;
     }
     /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
+       \brief "Modifica la etiqueta de un nodo ya creado"
+       \param "Recibe un nodo y un entero etiqueta"
+       \return "No retorna nada"
     */
     void Arbol::modificarEtiq(Arbol::Nodo nodoArbol, int etiqueta){
         arreglo[nodoArbol].setEtiqueta(etiqueta);
     }
     /*!
-       \brief "Description"
-       \param "Param description"
-       \return "Return of the function"
+       \brief "Le agrega un hijo a un nodo en la iesima posición "
+       \param "Recibe un nodo, una etiqueta y un entero posición"
+       \return "Retorna el nodo del hijo que se creo"
     */
-    int Arbol::agregarHijoIesimo(Arbol::Nodo nodoArbol, int etiqueta, int posicion){
+    Arbol::Nodo Arbol::agregarHijoIesimo(Arbol::Nodo nodoArbol, int etiqueta, int posicion){
         int contador = 0;
             if(tamano > nNodos){ //Vemos si aun queda espacio en el array
                 int pos = 0;
@@ -163,15 +163,20 @@ using namespace std;
             }
         return contador;
     }
+    /*!
+       \brief "Imprime las etiquetas y el padre del árbol"
+       \param "No recibe"
+       \return "No retorna nada"
+    */
     void Arbol::toString(){
         for (int i = 0; i <= ultima; ++i){
             std::cout << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[i].padre <<'\n';
         }
     }
     /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
+       \brief "Borra la hoja de un árbol"
+       \param "Recibe un nodo"
+       \return "No retorna nada"
     */
     void Arbol::borrarHoja(Arbol::Nodo nodoArbol){
         if (vacia()){
@@ -185,9 +190,9 @@ using namespace std;
         }
     }
     /*!
-       \brief "Description"
-       \param "Param description"s
-       \return "Return of the function"
+       \brief "Crea la raiz del árbol"
+       \param "Recibe una etiqueta"
+       \return "No retorna nada"
     */
     void Arbol::ponerRaiz(int etiqueta){
         arreglo[0].etiqueta = etiqueta;
@@ -195,6 +200,11 @@ using namespace std;
         ultima = 0;
         nNodos+= 1;
     }
+    /*!
+       \brief "Busca el nodo que contiene esa etiqueta"
+       \param "Recibe una etiqueta "
+       \return "Un nodo que le corresponde esa etiqueta"
+    */
     Arbol::Nodo Arbol::buscarNodo(int etiqueta){
         int nodo = 0;
         int encontrado = 0;

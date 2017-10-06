@@ -82,9 +82,13 @@ int Cola::numElementos(){
    \return "Retorna un entero"
 */
 int Cola::frente(){
+    int elemento = 0;
     if(!vacia()){
-        return arregloCircular[primera];
+        elemento = arregloCircular[primera];
+    }else{
+        std::cerr << "La cola está vacía" << '\n';
     }
+    return elemento;
 }
 /*!
    \brief "Retorna al que esté de último de la cola"
@@ -94,6 +98,8 @@ int Cola::frente(){
 int Cola::ultimo(){
     if(!vacia()){
         return arregloCircular[ultima];
+    }else{
+        std::cerr << "La cola está vacía" << '\n';
     }
 
 }
