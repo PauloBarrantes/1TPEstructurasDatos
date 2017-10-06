@@ -241,12 +241,26 @@ void Menu::pruebaCola(){
                         frenteC();
                     }else{
                         if(instruccion == "vaciar"){
-
+                            vaciarC();
                         }else{
                             if(instruccion == "vacia"){
-
+                                vaciaC();
                             }else{
-                                if(instruccion == "")
+                                if(instruccion == "desencolar"){
+                                    desencolarC();
+                                }else{
+                                    if(instruccion == "help"){
+                                        instruccionesCola();
+                                    }else{
+                                        if(instruccion == "numelem"){
+                                            numElementosC();
+                                        }else{
+                                            if(instruccion == "ultimo"){
+                                                ultimoC();
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -259,7 +273,7 @@ void Menu::pruebaCola(){
 }
 void Menu::instruccionesCola(){
     cout << "-------------- Instrucciones --------------" <<endl;
-    cout << "Escriba ayuda para ver las instrucciones de nuevo" <<endl;
+    cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
     cout << "Escriba salir para salir al menú principal " <<endl;
     cout << "Escriba iniciar para inicializar la cola" <<endl;
     cout << "Escriba destruir para destruir la cola " <<endl;
