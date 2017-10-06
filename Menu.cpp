@@ -174,13 +174,13 @@ void Menu::esHoja(){
 
 }
 void Menu::numNodos(){
-    cout << "El árbol tiene  " << arbol1->numNodos() << " nodos";
+    cout << "El árbol tiene  " << arbol1->numNodos() << " nodos"<<endl;
 }
 void Menu::numHijos(){
     int nodo = 0;
     cout << "Digite la etiqueta de quien desea ver la cantidad de hijos que tiene" <<endl;
     cin >> nodo;
-    cout << "El " <<nodo << " tiene  " << arbol1->numHijos(arbol1->buscarNodo(nodo)) << " hijos";
+    cout << "El " <<nodo << " tiene  " << arbol1->numHijos(arbol1->buscarNodo(nodo)) << " hijos"<<endl;
 }
 void Menu::modificarEtiq(){
     int nodo = 0;
@@ -199,7 +199,6 @@ void Menu::agregarHijoIesimo(){
 
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(padre),etiqueta,posicion);
     arbol1->imprimir(cout);
-
 }
 void Menu::borrarHoja(){
     int nodo = 0;

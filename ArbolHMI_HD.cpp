@@ -10,7 +10,7 @@ Arbol::NodoArbol::NodoArbol(int etqta){
 	this->nHijos = 0;
 }
 
-Arbol::NodoArbol::NodoArbol(int etqta,NodoArbol* hermanoDer){
+Arbol::NodoArbol::NodoArbol(int etqta,NodoArbol* hermanoD){
 	this->etqta = etqta;
 	this->hijoMasI = 0;
 	this->hermanoD = hermanoD;
@@ -34,7 +34,6 @@ ostream& Arbol::NodoArbol::imprimir(ostream& salida){
 		hijoMasI->imprimir(salida);
 		salida<<" }";
 	}
-	
 	if(hermanoD){
 		salida<<" , ";
 		hermanoD->imprimir(salida);
@@ -128,6 +127,9 @@ void Arbol::modificarEtiq(Arbol::NodoArbol* nodo, int etqta){
 Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int posicion){
 	NodoArbol* nuevoHijo = 0;
 	int seInserto = 0;
+	cout<<nodo->etqta<<endl;
+	cout<<etqta<<endl;
+	cout<<posicion<<endl;
 	
 	if(posicion == 1){
 		nuevoHijo = new NodoArbol(etqta,nodo->hijoMasI);
@@ -187,27 +189,32 @@ void Arbol::ponerRaiz(int etqta){
 }
 
 ostream& Arbol::imprimir(ostream& salida){
-	return nRaiz->imprimir(salida)<<endl;;
+	return nRaiz->imprimir(salida)<<endl;
 }
 
 Arbol::NodoArbol* Arbol::buscarNodo(int etqta){
-	NodoArbol*nBuscado = 0;
-	NodoArbol* actual = nRaiz;
+	NodoArbol* nBuscado = 0;
+	NodoArbol* actual = 0;
 	queue<NodoArbol*> cola;
 	NodoArbol* nHijo = 0;
 	
-	while(!nBuscado && cola.size() != 0){
-		nHijo = hijoMasIzq(actual);
-		while(nHijo != 0 && !nBuscado){
-			if(nHijo->etqta == etqta){
-				nBuscado = nHijo;
-			}else{
-				cola.push(nHijo);
-				nHijo = hermanoDer(nHijo);
+	cola.push(nRaiz);
+	if(etqta != nRaiz->etqta){
+		while(!nBuscado && cola.size() != 0){
+			actual = cola.front();
+			cola.pop(); 
+			nHijo = hijoMasIzq(actual);
+			while(nHijo != 0 && !nBuscado){
+				if(nHijo->etqta == etqta){
+					nBuscado = nHijo;
+				}else{
+					cola.push(nHijo);
+					nHijo = hermanoDer(nHijo);
+				}
 			}
 		}
-		actual = cola.front();
-		cola.pop();
+	}else{
+		nBuscado = nRaiz;
 	}
 	return nBuscado;
 }
