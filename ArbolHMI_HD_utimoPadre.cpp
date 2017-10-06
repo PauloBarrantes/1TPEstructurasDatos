@@ -84,11 +84,8 @@ Arbol::NodoArbol* Arbol::padre(Arbol::NodoArbol* nodo){
 	NodoArbol* actual = nodo;
 	
 	while(actual->senalaP == 0 && actual->hermanoD){
-		cout<<actual->etqta<<endl;
 		actual = actual->hermanoD;
 	}
-	cout<<actual->etqta<<endl;
-	cout<<actual->hermanoD->etqta<<endl;
 	return actual->hermanoD;
 }
 
@@ -123,7 +120,6 @@ Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int
 			nodo->hijoMasI = nuevoHijo;
 		}else{
 			nuevoHijo = new NodoArbol(etqta,nodo);
-			cout<<nuevoHijo->hermanoD->etqta<<endl;
 			nuevoHijo->senalaP = 1;
 			nodo->hijoMasI = nuevoHijo;
 		}
@@ -138,8 +134,6 @@ Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int
 		}
 		
 		if(actual){
-			cout<<actual->etqta<<endl;
-			cout<<actual->hermanoD->etqta<<endl;
 			nuevoHijo = new NodoArbol(etqta,actual->hermanoD);
 			actual->hermanoD = nuevoHijo;
 			seInserto = 1;
