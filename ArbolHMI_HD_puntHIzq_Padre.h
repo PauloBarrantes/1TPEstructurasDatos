@@ -41,9 +41,9 @@ class Arbol{
 				~NodoArbol();
 				
 				/*!
-					\brief "Crea un nodo, pero sin hijos ni hermanos"
-					\param "int etiqueta"
-					\return "No retorna nada"
+					\brief "Imprime el etiqueta actual, y manda a imprimir a sus hijos y hermanos"
+					\param "ostream salida"
+					\return "Retorna la salida"
 				*/
 				std::ostream& imprimir(std::ostream&);
 		};
@@ -164,9 +164,9 @@ class Arbol{
         void ponerRaiz(int);
 		
 		/*!
-			\brief "Crea un nodo, pero sin hijos ni hermanos"
-			\param "int etiqueta"
-			\return "No retorna nada"
+			\brief "Imprime el arbol"
+			\param "ostream salida"
+			\return "Retorna la salida"
 		*/
 		std::ostream& imprimir(std::ostream&);
 		
