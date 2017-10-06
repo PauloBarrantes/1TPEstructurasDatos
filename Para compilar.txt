@@ -1,1 +1,3 @@
 g++ main.cpp ArbolHMI_HD.cpp
+g++ main.cpp ArbolHMI_HD_puntHIzq_Padre.cpp
+g++ main.cpp ArbolHMI_HD_utimoPadre.cpp

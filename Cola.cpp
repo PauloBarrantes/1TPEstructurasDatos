@@ -52,20 +52,19 @@ void Cola::encolar(int elemento){
    \return "Retorna al elemento que sacamos"
 */
 int Cola::desencolar(){
-
+    int frente =0;
     if(!vacia()){
-        int frente = arregloCircular[primera];
+        frente = arregloCircular[primera];
         if (primera == tamano-1){
             primera = 0;
         }else{
             primera += 1;
         }
         numElem -= 1;
-        return frente;
     }else{
         cerr << "La Cola está vacía" << endl;
-        return NULL;
     }
+    return frente;
 
 }
 /*!
@@ -96,10 +95,12 @@ int Cola::frente(){
    \return "Retorna un entero"
 */
 int Cola::ultimo(){
+    int elemento = 0;
     if(!vacia()){
-        return arregloCircular[ultima];
+        elemento = arregloCircular[ultima];
     }else{
         std::cerr << "La cola está vacía" << '\n';
     }
+    return elemento;
 
 }

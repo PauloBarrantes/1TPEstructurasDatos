@@ -7,6 +7,7 @@
 #ifndef ArbolSalPadre2017
 #define ArbolSalPadre2017
 #define M 1000
+#include <iostream>
 class Arbol {
     typedef int Nodo;
     class Caja; //Forward declaration
@@ -42,7 +43,7 @@ class Arbol {
         Nodo agregarHijoIesimo(Nodo, int, int);
         void borrarHoja(Nodo);
         void ponerRaiz(int);
-        void toString();
+        std::ostream& imprimir(std::ostream&);
         Nodo buscarNodo(int);
 };
 

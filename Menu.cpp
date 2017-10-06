@@ -1,12 +1,7 @@
 #include "Menu.h"
 #include <iostream>
 #include <string>
-#include "ArbolSalPadre.h"
-//#include "ArbolHMI_HD_puntHIzq_Padre.h"
-//#include "ArbolHMI_HD.h"
-//#include "ArbolHMI_HD_utimoPadre.h"
-//#include ""
-#include "Cola.h"
+
 using namespace std;
 
 Menu::Menu(){
@@ -18,6 +13,8 @@ void Menu::controlador(){
     cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
     cout<< "Escriba arbol para hacer pruebas con el arbol" <<endl;
     cout<< "Escriba cola para hacer pruebas con la cola"<<endl;
+    cout<< "Escriba salir para cuando desee acabar con las pruebas"<<endl;
+
     string respuesta = "";
     do {
         cin >>respuesta;
@@ -27,10 +24,12 @@ void Menu::controlador(){
             if(respuesta == "cola"){
                 pruebaCola();
             }else{
-                std::cerr << "No coincide con ninguna palabra" << '\n';
+                if(respuesta != "salir"){
+                    std::cerr << "No coincide con ninguna palabra" << '\n';
+                }
             }
         }
-    } while(respuesta != "arbol" && respuesta !="cola");
+    } while(respuesta != "salir");
 
 
 }
@@ -38,30 +37,81 @@ void Menu::controlador(){
 void Menu::pruebaArbol(){
     cout << "Hola!, te guiaré en la prueba del modelo arbol" <<endl;
     instruccionesArbol();
+    string instruccion;
     do {
-        string instruccion;
         cin >> instruccion;
 
         if(instruccion == "iniciar"){
             iniciar();
         }else{
-            if(instruccion == "ponerraiz"){
-                ponerRaiz();
+            if(instruccion == "destruir"){
+                destruir();
             }else{
-                if(instruccion == "agregarhijoiesimo"){
-                    agregarHijoIesimo();
+                if(instruccion == "vaciar"){
+                    vaciar();
                 }else{
-
+                    if(instruccion == "vacia"){
+                        vacia();
+                    }else{
+                        if(instruccion == "raiz"){
+                            raiz();
+                        }else{
+                            if(instruccion == "hijomasizq"){
+                                hijoMasIzq();
+                            }else{
+                                if(instruccion == "hermanoder"){
+                                    hermanoDer();
+                                }else{
+                                    if(instruccion == "padre"){
+                                        padre();
+                                    }else{
+                                        if(instruccion == "eshoja"){
+                                            esHoja();
+                                        }else{
+                                            if(instruccion == "numnodos"){
+                                                numNodos();
+                                            }else{
+                                                if(instruccion == "numhijos"){
+                                                    numHijos();
+                                                }else{
+                                                    if(instruccion == "modificaretiqueta"){
+                                                        modificarEtiq();
+                                                    }else{
+                                                        if(instruccion == "agregarhijoiesimo"){
+                                                            agregarHijoIesimo();
+                                                        }else{
+                                                            if(instruccion == "borrarhoja"){
+                                                                borrarHoja();
+                                                            }else{
+                                                                if( instruccion== "ponerraiz"){
+                                                                    ponerRaiz();
+                                                                }else{
+                                                                    if(instruccion == "help"){
+                                                                        instruccionesArbol();
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-    } while(1);
+    } while(instruccion != "salir");
 
 
 }
 void Menu::instruccionesArbol(){
-    cout << "------- Instrucciones -------" <<endl;
+    cout << "-------------- Instrucciones --------------" <<endl;
     cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
+    cout << "Escriba salir para volver al menú principals" <<endl;
     cout << "Escriba iniciar" <<endl;
     cout << "Escriba destruir" <<endl;
     cout << "Escriba vaciar" <<endl;
@@ -72,7 +122,6 @@ void Menu::instruccionesArbol(){
     cout << "Escriba hermanoder para " <<endl;
     cout << "Escriba padre para " <<endl;
     cout << "Escriba eshoja para " <<endl;
-    cout << "Escriba etiqueta para " <<endl;
     cout << "Escriba numnodos para " <<endl;
     cout << "Escriba numhijos para " <<endl;
     cout << "Escriba modificaretiqueta para " <<endl;
@@ -124,35 +173,41 @@ void Menu::esHoja(){
 
 
 }
-void Menu::etiqueta(){
-
-}
 void Menu::numNodos(){
-
+    cout << "El árbol tiene  " << arbol1->numNodos() << " nodos"
 }
 void Menu::numHijos(){
-
+    int nodo = 0;
+    cout << "Digite la etiqueta de quien desea ver la cantidad de hijos que tiene" <<endl;
+    cin >> nodo;
+    cout << "El " <<nodo << " tiene  " << arbol1->numHijos(arbol1->buscarNodo(nodo)) << " hijos";
 }
 void Menu::modificarEtiq(){
-
+    int nodo = 0;
+    cout << "Digite al"
 }
 void Menu::agregarHijoIesimo(){
     int etiqueta = 0;
     int padre = 0;
     int posicion = 0;
-    cout << "Digite el padre al que le vamos a agregar un hijo" <<endl;
+    cout << "Digite el PADRE al que le vamos a agregar un hijo" <<endl;
     cin >> padre;
     cout << "Digite la etiqueta que vamos a agregar" <<endl;
     cin >> etiqueta;
-    cout << "Digite la posicion donde vamos a agregar el hijo" <<endl;
+    cout << "Digite la posición donde vamos a agregar el hijo" <<endl;
     cin >> posicion;
 
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(padre),etiqueta,posicion);
-    arbol1->toString();
+    arbol1->imprimir(cout);
 
 }
 void Menu::borrarHoja(){
+    int nodo = 0;
+    cout<< "Digite la etiqueta que desea borrar" <<endl;
+    cin >> nodo;
 
+    arbol1->borrarHoja(buscarNodo(nodo));
+    cout << "Hoja borrada satisfactoriamente" <<endl;
 }
 void Menu::ponerRaiz(){
     int etiqueta = 0;
@@ -160,12 +215,12 @@ void Menu::ponerRaiz(){
     cin >> etiqueta;
 
     arbol1->ponerRaiz(etiqueta);
-    arbol1->toString();
 }
 void Menu::imprimir(){
-
+    arbol1->imprimir(cout);
 }
 
+/// Métodos de Prueba de la Cola ///
 void Menu::pruebaCola(){
     cout << "Hola!, te guiaré en la prueba del modelo cola" <<endl;
     instruccionesCola();
@@ -184,6 +239,30 @@ void Menu::pruebaCola(){
                 }else{
                     if(instruccion == "frente"){
                         frenteC();
+                    }else{
+                        if(instruccion == "vaciar"){
+                            vaciarC();
+                        }else{
+                            if(instruccion == "vacia"){
+                                vaciaC();
+                            }else{
+                                if(instruccion == "desencolar"){
+                                    desencolarC();
+                                }else{
+                                    if(instruccion == "help"){
+                                        instruccionesCola();
+                                    }else{
+                                        if(instruccion == "numelem"){
+                                            numElementosC();
+                                        }else{
+                                            if(instruccion == "ultimo"){
+                                                ultimoC();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -193,8 +272,8 @@ void Menu::pruebaCola(){
     } while(instruccion != "salir");
 }
 void Menu::instruccionesCola(){
-    cout << "------- Instrucciones -------" <<endl;
-    cout << "Escriba ayuda para ver las instrucciones de nuevo" <<endl;
+    cout << "-------------- Instrucciones --------------" <<endl;
+    cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
     cout << "Escriba salir para salir al menú principal " <<endl;
     cout << "Escriba iniciar para inicializar la cola" <<endl;
     cout << "Escriba destruir para destruir la cola " <<endl;

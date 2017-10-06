@@ -168,10 +168,12 @@ using namespace std;
        \param "No recibe"
        \return "No retorna nada"
     */
-    void Arbol::toString(){
+    std::ostream& Arbol::imprimir(std::ostream& salida){
+
         for (int i = 0; i <= ultima; ++i){
-            std::cout << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[i].padre <<'\n';
+            salida << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[i].padre <<'\n';
         }
+        return salida;
     }
     /*!
        \brief "Borra la hoja de un árbol"

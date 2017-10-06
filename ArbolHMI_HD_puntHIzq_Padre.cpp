@@ -185,11 +185,11 @@ Arbol::NodoArbol* Arbol::buescarNodo(int etqta){
 			if(actual->hermanoD){
 				actual = actual->hermanoD;
 			}else{
-				while(actual->padre && !actual->padre->hermanoD){
-					actual->padre;
+				while(actual->nPadre && !actual->nPadre->hermanoD){
+					actual->nPadre;
 				}
-				if(actual->padre){
-					actual->padre->hermanoD;
+				if(actual->nPadre){
+					actual->nPadre->hermanoD;
 				}else{
 					actual = 0;
 				}
