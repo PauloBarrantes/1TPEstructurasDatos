@@ -86,7 +86,7 @@ class Arbol{
 			\param "No tiene parámetros"
 			\return "Retorna la raíz"
 		*/
-		Arbol::NodoArbol* raiz();
+		int raiz();
 		
 		/*!
 			\param "NodoArbol* nodo"

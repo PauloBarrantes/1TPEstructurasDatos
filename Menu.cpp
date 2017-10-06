@@ -174,7 +174,7 @@ void Menu::esHoja(){
 
 }
 void Menu::numNodos(){
-    cout << "El árbol tiene  " << arbol1->numNodos() << " nodos"
+    cout << "El árbol tiene  " << arbol1->numNodos() << " nodos";
 }
 void Menu::numHijos(){
     int nodo = 0;
@@ -184,7 +184,7 @@ void Menu::numHijos(){
 }
 void Menu::modificarEtiq(){
     int nodo = 0;
-    cout << "Digite al"
+    cout << "Digite al";
 }
 void Menu::agregarHijoIesimo(){
     int etiqueta = 0;
@@ -206,7 +206,7 @@ void Menu::borrarHoja(){
     cout<< "Digite la etiqueta que desea borrar" <<endl;
     cin >> nodo;
 
-    arbol1->borrarHoja(buscarNodo(nodo));
+    arbol1->borrarHoja(arbol1->buscarNodo(nodo));
     cout << "Hoja borrada satisfactoriamente" <<endl;
 }
 void Menu::ponerRaiz(){

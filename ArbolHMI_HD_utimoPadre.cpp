@@ -68,8 +68,8 @@ int Arbol::vacia(){
 	return !nRaiz;
 }
 
-Arbol::NodoArbol* Arbol::raiz(){
-	return nRaiz;
+int Arbol::raiz(){
+	return nRaiz->etqta;
 }
 
 Arbol::NodoArbol* Arbol::hijoMasIzq(Arbol::NodoArbol* nodo){
@@ -204,7 +204,7 @@ void Arbol::ponerRaiz(int etqta){
 }
 
 ostream& Arbol::imprimir(ostream& salida){
-	return nRaiz->imprimir(salida);
+	return nRaiz->imprimir(salida)<<endl;
 }
 
 Arbol::NodoArbol* Arbol::buescarNodo(int etqta){
