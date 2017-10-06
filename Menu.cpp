@@ -88,6 +88,10 @@ void Menu::pruebaArbol(){
                                                                 }else{
                                                                     if(instruccion == "help"){
                                                                         instruccionesArbol();
+                                                                    }else{
+                                                                        if(instruccion == "imprimir"){
+                                                                            imprimir();
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -116,7 +120,7 @@ void Menu::instruccionesArbol(){
     cout << "Escriba destruir" <<endl;
     cout << "Escriba vaciar" <<endl;
     cout << "Escriba vacia" <<endl;
-
+    cout << "Escriba imprimir para mostrar el árbol " <<endl;
     cout << "Escriba raiz para ver la etiqueta que tiene la raiz " <<endl;
     cout << "Escriba hijomasizq " <<endl;
     cout << "Escriba hermanoder para " <<endl;
@@ -154,23 +158,37 @@ void Menu::raiz(){
     cout << "La raiz de el árbol es: " << arbol1->raiz() <<endl;
 }
 void Menu::hijoMasIzq(){
-
+    int nodo = 0;
+    cout << "Digite al nodo que desea ver al hijo más izquierdo" <<endl;
+    cin >> nodo;
+    cout << endl;
+    cout << "El hijo más izquierdo de " << nodo << " es " << arbol1->hijoMasIzq(arbol1->buscarNodo(nodo));
 }
 void Menu::hermanoDer(){
-
+    int nodo = 0;
+    cout << "Digite al nodo que desea ver al hermano derecho" <<endl;
+    cin >> nodo;
+    cout << endl;
+    cout << "El hermano derecho de " << nodo << " es " << arbol1->hermanoDer(arbol1->buscarNodo(nodo));
 }
 void Menu::padre(){
     int nodo = 0;
-    cout << "El padre de la etiqueta: ";
+    cout << "Digite el nodo que desea buscarle el padre";
     cin >> nodo;
     cout << endl;
     cout<<"El padre de" << nodo << " es:" << arbol1->padre(arbol1->buscarNodo(nodo));
 }
 void Menu::esHoja(){
     int nodo = 0;
-    cout << "Digite la etiqueta que deseas ver si es una hoja" <<endl;
+    cout << "Digite el nodo que desea ver si es una hoja" <<endl;
     cin >>nodo;
+    cout << endl;
 
+    if(arbol1->esHoja(arbol1->buscarNodo(nodo))){
+        cout << "El nodo " << nodo << "es una hoja" <<endl;
+    }else{
+        cout << "El nodo" << nodo << "no es una hoja" <<endl;
+    }
 
 }
 void Menu::numNodos(){
@@ -178,13 +196,26 @@ void Menu::numNodos(){
 }
 void Menu::numHijos(){
     int nodo = 0;
-    cout << "Digite la etiqueta de quien desea ver la cantidad de hijos que tiene" <<endl;
+    cout << "Digite el nodo de quien desea ver la cantidad de hijos que tiene" <<endl;
     cin >> nodo;
+    cout << endl;
+
     cout << "El " <<nodo << " tiene  " << arbol1->numHijos(arbol1->buscarNodo(nodo)) << " hijos"<<endl;
 }
 void Menu::modificarEtiq(){
     int nodo = 0;
-    cout << "Digite al";
+    int etiqueta =0;
+    cout << "Digite al nodo que desea modificarle la etiqueta" <<endl;
+    cin >> nodo;
+    cout << endl;
+    cout << "Digite la nueva etiqueta de este nodo (Para llamar a este nuevo nodo, tendrá que usar esta nueva etiqueta)" <<endl;
+    cin >> etiqueta;
+    cout << endl;
+
+    arbol1->modificarEtiq(arbol1->buscarNodo(nodo), etiqueta);
+    cout <<"Hemos cambiado la etiqueta satisfactoriamente" <<endl;
+
+
 }
 void Menu::agregarHijoIesimo(){
     int etiqueta = 0;
@@ -192,28 +223,38 @@ void Menu::agregarHijoIesimo(){
     int posicion = 0;
     cout << "Digite el PADRE al que le vamos a agregar un hijo" <<endl;
     cin >> padre;
-    cout << "Digite la etiqueta que vamos a agregar" <<endl;
+    cout << endl;
+
+    cout << "Digite el nuevo nodo que vamos a agregar" <<endl;
     cin >> etiqueta;
-    cout << "Digite la posición donde vamos a agregar el hijo" <<endl;
+    cout << endl;
+
+    cout << "Digite la posición donde vamos a agregar al hijo" <<endl;
     cin >> posicion;
+    cout << endl;
+
+
 
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(padre),etiqueta,posicion);
-    arbol1->imprimir(cout);
+    cout << "Se ha agregado satisfactoriamente" <<endl;
 }
 void Menu::borrarHoja(){
     int nodo = 0;
-    cout<< "Digite la etiqueta que desea borrar" <<endl;
+    cout<< "Digite el nodo hoja que desea borrar" <<endl;
     cin >> nodo;
+    cout << endl;
 
     arbol1->borrarHoja(arbol1->buscarNodo(nodo));
     cout << "Hoja borrada satisfactoriamente" <<endl;
 }
 void Menu::ponerRaiz(){
     int etiqueta = 0;
-    cout << "Digite la etiqueta que desea colocar como raíz" <<endl;
+    cout << "Digite el nodo que desea colocar como raíz" <<endl;
     cin >> etiqueta;
+    cout << endl;
 
     arbol1->ponerRaiz(etiqueta);
+    cout << "Raíz colocada satisfactoriamente" <<endl;
 }
 void Menu::imprimir(){
     arbol1->imprimir(cout);
