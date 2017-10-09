@@ -10,7 +10,6 @@ Algoritmos::Algoritmos(){
     cout << "Hola"<<endl;
 }
 Algoritmos::~Algoritmos(){
-    cout << "Muerte!" <<endl;
 }
 Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
     Arbol* arbol2 = new Arbol(); //Iniciamos la copia del árbol 1
@@ -25,7 +24,10 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
             Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
             Arbol::Nodo nodo2 = cola2.desencolar();
             int contador = 1;
+            cout <<"Llegamos al while" <<endl;
+            cin>> contador;
             while(nodoh1 != nodoNulo){
+                cout<< "Nodo: " <<nodoh1 <<endl;
                 cola1.encolar(nodoh1);
                 cola2.encolar( arbol2->agregarHijoIesimo(nodo2, arbol1->etiqueta(nodoh1), contador) );
                 nodoh1 = arbol1->hermanoDer(nodoh1);

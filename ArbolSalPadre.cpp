@@ -54,10 +54,10 @@ using namespace std;
     }
 
     Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoArbol){
-        Arbol::Nodo hermanoDerecho = nodoArbol;
+        Arbol::Nodo hermanoDerecho = nodoArbol+1;
         int encontrado = 0;
         while (hermanoDerecho <= ultima && !encontrado) {
-            if(arreglo[hermanoDerecho].padre == nodoArbol){
+            if( arreglo[hermanoDerecho].padre ==  arreglo[nodoArbol].padre){
                 encontrado = 1;
             }else{
                 ++hermanoDerecho;
@@ -66,6 +66,7 @@ using namespace std;
         if(hermanoDerecho >ultima ){
             hermanoDerecho = -1;
         }
+        cout<< "El hermano derecho es: "<< hermanoDerecho;
         return hermanoDerecho;
     }
 

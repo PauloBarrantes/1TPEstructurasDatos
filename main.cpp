@@ -7,13 +7,17 @@ using namespace std;
 int main(){
     Arbol* arbolito = new Arbol();
     arbolito->ponerRaiz(354);
-    for(int i = 1; i < 4 ; ++i){
-        arbolito->agregarHijoIesimo(0, 14, i);
-    }
-    for(int i = 1; i < 3 ; ++i){
-        arbolito->agregarHijoIesimo(i, 1, i);
-    }
+    arbolito->agregarHijoIesimo(0,20,1);
+    arbolito->agregarHijoIesimo(0,30,2);
+    arbolito->agregarHijoIesimo(0,45,3);
+    arbolito->agregarHijoIesimo(1,10,1);
+    arbolito->agregarHijoIesimo(1,15,2);
+    arbolito->agregarHijoIesimo(2,60,1);
+    arbolito->agregarHijoIesimo(2,666,2);
+    arbolito->agregarHijoIesimo(3,11,1);
+    arbolito->agregarHijoIesimo(3,22,2);
     arbolito->imprimir(cout);
+
     Algoritmos algo;
     Arbol* arbol2 = algo.copiarArbol(arbolito);
     arbol2->imprimir(cout);
