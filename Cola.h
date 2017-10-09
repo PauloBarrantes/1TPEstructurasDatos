@@ -49,7 +49,6 @@ class Cola {
         */
 
         void encolar(T elemento){
-            cout <<"Elemento: " <<elemento <<endl;
             if (tamano != numElem){ // Si la cola no está llena hace el agregado
                 if (ultima == tamano-1){
                     ultima = 0;
