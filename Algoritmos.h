@@ -5,11 +5,14 @@ class Algoritmos{
     private:
 
     public:
-        Arbol copiarArbol(Arbol)
-        void listarEtiquetasDeNodo(Nodo);
+        Algoritmos();
+        ~Algoritmos();
+        Arbol* copiarArbol(Arbol*);
+        void listarEtiquetasDeNodo(Arbol::Nodo);
         void listarEtiquetasiesimoNivel(int);
-        void borrarSubArbol(Nodo);
-        int iguales(Arbol, Arbol);
+        void borrarSubArbol(Arbol::Nodo);
+        int iguales(Arbol*, Arbol*);
+
 
 };
 

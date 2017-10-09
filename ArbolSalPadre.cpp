@@ -40,26 +40,33 @@ using namespace std;
     Arbol::Nodo Arbol::hijoMasIzq(Arbol::Nodo nodoArbol){
         Arbol::Nodo hijoMasIzq = nodoArbol;
         int encontrado = 0;
-        while (hijoMasIzq < ultima && !encontrado) {
+        while (hijoMasIzq <= ultima && !encontrado) {
             if(arreglo[hijoMasIzq].padre == nodoArbol){
                 encontrado = 1;
             }else{
                 ++hijoMasIzq;
             }
         }
+        if(hijoMasIzq > ultima){
+            hijoMasIzq = -1;
+        }
         return hijoMasIzq;
     }
 
     Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoArbol){
-        Arbol::Nodo hermanoDerecho = nodoArbol;
+        Arbol::Nodo hermanoDerecho = nodoArbol+1;
         int encontrado = 0;
-        while (hermanoDerecho < ultima && !encontrado) {
-            if(arreglo[hermanoDerecho].padre == nodoArbol){
+        while (hermanoDerecho <= ultima && !encontrado) {
+            if( arreglo[hermanoDerecho].padre ==  arreglo[nodoArbol].padre){
                 encontrado = 1;
             }else{
                 ++hermanoDerecho;
             }
         }
+        if(hermanoDerecho >ultima ){
+            hermanoDerecho = -1;
+        }
+        cout<< "El hermano derecho es: "<< hermanoDerecho;
         return hermanoDerecho;
     }
 

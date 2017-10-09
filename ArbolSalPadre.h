@@ -9,9 +9,7 @@
 #define M 1000
 #include <iostream>
 class Arbol {
-    typedef int Nodo;
     class Caja; //Forward declaration
-
     private:
         class Caja{
             public:
@@ -27,6 +25,8 @@ class Arbol {
         int tamano;
 
     public:
+        typedef int Nodo;
+
         Arbol(); //Constructor
         ~Arbol(); //Destructor
         /*!
