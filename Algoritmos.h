@@ -13,6 +13,7 @@ class Algoritmos{
         void borrarSubArbol(Arbol::Nodo);
         int iguales(Arbol*, Arbol*);
 
+
 };
 
 #endif

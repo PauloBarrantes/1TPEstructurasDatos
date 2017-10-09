@@ -35,10 +35,10 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
 }
 void Algoritmos::listarEtiquetasDeNodo(Arbol::Nodo nodo){
 
-}
 void Algoritmos::listarEtiquetasiesimoNivel(int nivel){
 
 }
+
 void Algoritmos::borrarSubArbol(Arbol::Nodo nodo){
 
 }
