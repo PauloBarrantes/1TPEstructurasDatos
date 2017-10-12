@@ -5,34 +5,35 @@
 using namespace std;
 
 int main(){
-    Arbol* arbolito = new Arbol();
-    arbolito->ponerRaiz(354);
-    arbolito->agregarHijoIesimo(0,20,1);
-    arbolito->agregarHijoIesimo(0,30,2);
-    arbolito->agregarHijoIesimo(0,45,3);
-    arbolito->agregarHijoIesimo(1,10,1);
-    arbolito->agregarHijoIesimo(1,15,2);
-    arbolito->agregarHijoIesimo(2,60,1);
-    arbolito->agregarHijoIesimo(2,666,2);
-    arbolito->agregarHijoIesimo(3,11,1);
-    arbolito->agregarHijoIesimo(3,90,1);
-    arbolito->agregarHijoIesimo(3,100,2);
-    arbolito->agregarHijoIesimo(4,303,1);
-    arbolito->agregarHijoIesimo(5,451,1);
-    arbolito->agregarHijoIesimo(4,130,2);
-    arbolito->agregarHijoIesimo(2,115,1);
-    arbolito->agregarHijoIesimo(7,8,1);
-    arbolito->agregarHijoIesimo(8,10,1);
-    arbolito->agregarHijoIesimo(1,11,3);
-    arbolito->agregarHijoIesimo(2,22,4);
+    Arbol* arbol1 = new Arbol();
+    arbol1->ponerRaiz(354);
+    arbol1->agregarHijoIesimo(0,20,1);
+    arbol1->agregarHijoIesimo(0,30,2);
+    arbol1->agregarHijoIesimo(0,45,3);
+    arbol1->agregarHijoIesimo(1,10,1);
+    arbol1->agregarHijoIesimo(1,15,2);
+    arbol1->agregarHijoIesimo(2,60,1);
+    arbol1->agregarHijoIesimo(2,666,2);
+    arbol1->agregarHijoIesimo(3,11,1);
+    arbol1->agregarHijoIesimo(3,90,1);
+    arbol1->agregarHijoIesimo(3,100,2);
+    arbol1->agregarHijoIesimo(4,303,1);
+    arbol1->agregarHijoIesimo(5,451,1);
+    arbol1->agregarHijoIesimo(4,130,2);
+    arbol1->agregarHijoIesimo(2,115,1);
+    arbol1->agregarHijoIesimo(9,8,1);
+    arbol1->agregarHijoIesimo(9,10,1);
+    arbol1->agregarHijoIesimo(1,11,3);
+    arbol1->agregarHijoIesimo(2,22,4);
     std::cout << "Árbol 1" << '\n';
-    arbolito->imprimir(cout);
+    arbol1->imprimir(cout);
 
     Algoritmos algo;
-    algo.listarEtiquetas_iesimoNivel(arbolito,2);
-    //Arbol* arbol2 = algo.copiarArbol(arbolito);
-    //std::cout << "Árbol 2" << '\n';
+    algo.listarEtiquetas_iesimoNivel(arbol1,3);
+    Arbol* arbol2 = algo.copiarArbol(arbol1);
+    std::cout << "Árbol 2" << '\n';
 
-    //arbol2->imprimir(cout);
+    arbol2->imprimir(cout);
+    cout << "El árbol 1 y 2 son: " << algo.iguales(arbol1, arbol2);
     //Menu menu;
 }
