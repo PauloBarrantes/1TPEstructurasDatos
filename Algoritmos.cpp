@@ -5,23 +5,25 @@
 using namespace std;
 
 
+
 Algoritmos::Algoritmos(){
     nodoNulo = -1;
 }
 Algoritmos::~Algoritmos(){
 }
 
+/*
 
 int Algoritmos::hayRepetidos(Arbol* arbol){
 	int hayRep = 0;
 	int pos = 0;
-	
-	if(arbol->numNodos()) > 1{
+
+	if( arbol->numNodos() > 1){
 		Nodo::Arbol actual = arbol->raiz();
 		vector<Arbol::Nodo> vec;
 		vec[pos] = actual;
 		Nodo::Arbol nh = 0;
-		
+
 		while(actual && !hayRep){
 			actual = vec[pos];
 			nh = arbol->hijoMasIzq(actual);
@@ -31,7 +33,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 						hayRep = 1;
 					}
 				}
-				
+
 				if(!hayRep){
 					vec[vec.size()] = nh;
 					nh = arbol->hermanoDer(nh);
@@ -40,7 +42,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 		}
 		++pos;
 	}
-	
+
 	return heyRep;
 }
 
@@ -50,24 +52,24 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 		Cola<Arbol::Nodo> cola;
 		cola.encolar(arbol->raiz());
 		Arbol::Nodo actual = 0;
-		Nodo::Arbol nh = 0;
-		
+		Arbol::Nodo nh = 0;
+
 		while(!cola.vacia()){
 			actual = cola.desencolar();
 			nh = arbol->hijoMasIzq(actual);
-			
+
 			++niveles;
-			
+
 			while(nh){
 				cola.encolar(nh);
 				nh = arbol->hermanoDer(nh);
 			}
-			
+
 			if(!cola.vacia()){
 				if(arbol->hermanoDer(actual) == cola.frente()){
 					--niveles;
 				}
-				
+
 				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh)))){
 					--niveles;
 				}
@@ -88,7 +90,7 @@ int averiguarNivelesPreOrdenR(Arbol*,int){
 int profundidadNodo(Arbol*){
 
 }
-
+*/
 Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
     Arbol* arbol2 = new Arbol(); //Iniciamos la copia del árbol 1
     if(!arbol1->vacia()){
@@ -114,7 +116,7 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
 }
 void Algoritmos::listarEtiquetasDeNodo(Arbol* arbol, Arbol::Nodo nodo){
     Arbol::Nodo nodoh = arbol->hijoMasIzq(nodo);
-    cout << "Los hijos del nodo son:  ";
+    cout << "Los hijos del nodo son:  " <<endl;
     while(nodoh != nodoNulo){
         cout << "-> " << arbol->etiqueta(nodoh)<<endl;
         nodoh = arbol->hermanoDer(nodoh);
@@ -142,7 +144,12 @@ void Algoritmos::listarEtiquetas_iesimoNivelRec(Arbol* arbol, Arbol::Nodo nodo, 
 
 }
 
-void Algoritmos::borrarSubArbol(Arbol::Nodo nodo){
+void Algoritmos::borrarSubArbol(Arbol* arbol,Arbol::Nodo nodo){
+    if(arbol->esHoja(nodo)){
+        arbol->borrarHoja(nodo);
+    }
+}
+void Algoritmos::borrarSubArbolRec(Arbol::Nodo nodo){
 
 }
 int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
