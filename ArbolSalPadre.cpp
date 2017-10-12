@@ -52,7 +52,7 @@ using namespace std;
         }
         return hijoMasIzq;
     }
-
+    
     Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoArbol){
         Arbol::Nodo hermanoDerecho = nodoArbol+1;
         int encontrado = 0;
@@ -66,7 +66,6 @@ using namespace std;
         if(hermanoDerecho >ultima ){
             hermanoDerecho = -1;
         }
-        cout<< "El hermano derecho es: "<< hermanoDerecho;
         return hermanoDerecho;
     }
 

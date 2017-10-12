@@ -56,7 +56,13 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
 }
 void Algoritmos::listarEtiquetasDeNodo(Arbol::Nodo nodo){
 
-void Algoritmos::listarEtiquetasiesimoNivel(int nivel){
+}
+void Algoritmos::listarEtiquetas_iesimoNivel(Arbol* arbol,int nivel){
+    if(!arbol->vacia()){
+
+    }
+}
+void Algoritmos::listarEtiquetas_iesimoNivelRec(int nivelActual){
 
 }
 
@@ -67,7 +73,25 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
     int iguales = 0;
     if(arbol1->numNodos() == arbol2->numNodos()){
         if(arbol1->etiqueta(arbol1->raiz()) == arbol2->etiqueta(arbol2->raiz()) ){
+            Cola<Arbol::Nodo> cola1;
+            Cola<Arbol::Nodo> cola2;
+            cola1.encolar(arbol1->raiz());
+            arbol2->ponerRaiz(arbol1->etiqueta(arbol1->raiz()));
+            cola2.encolar(arbol2->raiz());
+            while (!cola1.vacia() && !iguales) {
+                Arbol::Nodo nodo1 = cola1.desencolar();
+                Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
+                Arbol::Nodo nodo2 = cola2.desencolar();
+                Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
+                while(nodoh1 != nodoNulo && !iguales){
+                    if(nodoh1 == nodoh2){
 
+                    }
+                    cola1.encolar(nodoh1);
+                    nodoh1 = arbol1->hermanoDer(nodoh1);
+                    ++contador;
+                }
+            }
         }
     }
     return iguales;
