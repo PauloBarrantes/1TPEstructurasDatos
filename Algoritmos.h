@@ -9,7 +9,9 @@ class Algoritmos{
         ~Algoritmos();
         Arbol* copiarArbol(Arbol*);
         void listarEtiquetasDeNodo(Arbol::Nodo);
-        void listarEtiquetasiesimoNivel(int);
+        void listarEtiquetas_iesimoNivel(Arbol*,int);
+        void listarEtiquetas_iesimoNivelRec(int);
+
         void borrarSubArbol(Arbol::Nodo);
         int iguales(Arbol*, Arbol*);
 
