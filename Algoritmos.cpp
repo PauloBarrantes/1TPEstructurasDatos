@@ -10,6 +10,25 @@ Algoritmos::Algoritmos(){
 }
 Algoritmos::~Algoritmos(){
 }
+int Algoritmos::hayRepetidos(){
+	
+}
+
+int averiguarNivelesPorNiveles(Arbol*){
+	
+}
+
+int averiguarNivelsPreOrden(Arbol*){
+	
+}
+
+int averiguarNivelesPreOrdenR(Arbol*,int){
+	
+}
+
+int profundidadNodo(Arbol*,){
+	
+}
 Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
     Arbol* arbol2 = new Arbol(); //Iniciamos la copia del árbol 1
     if(!arbol1->vacia()){
