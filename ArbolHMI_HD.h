@@ -46,6 +46,7 @@ class Arbol{
 				std::ostream& imprimir(std::ostream&);
 		};
 	public:
+		typedef Arbol::NodoArbol*  Nodo;
 		/*!
 			\brief "Crea un arbol vacio"
 			\param "No tiene parámetros"
@@ -86,37 +87,37 @@ class Arbol{
 			\param "No tiene parámetros"
 			\return "Retorna la raíz"
 		*/
-		int raiz();
+		Nodo raiz();
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna el hijo más izquierdo del nodo"
 		*/
-        Arbol::NodoArbol* hijoMasIzq(Arbol::NodoArbol*);
+        Nodo  hijoMasIzq(Nodo );
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna el hermano derecho del nodo"
 		*/
-        Arbol::NodoArbol* hermanoDer(Arbol::NodoArbol*);
+        Nodo  hermanoDer(Nodo );
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna el padre del nodo"
 		*/
-        Arbol::NodoArbol* padre(Arbol::NodoArbol*);
+        Nodo  padre(Nodo );
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna verdadero, sí el nodo es hoja"
 		*/
-        int esHoja(Arbol::NodoArbol*);
+        int esHoja(Nodo );
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna la etiqueta del nodo"
 		*/
-        int etiqueta(Arbol::NodoArbol*);
+        int etiqueta(Nodo );
 		
 		/*!
 			\param "NodoArbol* etiqueta"
@@ -128,7 +129,7 @@ class Arbol{
 			\param "NodoArbol* nodo"
 			\return "Retorna el número de hijos del nodo"
 		*/
-        int numHijos(Arbol::NodoArbol*);
+        int numHijos(Nodo );
 		
 		/*!
 			\brief "Modifica la etiqueta actual"
@@ -136,7 +137,7 @@ class Arbol{
 			\param "int etiqueta"
 			\return "No retorna nada"
 		*/
-        void modificarEtiq(Arbol::NodoArbol*, int);
+        void modificarEtiq(Nodo , int);
 		
 		/*!
 			\brief "Agrega un hijo en la poscición i-ésima del nodo"
@@ -145,14 +146,14 @@ class Arbol{
 			\param "int posicion"
 			\return "Retorna el nuevo nodo formado"
 		*/
-        Arbol::NodoArbol* agregarHijoIesimo(Arbol::NodoArbol*, int, int);
+        Nodo  agregarHijoIesimo(Nodo , int, int);
 		
 		/*!
 			\brief "Borra la hoja, que se recibe como parámetro"
 			\param "NodoArbol* nodo"
 			\return "No retorna nada"
 		*/
-        void borrarHoja(Arbol::NodoArbol*);
+        void borrarHoja(Nodo );
 		
 		/*!
 			\brief "Crea una raíz con la etiqueta recibida como parámetro"
@@ -173,7 +174,7 @@ class Arbol{
 			\param "int etiqueta"
 			\return "Retorna el nodo que tiene esa etiqueta"
 		*/
-		Arbol::NodoArbol* buscarNodo(int);
+		Nodo  buscarNodo(int);
 };
 
 #endif

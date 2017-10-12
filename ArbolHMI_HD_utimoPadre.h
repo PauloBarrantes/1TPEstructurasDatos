@@ -47,6 +47,7 @@ class Arbol{
 				std::ostream& imprimir(std::ostream&);
 		};
 	public:
+	typedef Arbol::NodoArbol* Nodo;
 		/*!
 			\brief "Crea un arbol vacio"
 			\param "No tiene parámetros"
@@ -87,25 +88,25 @@ class Arbol{
 			\param "No tiene parámetros"
 			\return "Retorna la raíz"
 		*/
-		int raiz();
+		Nodo raiz();
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna el hijo más izquierdo del nodo"
 		*/
-        Arbol::NodoArbol* hijoMasIzq(Arbol::NodoArbol*);
+        Nodo  hijoMasIzq(Arbol::NodoArbol*);
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna el hermano derecho del nodo"
 		*/
-        Arbol::NodoArbol* hermanoDer(Arbol::NodoArbol*);
+        Nodo  hermanoDer(Arbol::NodoArbol*);
 		
 		/*!
 			\param "NodoArbol* nodo"
 			\return "Retorna el padre del nodo"
 		*/
-        Arbol::NodoArbol* padre(Arbol::NodoArbol*);
+        Nodo  padre(Arbol::NodoArbol*);
 		
 		/*!
 			\param "NodoArbol* nodo"
@@ -146,7 +147,7 @@ class Arbol{
 			\param "int posicion"
 			\return "Retorna el nuevo nodo formado"
 		*/
-        Arbol::NodoArbol* agregarHijoIesimo(Arbol::NodoArbol*, int, int);
+        Nodo  agregarHijoIesimo(Arbol::NodoArbol*, int, int);
 		
 		/*!
 			\brief "Borra la hoja, que se recibe como parámetro"
@@ -174,7 +175,7 @@ class Arbol{
 			\param "int etiqueta"
 			\return "Retorna el nodo que tiene esa etiqueta"
 		*/
-		Arbol::NodoArbol* buscarNodo(int);
+		Nodo  buscarNodo(int);
 };
 
 #endif

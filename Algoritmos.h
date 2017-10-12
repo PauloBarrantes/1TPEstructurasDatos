@@ -7,6 +7,11 @@ class Algoritmos{
     public:
         Algoritmos();
         ~Algoritmos();
+		int hayRepetidos(Arbol*);
+		int averiguarNivelesPorNiveles(Arbol*);
+		int averiguarNivelsPreOrden(Arbol*);
+		int averiguarNivelesPreOrdenR(Arbol*,int);
+		int profundidadNodo(Arbol*,);
         Arbol* copiarArbol(Arbol*);
         void listarEtiquetasDeNodo(Arbol::Nodo);
         void listarEtiquetasiesimoNivel(int);

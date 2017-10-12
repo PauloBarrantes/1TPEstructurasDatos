@@ -68,8 +68,8 @@ int Arbol::vacia(){
 	return !nRaiz;
 }
 
-int Arbol::raiz(){
-	return nRaiz->etqta;
+Arbol::Nodo Arbol::raiz(){
+	return nRaiz;
 }
 
 Arbol::NodoArbol* Arbol::hijoMasIzq(Arbol::NodoArbol* nodo){

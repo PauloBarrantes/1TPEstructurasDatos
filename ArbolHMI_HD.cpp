@@ -65,20 +65,20 @@ int Arbol::vacia(){
 	return !nRaiz;
 }
 
-int Arbol::raiz(){
-	return nRaiz->etqta;
+Arbol::Nodo Arbol::raiz(){
+	return nRaiz;
 }
 
-Arbol::NodoArbol* Arbol::hijoMasIzq(Arbol::NodoArbol* nodo){
+Arbol::Nodo Arbol::hijoMasIzq(Arbol::Nodo nodo){
 	return nodo->hijoMasI;
 }
 
-Arbol::NodoArbol* Arbol::hermanoDer(Arbol::NodoArbol* nodo){
+Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodo){
 	return nodo->hermanoD;
 }
 
-Arbol::NodoArbol* Arbol::padre(Arbol::NodoArbol* nodo){
-	NodoArbol*nPadre = 0;
+Arbol::Nodo Arbol::padre(Arbol::Nodo nodo){
+	NodoArbol* nPadre = 0;
 	NodoArbol* actual = nRaiz;
 	queue<NodoArbol*> cola;
 	NodoArbol* nHijo = 0;
@@ -104,11 +104,11 @@ Arbol::NodoArbol* Arbol::padre(Arbol::NodoArbol* nodo){
 	return nPadre;
 }
 
-int Arbol::esHoja(Arbol::NodoArbol* nodo){
+int Arbol::esHoja(Arbol::Nodo nodo){
 	return !hijoMasIzq(nodo);
 }
 
-int Arbol::etiqueta(Arbol::NodoArbol* nodo){
+int Arbol::etiqueta(Arbol::Nodo nodo){
 	return nodo->etqta;
 }
 
@@ -116,15 +116,15 @@ int Arbol::numNodos(){
 	return nNodos;
 }
 
-int Arbol::numHijos(Arbol::NodoArbol* nodo){
+int Arbol::numHijos(Arbol::Nodo nodo){
 	return nodo->nHijos;
 }
 
-void Arbol::modificarEtiq(Arbol::NodoArbol* nodo, int etqta){
+void Arbol::modificarEtiq(Arbol::Nodo nodo, int etqta){
 	nodo->etqta = etqta;
 }
 
-Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int posicion){
+Arbol::Nodo Arbol::agregarHijoIesimo(Arbol::Nodo nodo,int etqta, int posicion){
 	NodoArbol* nuevoHijo = 0;
 	int seInserto = 0;
 	cout<<nodo->etqta<<endl;
@@ -158,7 +158,7 @@ Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int
 	return nuevoHijo;
 }
 
-void Arbol::borrarHoja(Arbol::NodoArbol* nodo){
+void Arbol::borrarHoja(Arbol::Nodo nodo){
 	NodoArbol* nPadre = padre(nodo);
 	
 	if(nPadre){
@@ -192,7 +192,7 @@ ostream& Arbol::imprimir(ostream& salida){
 	return nRaiz->imprimir(salida)<<endl;
 }
 
-Arbol::NodoArbol* Arbol::buscarNodo(int etqta){
+Arbol::Nodo Arbol::buscarNodo(int etqta){
 	NodoArbol* nBuscado = 0;
 	NodoArbol* actual = 0;
 	queue<NodoArbol*> cola;
