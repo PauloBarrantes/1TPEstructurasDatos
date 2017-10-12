@@ -17,13 +17,13 @@ Algoritmos::~Algoritmos(){
 int Algoritmos::hayRepetidos(Arbol* arbol){
 	int hayRep = 0;
 	int pos = 0;
-
-	if( arbol->numNodos() > 1){
+	
+	if(arbol->numNodos()) > 1{
 		Nodo::Arbol actual = arbol->raiz();
 		vector<Arbol::Nodo> vec;
 		vec[pos] = actual;
 		Nodo::Arbol nh = 0;
-
+		
 		while(actual && !hayRep){
 			actual = vec[pos];
 			nh = arbol->hijoMasIzq(actual);
@@ -33,7 +33,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 						hayRep = 1;
 					}
 				}
-
+				
 				if(!hayRep){
 					vec[vec.size()] = nh;
 					nh = arbol->hermanoDer(nh);
@@ -42,7 +42,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 		}
 		++pos;
 	}
-
+	
 	return heyRep;
 }
 
@@ -52,25 +52,25 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 		Cola<Arbol::Nodo> cola;
 		cola.encolar(arbol->raiz());
 		Arbol::Nodo actual = 0;
-		Arbol::Nodo nh = 0;
-
+		Nodo::Arbol nh = 0;
+		
 		while(!cola.vacia()){
 			actual = cola.desencolar();
 			nh = arbol->hijoMasIzq(actual);
-
+			
 			++niveles;
-
+			
 			while(nh){
 				cola.encolar(nh);
 				nh = arbol->hermanoDer(nh);
 			}
-
+			
 			if(!cola.vacia()){
 				if(arbol->hermanoDer(actual) == cola.frente()){
 					--niveles;
 				}
-
-				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh)))){
+				
+				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == nodoNulo){
 					--niveles;
 				}
 			}
@@ -79,8 +79,6 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 	return niveles;
 }
 
-int averiguarNivelsPreOrden(Arbol* j){
-
 int averiguarNivelsPreOrden(Arbol* arbol){
 	int niveles = 0;
 	if(!arbol->vacia()){
@@ -88,8 +86,6 @@ int averiguarNivelsPreOrden(Arbol* arbol){
 	}
 	return niveles;
 }
-
-int averiguarNivelesPreOrdenR(Arbol*,int){
 
 void averiguarNivelesPreOrdenR(Arbol* arbol,Nodo::Arbol actual,int nivAct, int& niveles){
 	if(nivAct > niveles){
@@ -103,8 +99,16 @@ void averiguarNivelesPreOrdenR(Arbol* arbol,Nodo::Arbol actual,int nivAct, int& 
 	}
 }
 
-int profundidadNodo(Arbol*){
-
+int profundidadNodo(Arbol* arbol,Arbol::Nodo nodo){
+	int niveles = 1;
+	Arbol::Nodo act = nodo;
+	
+	while(act != arbol->raiz()){
+		act = arbol->padre(nodo);
+		++niveles;
+	}
+	
+	return niveles;
 }
 */
 Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
