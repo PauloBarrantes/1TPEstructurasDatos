@@ -12,12 +12,69 @@ Algoritmos::~Algoritmos(){
 }
 
 
-int Algoritmos::hayRepetidos(Arbol* g){
-
+int Algoritmos::hayRepetidos(Arbol* arbol){
+	int hayRep = 0;
+	int pos = 0;
+	
+	if(arbol->numNodos()) > 1{
+		Nodo::Arbol actual = arbol->raiz();
+		vector<Arbol::Nodo> vec;
+		vec[pos] = actual;
+		Nodo::Arbol nh = 0;
+		
+		while(actual && !hayRep){
+			actual = vec[pos];
+			nh = arbol->hijoMasIzq(actual);
+			while(nh && !hayRep){
+				for(int i = 0; i < vec.size() && !hayRep; ++i){
+					if(arbol->etiqueta(nh) == arbol->etiqueta(vec[i])){
+						hayRep = 1;
+					}
+				}
+				
+				if(!hayRep){
+					vec[vec.size()] = nh;
+					nh = arbol->hermanoDer(nh);
+				}
+			}
+		}
+		++pos;
+	}
+	
+	return heyRep;
 }
 
-int averiguarNivelesPorNiveles(Arbol* h){
-
+int averiguarNivelesPorNiveles(Arbol* arbol){
+	int niveles = 0;
+	if(!arbol->vacia()){
+		Cola<Arbol::Nodo> cola;
+		cola.encolar(arbol->raiz());
+		Arbol::Nodo actual = 0;
+		Nodo::Arbol nh = 0;
+		
+		while(!cola.vacia()){
+			actual = cola.desencolar();
+			nh = arbol->hijoMasIzq(actual);
+			
+			++niveles;
+			
+			while(nh){
+				cola.encolar(nh);
+				nh = arbol->hermanoDer(nh);
+			}
+			
+			if(!cola.vacia()){
+				if(arbol->hermanoDer(actual) == cola.frente()){
+					--niveles;
+				}
+				
+				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh)))){
+					--niveles;
+				}
+			}
+		}
+	}
+	return niveles;
 }
 
 int averiguarNivelsPreOrden(Arbol* j){
