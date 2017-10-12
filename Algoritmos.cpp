@@ -81,10 +81,26 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 
 int averiguarNivelsPreOrden(Arbol* j){
 
+int averiguarNivelsPreOrden(Arbol* arbol){
+	int niveles = 0;
+	if(!arbol->vacia()){
+		averiguarNivelesPreOrdenR(arbol,arbol->raiz(),1,niveles);
+	}
+	return niveles;
 }
 
 int averiguarNivelesPreOrdenR(Arbol*,int){
 
+void averiguarNivelesPreOrdenR(Arbol* arbol,Nodo::Arbol actual,int nivAct, int& niveles){
+	if(nivAct > niveles){
+		niveles = nivAct;
+	}
+	
+	Arbol::Nodo nh = arbol->hijoMasIzq(actual);
+	
+	while(nh != nodoNulo){
+		averiguarNivelesPreOrdenR(arbol,nh,nivAct+1,niveles);
+	}
 }
 
 int profundidadNodo(Arbol*){
