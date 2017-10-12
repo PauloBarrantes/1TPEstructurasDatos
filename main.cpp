@@ -15,14 +15,24 @@ int main(){
     arbolito->agregarHijoIesimo(2,60,1);
     arbolito->agregarHijoIesimo(2,666,2);
     arbolito->agregarHijoIesimo(3,11,1);
-    arbolito->agregarHijoIesimo(3,22,2);
+    arbolito->agregarHijoIesimo(3,90,1);
+    arbolito->agregarHijoIesimo(3,100,2);
+    arbolito->agregarHijoIesimo(4,303,1);
+    arbolito->agregarHijoIesimo(5,451,1);
+    arbolito->agregarHijoIesimo(4,130,2);
+    arbolito->agregarHijoIesimo(2,115,1);
+    arbolito->agregarHijoIesimo(7,8,1);
+    arbolito->agregarHijoIesimo(8,10,1);
+    arbolito->agregarHijoIesimo(1,11,3);
+    arbolito->agregarHijoIesimo(2,22,4);
     std::cout << "Árbol 1" << '\n';
     arbolito->imprimir(cout);
 
     Algoritmos algo;
-    Arbol* arbol2 = algo.copiarArbol(arbolito);
-    std::cout << "Árbol 2" << '\n';
+    algo.listarEtiquetas_iesimoNivel(arbolito,2);
+    //Arbol* arbol2 = algo.copiarArbol(arbolito);
+    //std::cout << "Árbol 2" << '\n';
 
-    arbol2->imprimir(cout);
+    //arbol2->imprimir(cout);
     //Menu menu;
 }

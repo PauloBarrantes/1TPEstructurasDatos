@@ -3,32 +3,35 @@
 #include "Cola.h"
 #include "ArbolSalPadre.h"
 using namespace std;
-#define nodoNulo -1
 
 
 Algoritmos::Algoritmos(){
+    nodoNulo = -1;
 }
 Algoritmos::~Algoritmos(){
 }
-int Algoritmos::hayRepetidos(){
-	
+
+
+int Algoritmos::hayRepetidos(Arbol* g){
+
 }
 
-int averiguarNivelesPorNiveles(Arbol*){
-	
+int averiguarNivelesPorNiveles(Arbol* h){
+
 }
 
-int averiguarNivelsPreOrden(Arbol*){
-	
+int averiguarNivelsPreOrden(Arbol* j){
+
 }
 
 int averiguarNivelesPreOrdenR(Arbol*,int){
-	
+
 }
 
-int profundidadNodo(Arbol*,){
-	
+int profundidadNodo(Arbol*){
+
 }
+
 Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
     Arbol* arbol2 = new Arbol(); //Iniciamos la copia del árbol 1
     if(!arbol1->vacia()){
@@ -52,15 +55,33 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
     }
     return arbol2;
 }
-void Algoritmos::listarEtiquetasDeNodo(Arbol::Nodo nodo){
-
+void Algoritmos::listarEtiquetasDeNodo(Arbol* arbol, Arbol::Nodo nodo){
+    Arbol::Nodo nodoh = arbol->hijoMasIzq(nodo);
+    cout << "Los hijos del nodo son:  ";
+    while(nodoh != nodoNulo){
+        cout << "-> " << arbol->etiqueta(nodoh)<<endl;
+        nodoh = arbol->hermanoDer(nodoh);
+    }
 }
 void Algoritmos::listarEtiquetas_iesimoNivel(Arbol* arbol,int nivel){
     if(!arbol->vacia()){
-
+        cout << "Los nodos del nivel " << nivel << "son:  "<<endl;
+        listarEtiquetas_iesimoNivelRec(arbol, arbol->raiz(), 1, nivel);
     }
 }
-void Algoritmos::listarEtiquetas_iesimoNivelRec(int nivelActual){
+void Algoritmos::listarEtiquetas_iesimoNivelRec(Arbol* arbol, Arbol::Nodo nodo, int nivelActual, int nivel){
+    if(nivelActual == nivel){
+        cout << "-> " << arbol->etiqueta(nodo) <<endl;
+    }else{
+        if(nivelActual < nivel){
+            Arbol::Nodo nh;
+            nh = arbol->hijoMasIzq(nodo);
+            while(nh!= nodoNulo){
+                listarEtiquetas_iesimoNivelRec(arbol, nh, nivelActual+1, nivel);
+                nh = arbol->hermanoDer(nh);
+            }
+        }
+    }
 
 }
 
@@ -85,13 +106,13 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                         cola1.encolar(nodoh1);
                         nodoh1 = arbol1->hermanoDer(nodoh1);
                         cola2.encolar(nodoh2);
-                        nodoh2 = arbol->hermanoDer(nodo2);
+                        nodoh2 = arbol2->hermanoDer(nodo2);
                     }else{
-                        iguales
+                        iguales = 1;
                     }
                 }
             }
         }
     }
-    return iguales;
+    return !iguales;
 }
