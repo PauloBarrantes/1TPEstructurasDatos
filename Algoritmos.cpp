@@ -69,8 +69,13 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 				if(arbol->hermanoDer(actual) == cola.frente()){
 					--niveles;
 				}
+<<<<<<< HEAD
 
 				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh)))){
+=======
+				
+				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == nodoNulo){
+>>>>>>> 110fe3f9abdc3584438134025a108de15035569d
 					--niveles;
 				}
 			}
@@ -79,8 +84,6 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 	return niveles;
 }
 
-int averiguarNivelsPreOrden(Arbol* j){
-
 int averiguarNivelsPreOrden(Arbol* arbol){
 	int niveles = 0;
 	if(!arbol->vacia()){
@@ -88,8 +91,6 @@ int averiguarNivelsPreOrden(Arbol* arbol){
 	}
 	return niveles;
 }
-
-int averiguarNivelesPreOrdenR(Arbol*,int){
 
 void averiguarNivelesPreOrdenR(Arbol* arbol,Nodo::Arbol actual,int nivAct, int& niveles){
 	if(nivAct > niveles){

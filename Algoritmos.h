@@ -11,7 +11,6 @@ class Algoritmos{
 		int hayRepetidos(Arbol*);
 		int averiguarNivelesPorNiveles(Arbol*);
 		int averiguarNivelsPreOrden(Arbol*);
-		int averiguarNivelesPreOrdenR(Arbol*,int);
 		void averiguarNivelesPreOrdenR(Arbol*,Arbol::Nodo,int,int&);
 		int profundidadNodo(Arbol*);
         Arbol* copiarArbol(Arbol*);
