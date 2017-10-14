@@ -19,11 +19,13 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 	int pos = 0;
 
 	if( arbol->numNodos() > 1){
+	
+	if(arbol->numNodos()) > 1{
 		Nodo::Arbol actual = arbol->raiz();
 		vector<Arbol::Nodo> vec;
 		vec[pos] = actual;
 		Nodo::Arbol nh = 0;
-
+		
 		while(actual && !hayRep){
 			actual = vec[pos];
 			nh = arbol->hijoMasIzq(actual);
@@ -33,7 +35,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 						hayRep = 1;
 					}
 				}
-
+				
 				if(!hayRep){
 					vec[vec.size()] = nh;
 					nh = arbol->hermanoDer(nh);
@@ -42,7 +44,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 		}
 		++pos;
 	}
-
+	
 	return heyRep;
 }
 
@@ -52,8 +54,6 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 		Cola<Arbol::Nodo> cola;
 		cola.encolar(arbol->raiz());
 		Arbol::Nodo actual = 0;
-		Arbol::Nodo nh = 0;
-
 		while(!cola.vacia()){
 			actual = cola.desencolar();
 			nh = arbol->hijoMasIzq(actual);
@@ -76,6 +76,8 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 				
 				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == nodoNulo){
 >>>>>>> 110fe3f9abdc3584438134025a108de15035569d
+				
+				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == nodoNulo){
 					--niveles;
 				}
 			}
