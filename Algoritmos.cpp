@@ -1,7 +1,6 @@
 #include "Algoritmos.h"
 #include <iostream>
 #include "Cola.h"
-#include "ArbolSalPadre.h"
 using namespace std;
 
 
@@ -17,13 +16,13 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 	int posN = 0;
 	int posNh = 0;
 	int posRevision = 0;
-	
+
 	if(arbol->numNodos() > 1){
 		Arbol::Nodo actual = arbol->raiz();
 		Arbol::Nodo vec [arbol->numNodos()];
 		vec[posN] = actual;
 		Arbol::Nodo nh = 0;
-		
+
 		while(actual && !hayRep){
 			actual = vec[posN];
 			nh = arbol->hijoMasIzq(actual);
@@ -36,7 +35,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 					}
 					++posRevision;
 				}
-				
+
 				if(!hayRep){
 					vec[posNh] = nh;
 					nh = arbol->hermanoDer(nh);
@@ -45,7 +44,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 			++posN;
 		}
 	}
-	
+
 	return hayRep;
 }
 
@@ -56,23 +55,23 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 		cola.encolar(arbol->raiz());
 		Arbol::Nodo actual = 0;
 		Arbol::Nodo nh = 0;
-		
+
 		while(!cola.vacia()){
 			actual = cola.desencolar();
 			nh = arbol->hijoMasIzq(actual);
-			
+
 			++niveles;
-			
+
 			while(nh){
 				cola.encolar(nh);
 				nh = arbol->hermanoDer(nh);
 			}
-			
+
 			if(!cola.vacia()){
 				if(arbol->hermanoDer(actual) == cola.frente()){
 					--niveles;
 				}
-				
+
 				if(arbol->hermanoDer(arbol->padre(nh)) == arbol->padre(cola.frente())){
 					--niveles;
 				}
@@ -94,9 +93,9 @@ void Algoritmos::averiguarNivelesPreOrdenR(Arbol* arbol,Arbol::Nodo actual,int n
 	if(nivAct > niveles){
 		niveles = nivAct;
 	}
-	
+
 	Arbol::Nodo nh = arbol->hijoMasIzq(actual);
-	
+
 	while(nh != nodoNulo){
 		averiguarNivelesPreOrdenR(arbol,nh,nivAct+1,niveles);
 	}
@@ -105,12 +104,12 @@ void Algoritmos::averiguarNivelesPreOrdenR(Arbol* arbol,Arbol::Nodo actual,int n
 int Algoritmos::profundidadNodo(Arbol* arbol,Arbol::Nodo nodo){
 	int niveles = 1;
 	Arbol::Nodo act = nodo;
-	
+
 	while(act != arbol->raiz()){
 		act = arbol->padre(nodo);
 		++niveles;
 	}
-	
+
 	return niveles;
 }
 

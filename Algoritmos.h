@@ -5,6 +5,7 @@ class Algoritmos{
     private:
         int nodoNulo;
         Arbol* arbol1;
+        void borrarSubArbolRec(Arbol::Nodo);
     public:
         Algoritmos();
         ~Algoritmos();
@@ -18,7 +19,7 @@ class Algoritmos{
         void listarEtiquetas_iesimoNivel(Arbol*, int );
         void listarEtiquetas_iesimoNivelRec(Arbol*, Arbol::Nodo, int,int);
 
-        void borrarSubArbol(Arbol::Nodo);
+        void borrarSubArbol(Arbol*, Arbol::Nodo);
         int iguales(Arbol*, Arbol*);
 
 

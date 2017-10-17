@@ -14,19 +14,19 @@ class Arbol {
 
     class Caja;
     class Cajita;
-    typedef Caja* Nodo;
 
     private:
+
         int numeroNodos;
-        Nodo raizArbol;
+        Caja* raizArbol;
         void _init();
-        Cajita* buscarCajita(Nodo);
+        Cajita* buscarCajita(Caja*);
 
         class Cajita {
          public:
-          Nodo nodo;
+          Caja* nodo;
           Cajita * hermanoDerecho;
-          Cajita(Nodo);
+          Cajita(Caja*);
           ~Cajita();
           ostream& imprimir(ostream&);
         };
@@ -35,13 +35,14 @@ class Arbol {
          public:
           int etiqueta;
           Cajita * hijoMasIzquierdo;
-          Nodo siguiente;
+          Caja* siguiente;
           Caja(int);
           ~Caja();
           ostream& imprimir(ostream&);
         };
 
     public:
+
         typedef Caja* Nodo;
 
         Arbol();
@@ -50,7 +51,7 @@ class Arbol {
         int vacia();
 
 
-        int  raiz();
+        Nodo  raiz();
         Nodo  hijoMasIzq(Nodo);
         Nodo  hermanoDer(Nodo);
         Nodo  padre(Nodo);

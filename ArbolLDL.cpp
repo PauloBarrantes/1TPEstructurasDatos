@@ -152,10 +152,10 @@ int Arbol::vacia(){
 /*!
    \brief "Pide la raiz del Arbol"
    \param ""
-   \return "Retorna la etiqueta el atributo raizArbol"
+   \return "Retorna el nodo raiz raizArbol"
 */
-int Arbol::raiz(){
-  return this->raizArbol->etiqueta;
+Arbol::Nodo Arbol::raiz(){
+  return this->raizArbol;
 }
 
 /*!
