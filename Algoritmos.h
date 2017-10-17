@@ -1,6 +1,6 @@
 #ifndef Algoritmos_2017
 #define Algoritmos_2017
-#include "ArbolSalPadre.h"
+#include "ArbolLDL.h"
 class Algoritmos{
     private:
         int nodoNulo;
