@@ -49,7 +49,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 	return hayRep;
 }
 
-int Algoritmos::averiguarNivelesPorNiveles(Arbol* arbol){
+int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 	int niveles = 0;
 	if(!arbol->vacia()){
 		Cola<Arbol::Nodo> cola;
@@ -73,7 +73,7 @@ int Algoritmos::averiguarNivelesPorNiveles(Arbol* arbol){
 					--niveles;
 				}
 				
-				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == this->nodoNulo){
+				if(arbol->hermanoDer(arbol->padre(nh)) == arbol->padre(cola.frente())){
 					--niveles;
 				}
 			}

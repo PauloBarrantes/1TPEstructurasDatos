@@ -9,7 +9,7 @@ class Algoritmos{
         Algoritmos();
         ~Algoritmos();
 		int hayRepetidos(Arbol*);
-		int averiguarNivelesPorNiveles(Arbol*);
+		int averiguarNivelesEnRecorridoPorNiveles(Arbol*);
 		int averiguarNivelsPreOrden(Arbol*);
 		void averiguarNivelesPreOrdenR(Arbol*,Arbol::Nodo,int,int&);
 		int profundidadNodo(Arbol*,Arbol::Nodo);
