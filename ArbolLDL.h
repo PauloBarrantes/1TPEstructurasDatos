@@ -42,6 +42,8 @@ class Arbol {
         };
 
     public:
+        typedef Caja* Nodo;
+
         Arbol();
         ~Arbol();
         void vaciar();
