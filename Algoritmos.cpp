@@ -12,47 +12,50 @@ Algoritmos::Algoritmos(){
 Algoritmos::~Algoritmos(){
 }
 
-/*
-
 int Algoritmos::hayRepetidos(Arbol* arbol){
 	int hayRep = 0;
-	int pos = 0;
+	int posN = 0;
+	int posNh = 0;
+	int posRevision = 0;
 	
-	if(arbol->numNodos()) > 1{
-		Nodo::Arbol actual = arbol->raiz();
-		vector<Arbol::Nodo> vec;
-		vec[pos] = actual;
-		Nodo::Arbol nh = 0;
+	if(arbol->numNodos() > 1){
+		Arbol::Nodo actual = arbol->raiz();
+		Arbol::Nodo vec [arbol->numNodos()];
+		vec[posN] = actual;
+		Arbol::Nodo nh = 0;
 		
 		while(actual && !hayRep){
-			actual = vec[pos];
+			actual = vec[posN];
 			nh = arbol->hijoMasIzq(actual);
+			posRevision = 0;
 			while(nh && !hayRep){
-				for(int i = 0; i < vec.size() && !hayRep; ++i){
-					if(arbol->etiqueta(nh) == arbol->etiqueta(vec[i])){
+				++posNh;
+				while(posRevision < posNh){
+					if(arbol->etiqueta(nh) == arbol->etiqueta(vec[posRevision])){
 						hayRep = 1;
 					}
+					++posRevision;
 				}
 				
 				if(!hayRep){
-					vec[vec.size()] = nh;
+					vec[posNh] = nh;
 					nh = arbol->hermanoDer(nh);
 				}
 			}
+			++posN;
 		}
-		++pos;
 	}
 	
-	return heyRep;
+	return hayRep;
 }
 
-int averiguarNivelesPorNiveles(Arbol* arbol){
+int Algoritmos::averiguarNivelesPorNiveles(Arbol* arbol){
 	int niveles = 0;
 	if(!arbol->vacia()){
 		Cola<Arbol::Nodo> cola;
 		cola.encolar(arbol->raiz());
 		Arbol::Nodo actual = 0;
-		Nodo::Arbol nh = 0;
+		Arbol::Nodo nh = 0;
 		
 		while(!cola.vacia()){
 			actual = cola.desencolar();
@@ -69,18 +72,8 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 				if(arbol->hermanoDer(actual) == cola.frente()){
 					--niveles;
 				}
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh)))){
-=======
 				
-				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == nodoNulo){
->>>>>>> 110fe3f9abdc3584438134025a108de15035569d
-=======
-				
-				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == nodoNulo){
->>>>>>> 852c84271b4cd4e09c21e15935bfc37e7d5a2b1b
+				if(arbol->hijoMasIzq(arbol->hermanoDer(arbol->padre(nh))) == this->nodoNulo){
 					--niveles;
 				}
 			}
@@ -89,7 +82,7 @@ int averiguarNivelesPorNiveles(Arbol* arbol){
 	return niveles;
 }
 
-int averiguarNivelsPreOrden(Arbol* arbol){
+int Algoritmos::averiguarNivelsPreOrden(Arbol* arbol){
 	int niveles = 0;
 	if(!arbol->vacia()){
 		averiguarNivelesPreOrdenR(arbol,arbol->raiz(),1,niveles);
@@ -97,7 +90,7 @@ int averiguarNivelsPreOrden(Arbol* arbol){
 	return niveles;
 }
 
-void averiguarNivelesPreOrdenR(Arbol* arbol,Nodo::Arbol actual,int nivAct, int& niveles){
+void Algoritmos::averiguarNivelesPreOrdenR(Arbol* arbol,Arbol::Nodo actual,int nivAct, int& niveles){
 	if(nivAct > niveles){
 		niveles = nivAct;
 	}
@@ -109,7 +102,7 @@ void averiguarNivelesPreOrdenR(Arbol* arbol,Nodo::Arbol actual,int nivAct, int& 
 	}
 }
 
-int profundidadNodo(Arbol* arbol,Arbol::Nodo nodo){
+int Algoritmos::profundidadNodo(Arbol* arbol,Arbol::Nodo nodo){
 	int niveles = 1;
 	Arbol::Nodo act = nodo;
 	
@@ -120,7 +113,7 @@ int profundidadNodo(Arbol* arbol,Arbol::Nodo nodo){
 	
 	return niveles;
 }
-*/
+
 Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
     Arbol* arbol2 = new Arbol(); //Iniciamos la copia del árbol 1
     if(!arbol1->vacia()){

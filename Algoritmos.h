@@ -12,7 +12,7 @@ class Algoritmos{
 		int averiguarNivelesPorNiveles(Arbol*);
 		int averiguarNivelsPreOrden(Arbol*);
 		void averiguarNivelesPreOrdenR(Arbol*,Arbol::Nodo,int,int&);
-		int profundidadNodo(Arbol*);
+		int profundidadNodo(Arbol*,Arbol::Nodo);
         Arbol* copiarArbol(Arbol*);
         void listarEtiquetasDeNodo(Arbol*,Arbol::Nodo);
         void listarEtiquetas_iesimoNivel(Arbol*, int );
