@@ -24,24 +24,26 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 		Arbol::Nodo nh = 0;
 
 		while(actual && !hayRep){
-			actual = vec[posN];
 			nh = arbol->hijoMasIzq(actual);
-			posRevision = 0;
 			while(nh && !hayRep){
 				++posNh;
+				posRevision = 0;
 				while(posRevision < posNh){
 					if(arbol->etiqueta(nh) == arbol->etiqueta(vec[posRevision])){
 						hayRep = 1;
 					}
 					++posRevision;
 				}
-
+				
 				if(!hayRep){
+					cout << "  G" <<endl;
 					vec[posNh] = nh;
+					vec[posNh+1] = 0;
 					nh = arbol->hermanoDer(nh);
 				}
 			}
 			++posN;
+			actual = vec[posN];
 		}
 	}
 
@@ -61,7 +63,8 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 			nh = arbol->hijoMasIzq(actual);
 
 			++niveles;
-
+			cout << "B" <<endl;
+			
 			while(nh){
 				cola.encolar(nh);
 				nh = arbol->hermanoDer(nh);
@@ -69,11 +72,13 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 
 			if(!cola.vacia()){
 				if(arbol->hermanoDer(actual) == cola.frente()){
+					cout << "restar1" <<endl;
 					--niveles;
-				}
-
-				if(arbol->hermanoDer(arbol->padre(nh)) == arbol->padre(cola.frente())){
-					--niveles;
+				}else{
+					if(arbol->hermanoDer(arbol->padre(nh)) == arbol->padre(cola.frente())){
+						cout << "restar2" <<endl;
+						--niveles;
+					}
 				}
 			}
 		}
@@ -98,6 +103,7 @@ void Algoritmos::averiguarNivelesPreOrdenR(Arbol* arbol,Arbol::Nodo actual,int n
 
 	while(nh != 0){
 		averiguarNivelesPreOrdenR(arbol,nh,nivAct+1,niveles);
+		nh = arbol->hermanoDer(nh);
 	}
 }
 
@@ -106,7 +112,7 @@ int Algoritmos::profundidadNodo(Arbol* arbol,Arbol::Nodo nodo){
 	Arbol::Nodo act = nodo;
 
 	while(act != arbol->raiz()){
-		act = arbol->padre(nodo);
+		act = arbol->padre(act);
 		++niveles;
 	}
 
@@ -167,13 +173,11 @@ void Algoritmos::listarEtiquetas_iesimoNivelRec(Arbol* arbol, Arbol::Nodo nodo, 
 }
 
 void Algoritmos::borrarSubArbol(Arbol* arbol,Arbol::Nodo nodo){
-    if(arbol->esHoja(nodo)){
-        arbol->borrarHoja(nodo);
-    }
+    borrarSubArbolRec(arbol,nodo);
 }
 void Algoritmos::borrarSubArbolRec(Arbol* arbol, Arbol::Nodo nodo){
 	Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
-	while (!arbol->esHoja(nh)){
+	while (nh){
 		borrarSubArbolRec(arbol,nh);
 		nh = arbol->hijoMasIzq(nodo);
 	}

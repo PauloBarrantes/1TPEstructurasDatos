@@ -7,19 +7,19 @@
 #ifndef Menu_Usuario2017
 #define Menu_Usuario2017
 //#include "ArbolSalPadre.h"
-//#include "ArbolHMI_HD_puntHIzq_Padre.h"
+#include "ArbolHMI_HD_puntHIzq_Padre.h"
 //#include "ArbolHMI_HD.h"
-#include "ArbolHMI_HD_utimoPadre.h"
+//#include "ArbolHMI_HD_utimoPadre.h"
 //#include "ArbolLDL.h"
 #include "Cola.h"
 #include "Algoritmos.h"
 class Menu {
     private:
-        Arbol* arbol1 = 0;
-        Arbol* arbol2 = 0;
+        Arbol* arbol1;
+        Arbol* arbol2;
 
-        Cola* cola1 = 0;
-        Algoritmos* algoritmos = 0;
+        Cola<int>* cola1;
+        Algoritmos* algoritmos;
     public:
         Menu();
         ~Menu();
@@ -237,6 +237,11 @@ class Menu {
         void ultimoC();
 		
 		//---------------Algoritmos-------------------
+		
+		void llenarArbol1();
+		
+		void llenarArbol2();
+		
         /*!
            \brief "Despliega el menú para probar los algoritmos del modelo árbol"
            \param "No recibe nada"
@@ -320,34 +325,33 @@ class Menu {
            \return "No retorna nada"
         */
         void iguales();//10
-		
 		 /*!
            \brief "Metodo correspondiente al algoritmo listar Arbol en pre orden del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
-        */
-        void listarArbolPreorden(); //11
+         */
+        //void listarArbolPreorden(); //11
 		
 		 /*!
            \brief "Metodo correspondiente al algoritmo lista árbol en post orden del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-        void listarArbolPostOrden(); //12
+        //void listarArbolPostOrden(); //12
 		
 		 /*!
            \brief "Metodo correspondiente al algoritmo listar árbol por niveles del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-        void listarArbolNiveles(); //13
+        //void listarArbolNiveles(); //13
 		
 		 /*!
            \brief "Metodo correspondiente al algoritmo buscar etiqueta y retorna su nodo del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-        void Menu::buscarEtiquetaRetNodo();//14
+        //void buscarEtiquetaRetNodo();//14
 };
 // g++ main.cpp cola.cpp arbolsalpadre.cpp menu.cpp -o ejecutable
 
