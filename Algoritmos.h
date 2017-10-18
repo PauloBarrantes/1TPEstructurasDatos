@@ -4,17 +4,29 @@
    \author "Paulo B - Fabian A - André F"
    \date "17"/"10"/"2017"
 */
+
 #ifndef Algoritmos_2017
 #define Algoritmos_2017
+//#include "ArbolHMI_HD_puntHIzq_Padre.h"
+//#include "ArbolHMI_HD.h"
+//#include "ArbolHMI_HD_utimoPadre.h"
 #include "ArbolLDL.h"
+#include "Cola.h"
 class Algoritmos{
     private:
         int nodoNulo;
         Arbol* arbol1;
-        void borrarSubArbolRec(Arbol::Nodo);
     public:
         Algoritmos();
         ~Algoritmos();
+
+    /*!
+       \brief "Averigua la etiqueta del hermano izquierdo de un nodo"
+       \param "Entra el Árbol en el que está el nodo"
+       \param "Entra el nodo del que se quiere buscar el hermano izquierdo"
+       \return "Retorna el nodo correspondiente al hermano izquierdo"
+    */
+    Arbol::Nodo hermanoIzquierdo(Arbol*, Arbol::Nodo);
 		/*!
 			\brief "Verifica si el árbol tiene etiquetas repetidos"
 			\param "Entra el Árbol en el cual se buscaran etiquetas repetidas"
@@ -96,6 +108,14 @@ class Algoritmos{
         void borrarSubArbol(Arbol*, Arbol::Nodo);
 
 		/*!
+			\brief "Borra el su Árbol, que se forma apartir dl nodo que se recibe como parámetro"
+			\param "Entra el Árbol al que le vamos a borrar el Sub Árbol"
+			\param "Entra el Nodo donde comienza el sub Árbol a borrar"
+			\return "No retorna nada"
+		*/
+        void borrarSubArbolRec(Arbol*, Arbol::Nodo);
+
+		/*!
 			\brief "Dice sí los Árboles que se reciben como parámetros son iguales"
 			\param "Entra el primero de los Árbles que se va a comparar"
 			\param "Entra el segundo de los Árboles que se va a comparar"
@@ -103,12 +123,30 @@ class Algoritmos{
 		*/
         int iguales(Arbol*, Arbol*);
 
-
-};
-
-#endif
-
-
+    /*!
+       \brief "Lista las etiquetas del arbol en pre-orden"
+       \param "Entra el Árbol que vamos a listar"
+       \return "No retorna nada"
+    */
+        void listarArbolPreOrden(Arbol*);
+    /*!
+       \brief "Imprime la etiqueta correspondiente al nodo actual, se mueve y se llama a si mismo"
+       \param "Entra el Nodo a imprimir"
+       \return "No retorna nada"
+    */
+        void listarArbolPreOrdenRec(Arbol*, Arbol::Nodo);
+    /*!
+       \brief "Lista las etiquetas del arbol en post-orden"
+       \param "Entra el Árbol que vamos a listar"
+       \return "No retorna nada"
+    */
+        void listarArbolPostOrden(Arbol*);
+    /*!
+       \brief "Se mueve y se llama a si mismo, antes de salir Imprime la etiqueta correspondiente al nodo actual"
+       \param "Entra el Nodo a imprimir"
+       \return "No retorna nada"
+    */
+        void listarArbolPostOrdenRec(Arbol*, Arbol::Nodo);
 
 };
 

@@ -127,9 +127,6 @@ void Arbol::modificarEtiq(Arbol::Nodo nodo, int etqta){
 Arbol::Nodo Arbol::agregarHijoIesimo(Arbol::Nodo nodo,int etqta, int posicion){
 	NodoArbol* nuevoHijo = 0;
 	int seInserto = 0;
-	cout<<nodo->etqta<<endl;
-	cout<<etqta<<endl;
-	cout<<posicion<<endl;
 	
 	if(posicion == 1){
 		nuevoHijo = new NodoArbol(etqta,nodo->hijoMasI);
