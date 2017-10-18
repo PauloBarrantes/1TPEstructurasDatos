@@ -546,16 +546,18 @@ void Menu::iguales(){
     }
 }
 void Menu::listarArbolPreorden(){
-
+    algoritmos->listarArbolPreorden(arbol1);
 }
 void Menu::listarArbolPostOrden(){
-
+    algoritmos->listarArbolPostOrden(arbol1);
 }
 void Menu::listarArbolNiveles(){
+    algoritmos->listarArbolNiveles(arbol1);
 
 }
 void Menu::buscarEtiquetaRetNodo(){
     int etiqueta = 0;
     cout << "Digite el nodo que desea listar todas las etiquetas de sus hijos" <<endl;
     cin >>etiqueta;
+    cout << algoritmos->buscarEtiquetaRetNodo(arbol1, etiqueta)<< endl;
 }
