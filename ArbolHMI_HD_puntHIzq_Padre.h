@@ -49,6 +49,7 @@ class Arbol{
 		};
 	public:
 		typedef Arbol::NodoArbol* Nodo;
+		Arbol::NodoArbol* nodoNulo;
 		/*!
 			\brief "Crea un arbol vacio"
 			\param "No tiene parámetros"

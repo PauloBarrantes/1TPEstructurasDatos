@@ -10,6 +10,7 @@ using namespace std;
 Arbol::Cajita::Cajita(Nodo nodo){
   this->nodo = nodo;
   this->hermanoDerecho = 0;
+  this->nodoNulo = 0;
 }
 
 /*!
@@ -210,7 +211,7 @@ int Arbol::esHoja(Nodo nodoRef){
    \return "Retorna la etiqueta del Nodo"
 */
 int Arbol::etiqueta(Nodo nodoRef){
-  return nodoRef->etiqueta;
+    return nodoRef->etiqueta;
 }
 
 /*!
