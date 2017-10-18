@@ -470,16 +470,16 @@ void Menu::pruebaAlgoritmos(){
                                                 iguales();
                                             }else{
                                                 if(instruccion == 11){
-                                                    //listarArbolPreorden();
+                                                    listarArbolPreorden();
                                                 }else{
                                                     if(instruccion == 12){
-                                                        //listarArbolPostOrden();
+                                                        listarArbolPostOrden();
                                                     }else{
                                                         if(instruccion == 13){
-                                                            //listarArbolNiveles();
+                                                            listarArbolNiveles();
                                                         }else{
                                                             if(instruccion == 14){
-                                                                //buscarEtiquetaRetNodo();
+                                                                buscarEtiquetaRetNodo();
                                                             }else{
                                                                 if(instruccion == 0){
                                                                     instruccionesAlgoritmos();
