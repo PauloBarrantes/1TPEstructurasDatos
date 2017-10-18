@@ -588,7 +588,7 @@ void Menu::iguales(){
         cout << "Los árboles no son iguales" <<endl;
     }
 }
-/*
+
 void Menu::listarArbolPreorden(){
     algoritmos->listarArbolPreorden(arbol1);
 }
@@ -605,4 +605,3 @@ void Menu::buscarEtiquetaRetNodo(){
     cin >>etiqueta;
     cout << algoritmos->buscarEtiquetaRetNodo(arbol1, etiqueta)<< endl;
 }
-*/
