@@ -10,7 +10,7 @@ Algoritmos::Algoritmos(){
 Algoritmos::~Algoritmos(){
 }
 
-int hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
+int Algoritmos::hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
   int etqta = 0;
   Arbol::Nodo hermanoIzq = arbol->nodoNulo;
   Arbol::Nodo actual = arbol->hijoMasIzq(arbol->padre(nodo));
@@ -116,7 +116,7 @@ void Algoritmos::averiguarNivelesPreOrdenR(Arbol* arbol,Arbol::Nodo actual,int n
 
 	Arbol::Nodo nh = arbol->hijoMasIzq(actual);
 
-	while(nh != arbol->nodoArbol){
+	while(nh != arbol->nodoNulo){
 		averiguarNivelesPreOrdenR(arbol,nh,nivAct+1,niveles);
 		nh = arbol->hermanoDer(nh);
 	}
@@ -147,7 +147,7 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
             Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
             Arbol::Nodo nodo2 = cola2.desencolar();
             int contador = 1;
-            while(nodoh1 != arbol->nodoNulo){
+            while(nodoh1 != arbol1->nodoNulo){
                 cola1.encolar(nodoh1);
                 cola2.encolar( arbol2->agregarHijoIesimo(nodo2, arbol1->etiqueta(nodoh1), contador) );
                 nodoh1 = arbol1->hermanoDer(nodoh1);
@@ -216,7 +216,7 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                     Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
                     Arbol::Nodo nodo2 = cola2.desencolar();
                     Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
-                    while(nodoh1 != arbol->nodoNulo && nodoh2 != arbol->nodoNulo && !iguales){
+                    while(nodoh1 != arbol1->nodoNulo && nodoh2 != arbol2->nodoNulo && !iguales){
                         if(nodoh1 == nodoh2){
                             cola1.encolar(nodoh1);
                             nodoh1 = arbol1->hermanoDer(nodoh1);

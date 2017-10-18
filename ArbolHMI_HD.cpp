@@ -46,10 +46,12 @@ ostream& Arbol::NodoArbol::imprimir(ostream& salida){
 Arbol::Arbol(){
 	this->nRaiz = 0;
 	this->nNodos = 0;
+	nodoNulo = 0;
 }
 
 Arbol::Arbol(int etqta){
 	ponerRaiz(etqta);
+	nodoNulo = 0;
 }
 
 Arbol::~Arbol(){

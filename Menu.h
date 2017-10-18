@@ -331,28 +331,28 @@ class Menu {
            \param "No recibe nada"
            \return "No retorna nada"
          */
-        //void listarArbolPreorden(); //11
+        void listarArbolPreorden(); //11
 		
 		 /*!
            \brief "Metodo correspondiente al algoritmo lista árbol en post orden del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-        //void listarArbolPostOrden(); //12
+        void listarArbolPostOrden(); //12
 		
 		 /*!
            \brief "Metodo correspondiente al algoritmo listar árbol por niveles del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-        //void listarArbolNiveles(); //13
+        void listarArbolNiveles(); //13
 		
 		 /*!
            \brief "Metodo correspondiente al algoritmo buscar etiqueta y retorna su nodo del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-        //void buscarEtiquetaRetNodo();//14
+        void buscarEtiquetaRetNodo();//14
 };
 // g++ main.cpp cola.cpp arbolsalpadre.cpp menu.cpp -o ejecutable
 

@@ -19,13 +19,14 @@ class Algoritmos{
         Algoritmos();
         ~Algoritmos();
 
-    /*!
-       \brief "Averigua la etiqueta del hermano izquierdo de un nodo"
-       \param "Entra el Árbol en el que está el nodo"
-       \param "Entra el nodo del que se quiere buscar el hermano izquierdo"
-       \return "Retorna el nodo correspondiente al hermano izquierdo"
-    */
-    Arbol::Nodo hermanoIzquierdo(Arbol*, Arbol::Nodo);
+		/*!
+		   \brief "Averigua la etiqueta del hermano izquierdo de un nodo"
+		   \param "Entra el Árbol en el que está el nodo"
+		   \param "Entra el nodo del que se quiere buscar el hermano izquierdo"
+		   \return "Retorna el nodo correspondiente al hermano izquierdo"
+		*/
+		int hermanoIzquierdo(Arbol*, Arbol::Nodo);
+		
 		/*!
 			\brief "Verifica si el árbol tiene etiquetas repetidos"
 			\param "Entra el Árbol en el cual se buscaran etiquetas repetidas"

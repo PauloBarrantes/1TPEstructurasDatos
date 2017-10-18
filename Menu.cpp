@@ -526,7 +526,7 @@ void Menu::hermanoIzquierdo(){
     int nodo = 0;
     cout << "Digite el nodo que desea averiguar su hijo izquierdo" << endl;
     cin >> nodo;
-		cout << "El hermano izquierdo de " << nodo << " es: "<< algoritmos->hermanoIzquierdo(arbol1) << endl;
+		cout << "El hermano izquierdo de " << nodo << " es: "<< algoritmos->hermanoIzquierdo(arbol1,arbol1->buscarNodo(nodo)) << endl;
 }
 void Menu::hayRepetidos(){
     if(algoritmos->hayRepetidos(arbol1)){
@@ -590,7 +590,7 @@ void Menu::iguales(){
 }
 
 void Menu::listarArbolPreorden(){
-    algoritmos->listarArbolPreorden(arbol1);
+    algoritmos->listarArbolPreOrden(arbol1);
 }
 void Menu::listarArbolPostOrden(){
     algoritmos->listarArbolPostOrden(arbol1);
