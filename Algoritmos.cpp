@@ -240,7 +240,7 @@ void Algoritmos::listarArbolPreOrden(Arbol* arbol) {
 
 void Algoritmos::listarArbolPreOrdenRec(Arbol* arbol, Arbol::Nodo nodoActual) {
   if(nodoActual != 0){
-    cout << arbol->etiqueta(nodoActual) << ", "<<endl;
+    cout << "-> "<< arbol->etiqueta(nodoActual) <<endl;
     Arbol::Nodo nh = arbol->hijoMasIzq(nodoActual);
     while(nh != 0){
       listarArbolPreOrdenRec(arbol,nh);
@@ -260,7 +260,7 @@ void Algoritmos::listarArbolPostOrdenRec(Arbol* arbol, Arbol::Nodo nodoActual) {
       listarArbolPostOrdenRec(arbol, nh);
       nh = arbol->hermanoDer(nh);
     }
-    cout << arbol->etiqueta(nodoActual) << ", "<<endl;
+    cout << "-> " << arbol->etiqueta(nodoActual) <<endl;
   }
 }
 
@@ -273,7 +273,7 @@ void Algoritmos::listarArbolNiveles(Arbol* arbol){
           Arbol::Nodo nodo = cola.desencolar();
           Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
           while(nh != 0){
-              cout << ", " << arbol->etiqueta(nh)<<endl;
+              cout << "-> " << arbol->etiqueta(nh)<<endl;
               cola.encolar(nh);
               nh = arbol->hermanoDer(nh);
           }

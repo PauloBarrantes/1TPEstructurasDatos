@@ -130,6 +130,7 @@ class Algoritmos{
         void listarArbolPreOrden(Arbol*);
     /*!
        \brief "Imprime la etiqueta correspondiente al nodo actual, se mueve y se llama a si mismo"
+       \param "Árbol al que pertenece el Nodo"
        \param "Entra el Nodo a imprimir"
        \return "No retorna nada"
     */
@@ -142,18 +143,24 @@ class Algoritmos{
         void listarArbolPostOrden(Arbol*);
     /*!
        \brief "Se mueve y se llama a si mismo, antes de salir Imprime la etiqueta correspondiente al nodo actual"
+       \param "Árbol al que pertenece el Nodo"
        \param "Entra el Nodo a imprimir"
        \return "No retorna nada"
     */
         void listarArbolPostOrdenRec(Arbol*, Arbol::Nodo);
     /*!
-       \brief "Description"
-       \param "Param description"
-       \pre "Pre-conditions"
-       \post "Post-conditions"
-       \return "Return of the function"
+       \brief "Realiza un recorrido del árbol por niveles para imprimirlos"
+       \param "Entra el Árbol que vamos a listar"
+       \return "No retorna nada"
     */
         void listarArbolNiveles(Arbol*);
+    /*!
+       \brief "Hace un recorrido por niveles buscando el nodo correspondiente a la etiqueta pasada por parámetro"
+       \param "Árbol al que pertenece el Nodo"
+       \param "Etiqueta que corresponde al nodo que se quiere buscar"
+       \return "Retorna el Nodo que corresponde a la etiqueta pasada por parámetro"
+    */
+        Arbol::Nodo buscarEtiquetaRetNodo(Arbol*, int);
 
 };
 
