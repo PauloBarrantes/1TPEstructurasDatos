@@ -7,10 +7,10 @@ using namespace std;
 Menu::Menu(){
 	arbol1 = 0;
 	arbol2 = 0;
-	
+
 	cola1 = 0;
 	algoritmos = 0;
-	
+
     controlador();
 }
 Menu::~Menu(){
@@ -393,7 +393,7 @@ void Menu::ultimoC(){
 /// Métodos de Prueba de los algoritmos ///
 void Menu::llenarArbol1(){
     arbol1 = new Arbol();
-	
+
 	//arbol1->ponerRaiz(06);
     //arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 21,1);
     //arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 2 ,2);
@@ -401,7 +401,7 @@ void Menu::llenarArbol1(){
     //arbol1->agregarHijoIesimo(arbol1->buscarNodo(56), 14,1);
     //arbol1->agregarHijoIesimo(arbol1->buscarNodo(21), 98,1);
     //arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 4,1);
-	
+
     arbol1->ponerRaiz(10);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 19,1);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 28,2);
@@ -477,6 +477,10 @@ void Menu::pruebaAlgoritmos(){
                                                         }else{
                                                             if(instruccion == 14){
                                                                 //buscarEtiquetaRetNodo();
+                                                            }else{
+                                                                if(instruccion == 0){
+                                                                    instruccionesAlgoritmos();
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -497,6 +501,7 @@ void Menu::pruebaAlgoritmos(){
 }
 void Menu::instruccionesAlgoritmos(){
     cout << "-------------- Instrucciones --------------" <<endl;
+    cout << "Escriba (0) para desplegar la lista de instrucciones nuevamente" <<endl;
     cout << "Escriba (1) para averiguar el hermano izquierdo de un nodo" <<endl;
     cout << "Escriba (2) para averiguar si el árbol tiene etiquetas repetidas" <<endl;
     cout << "Escriba (3) para averiguar cuántos niveles tiene el árbol haciendo un recorrido por niveles" <<endl;
