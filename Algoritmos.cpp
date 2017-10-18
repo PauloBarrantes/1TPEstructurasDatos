@@ -7,6 +7,7 @@ using namespace std;
 
 Algoritmos::Algoritmos(){
     nodoNulo = -1;
+    nodoNulo = 0;
 }
 Algoritmos::~Algoritmos(){
 }
@@ -29,6 +30,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 			posRevision = 0;
 			while(nh && !hayRep){
 				++posNh;
+				posRevision = 0;
 				while(posRevision < posNh){
 					if(arbol->etiqueta(nh) == arbol->etiqueta(vec[posRevision])){
 						hayRep = 1;
@@ -36,12 +38,16 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 					++posRevision;
 				}
 
+				
 				if(!hayRep){
+					cout << "  G" <<endl;
 					vec[posNh] = nh;
+					vec[posNh+1] = 0;
 					nh = arbol->hermanoDer(nh);
 				}
 			}
 			++posN;
+			actual = vec[posN];
 		}
 	}
 
@@ -62,6 +68,8 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 
 			++niveles;
 
+			cout << "B" <<endl;
+			
 			while(nh){
 				cola.encolar(nh);
 				nh = arbol->hermanoDer(nh);
@@ -69,11 +77,17 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 
 			if(!cola.vacia()){
 				if(arbol->hermanoDer(actual) == cola.frente()){
+					cout << "restar1" <<endl;
 					--niveles;
 				}
 
 				if(arbol->hermanoDer(arbol->padre(nh)) == arbol->padre(cola.frente())){
 					--niveles;
+				}else{
+					if(arbol->hermanoDer(arbol->padre(nh)) == arbol->padre(cola.frente())){
+						cout << "restar2" <<endl;
+						--niveles;
+					}
 				}
 			}
 		}
@@ -97,7 +111,9 @@ void Algoritmos::averiguarNivelesPreOrdenR(Arbol* arbol,Arbol::Nodo actual,int n
 	Arbol::Nodo nh = arbol->hijoMasIzq(actual);
 
 	while(nh != nodoNulo){
+	while(nh != 0){
 		averiguarNivelesPreOrdenR(arbol,nh,nivAct+1,niveles);
+		nh = arbol->hermanoDer(nh);
 	}
 }
 
@@ -107,6 +123,7 @@ int Algoritmos::profundidadNodo(Arbol* arbol,Arbol::Nodo nodo){
 
 	while(act != arbol->raiz()){
 		act = arbol->padre(nodo);
+		act = arbol->padre(act);
 		++niveles;
 	}
 
@@ -127,6 +144,7 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
             Arbol::Nodo nodo2 = cola2.desencolar();
             int contador = 1;
             while(nodoh1 != nodoNulo){
+            while(nodoh1 != 0){
                 cola1.encolar(nodoh1);
                 cola2.encolar( arbol2->agregarHijoIesimo(nodo2, arbol1->etiqueta(nodoh1), contador) );
                 nodoh1 = arbol1->hermanoDer(nodoh1);
@@ -140,6 +158,7 @@ void Algoritmos::listarEtiquetasDeNodo(Arbol* arbol, Arbol::Nodo nodo){
     Arbol::Nodo nodoh = arbol->hijoMasIzq(nodo);
     cout << "Los hijos del nodo son:  " <<endl;
     while(nodoh != nodoNulo){
+    while(nodoh != 0){
         cout << "-> " << arbol->etiqueta(nodoh)<<endl;
         nodoh = arbol->hermanoDer(nodoh);
     }
@@ -158,6 +177,7 @@ void Algoritmos::listarEtiquetas_iesimoNivelRec(Arbol* arbol, Arbol::Nodo nodo, 
             Arbol::Nodo nh;
             nh = arbol->hijoMasIzq(nodo);
             while(nh!= nodoNulo){
+            while(nh!= 0){
                 listarEtiquetas_iesimoNivelRec(arbol, nh, nivelActual+1, nivel);
                 nh = arbol->hermanoDer(nh);
             }
@@ -167,23 +187,36 @@ void Algoritmos::listarEtiquetas_iesimoNivelRec(Arbol* arbol, Arbol::Nodo nodo, 
 }
 
 void Algoritmos::borrarSubArbol(Arbol* arbol,Arbol::Nodo nodo){
+<<<<<<< HEAD
     if(arbol->esHoja(nodo)){
         arbol->borrarHoja(nodo);
     }else{
         borrarSubArbolRec(arbol, nodo);
     }
+=======
+    borrarSubArbolRec(arbol,nodo);
+>>>>>>> c58aa1ba1382100e7ed973197857188ffb1dcd09
 }
 void Algoritmos::borrarSubArbolRec(Arbol* arbol, Arbol::Nodo nodo){
 	Arbol::Nodo nh = arbol->HijoMasIzq(arbol);
 	while (!Arbol->esHoja(nh)){
+	Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+	while (nh){
 		borrarSubArbolRec(arbol,nh);
 		nh = Arbol->hijoMasIzq(arbol,nodo);
+		nh = arbol->hijoMasIzq(nodo);
 	}
+<<<<<<< HEAD
 	Arbol->borrarHoja(nodo);
+=======
+	arbol->borrarHoja(nodo);
+	
+>>>>>>> c58aa1ba1382100e7ed973197857188ffb1dcd09
 }
 
 int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
     int iguales = 0;
+<<<<<<< HEAD
     if(arbol1->vacia() && arbol2->vacia()){
         iguales = 1;
     }else{
@@ -207,6 +240,27 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                         }else{
                             iguales = 1;
                         }
+=======
+    if(arbol1->numNodos() == arbol2->numNodos()){
+        if(arbol1->etiqueta(arbol1->raiz()) == arbol2->etiqueta(arbol2->raiz()) ){
+            Cola<Arbol::Nodo> cola1;
+            Cola<Arbol::Nodo> cola2;
+            cola1.encolar(arbol1->raiz());
+            cola2.encolar(arbol2->raiz());
+            while (!cola1.vacia() && !iguales) {
+                Arbol::Nodo nodo1 = cola1.desencolar();
+                Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
+                Arbol::Nodo nodo2 = cola2.desencolar();
+                Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
+                while(nodoh1 != 0 && !iguales){
+                    if(nodoh1 == nodoh2){
+                        cola1.encolar(nodoh1);
+                        nodoh1 = arbol1->hermanoDer(nodoh1);
+                        cola2.encolar(nodoh2);
+                        nodoh2 = arbol2->hermanoDer(nodo2);
+                    }else{
+                        iguales = 1;
+>>>>>>> c58aa1ba1382100e7ed973197857188ffb1dcd09
                     }
                 }
             }
