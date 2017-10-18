@@ -11,7 +11,7 @@ Algoritmos::Algoritmos(){
 Algoritmos::~Algoritmos(){
 }
 
-int hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
+Arbol::Nodo hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
   Arbol::Nodo hermanoIzq = 0;
   Arbol::Nodo actual = arbol->hijoMasIzq(arbol->padre(nodo));
   if(actual != nodo){
@@ -46,7 +46,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 					}
 					++posRevision;
 				}
-				
+
 				if(!hayRep){
 					cout << "  G" <<endl;
 					vec[posNh] = nh;
@@ -76,7 +76,7 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 
 			++niveles;
 			cout << "B" <<endl;
-			
+
 			while(nh){
 				cola.encolar(nh);
 				nh = arbol->hermanoDer(nh);
@@ -194,7 +194,7 @@ void Algoritmos::borrarSubArbolRec(Arbol* arbol, Arbol::Nodo nodo){
 		nh = arbol->hijoMasIzq(nodo);
 	}
 	arbol->borrarHoja(nodo);
-	
+
 }
 
 int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
@@ -213,7 +213,7 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                     Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
                     Arbol::Nodo nodo2 = cola2.desencolar();
                     Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
-                    while(nodoh1 != nodoNulo && nodoh2 != nodoNulo !iguales){
+                    while(nodoh1 != 0 && nodoh2 != 0 && !iguales){
                         if(nodoh1 == nodoh2){
                             cola1.encolar(nodoh1);
                             nodoh1 = arbol1->hermanoDer(nodoh1);
@@ -227,6 +227,35 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
             }
         }
     }
-
     return iguales;
+}
+
+void Algoritmos::listarArbolPreOrden(Arbol* arbol) {
+  listarArbolPreOrdenRec(arbol,arbol->raiz());
+}
+
+void Algoritmos::listarArbolPreOrdenRec(Arbol* arbol, Arbol::Nodo nodoActual) {
+  if(nodoActual != 0){
+    cout << arbol->etiqueta(nodoActual) << ", "<<endl;
+    Arbol::Nodo nh = arbol->hijoMasIzq(nodoActual);
+    while(nh != 0){
+      listarArbolPreOrdenRec(arbol,nh);
+      nh = arbol->hermanoDer(nh);
+    }
+  }
+}
+
+void Algoritmos::listarArbolPostOrden(Arbol* arbol) {
+  listarArbolPostOrdenRec(arbol,arbol->raiz());
+}
+
+void Algoritmos::listarArbolPostOrdenRec(Arbol* arbol, Arbol::Nodo nodoActual) {
+  if(nodoActual != 0){
+    Arbol::Nodo nh = arbol->hijoMasIzq(nodoActual);
+    while(nh != 0){
+      listarArbolPostOrdenRec(arbol, nh);
+      nh = arbol->hermanoDer(nh);
+    }
+    cout << arbol->etiqueta(nodoActual) << ", "<<endl;
+  }
 }

@@ -19,21 +19,14 @@ class Algoritmos{
     public:
         Algoritmos();
         ~Algoritmos();
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     /*!
        \brief "Averigua la etiqueta del hermano izquierdo de un nodo"
        \param "Entra el Árbol en el que está el nodo"
        \param "Entra el nodo del que se quiere buscar el hermano izquierdo"
-       \return "Return of the function"
+       \return "Retorna el nodo correspondiente al hermano izquierdo"
     */
-    int hermanoIzquierdo(Arbol*, Arbol::Nodo);
-=======
-
->>>>>>> 51342b660f421271dc4f0b7fa7cbb74d496ad959
-=======
-
->>>>>>> 51342b660f421271dc4f0b7fa7cbb74d496ad959
+    Arbol::Nodo hermanoIzquierdo(Arbol*, Arbol::Nodo);
 		/*!
 			\brief "Verifica si el árbol tiene etiquetas repetidos"
 			\param "Entra el Árbol en el cual se buscaran etiquetas repetidas"
@@ -131,16 +124,30 @@ class Algoritmos{
         int iguales(Arbol*, Arbol*);
 
     /*!
-       \brief "Description"
-       \param "Param description"
-       \return "Return of the function"
+       \brief "Lista las etiquetas del arbol en pre-orden"
+       \param "Entra el Árbol que vamos a listar"
+       \return "No retorna nada"
     */
-        int listarArbolPreOrden(Arbol*)
+        void listarArbolPreOrden(Arbol*);
+    /*!
+       \brief "Imprime la etiqueta correspondiente al nodo actual, se mueve y se llama a si mismo"
+       \param "Entra el Nodo a imprimir"
+       \return "No retorna nada"
+    */
+        void listarArbolPreOrdenRec(Arbol*, Arbol::Nodo);
+    /*!
+       \brief "Lista las etiquetas del arbol en post-orden"
+       \param "Entra el Árbol que vamos a listar"
+       \return "No retorna nada"
+    */
+        void listarArbolPostOrden(Arbol*);
+    /*!
+       \brief "Se mueve y se llama a si mismo, antes de salir Imprime la etiqueta correspondiente al nodo actual"
+       \param "Entra el Nodo a imprimir"
+       \return "No retorna nada"
+    */
+        void listarArbolPostOrdenRec(Arbol*, Arbol::Nodo);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 51342b660f421271dc4f0b7fa7cbb74d496ad959
 };
 
 #endif
