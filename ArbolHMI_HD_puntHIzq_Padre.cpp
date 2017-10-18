@@ -146,7 +146,6 @@ Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int
 
 void Arbol::borrarHoja(Arbol::NodoArbol* nodo){
 	if(nodo->hermanoI){
-		cout<<"1"<<endl;
 		nodo->hermanoI->hermanoD = nodo->hermanoD;
 	}else{
 		nodo->nPadre->hijoMasI = nodo->hermanoD;
@@ -186,10 +185,10 @@ Arbol::NodoArbol* Arbol::buscarNodo(int etqta){
 				actual = actual->hermanoD;
 			}else{
 				while(actual->nPadre && !actual->nPadre->hermanoD){
-					actual->nPadre;
+					actual = actual->nPadre;
 				}
 				if(actual->nPadre){
-					actual->nPadre->hermanoD;
+					actual = actual->nPadre->hermanoD;
 				}else{
 					actual = 0;
 				}
