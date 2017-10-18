@@ -77,7 +77,11 @@ Arbol::NodoArbol* Arbol::hijoMasIzq(Arbol::NodoArbol* nodo){
 }
 
 Arbol::NodoArbol* Arbol::hermanoDer(Arbol::NodoArbol* nodo){
-	return nodo->hermanoD;
+	Arbol::Nodo herD = 0;
+	if(!nodo->senalaP){
+		herD = nodo->hermanoD;
+	}
+	return herD;
 }
 
 Arbol::NodoArbol* Arbol::padre(Arbol::NodoArbol* nodo){
@@ -155,7 +159,7 @@ Arbol::NodoArbol* Arbol::agregarHijoIesimo(Arbol::NodoArbol* nodo,int etqta, int
 
 void Arbol::borrarHoja(Arbol::NodoArbol* nodo){
 	NodoArbol* nPadre = padre(nodo);
-	int seBorro = 0;
+	int sePuedeB = 0;
 	
 	if(nPadre){
 		if(nPadre->hijoMasI == nodo){
@@ -164,7 +168,7 @@ void Arbol::borrarHoja(Arbol::NodoArbol* nodo){
 			}else{
 				nPadre->hijoMasI = nodo->hermanoD;
 			}
-			seBorro = 1;
+			sePuedeB = 1;
 		}else{
 			NodoArbol* actual = nPadre->hijoMasI;
 			
@@ -177,11 +181,11 @@ void Arbol::borrarHoja(Arbol::NodoArbol* nodo){
 			}
 			
 			actual->hermanoD = nodo->hermanoD;
-			seBorro = 1;
+			sePuedeB = 1;
 		}
 	}
 	
-	if(seBorro){
+	if(sePuedeB){
 		--nPadre->nHijos;
 		--nNodos;
 	}

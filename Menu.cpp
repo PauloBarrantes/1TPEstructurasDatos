@@ -5,6 +5,12 @@
 using namespace std;
 
 Menu::Menu(){
+	arbol1 = 0;
+	arbol2 = 0;
+	
+	cola1 = 0;
+	algoritmos = 0;
+	
     controlador();
 }
 Menu::~Menu(){
@@ -38,9 +44,13 @@ void Menu::controlador(){
             if(respuesta == "cola"){
                 pruebaCola();
             }else{
-                if(respuesta != "salir"){
-                    std::cerr << "No coincide con ninguna palabra" << '\n';
-                }
+				if(respuesta == "algoritmos"){
+					pruebaAlgoritmos();
+				}else{
+					if(respuesta != "salir"){
+						std::cerr << "No coincide con ninguna palabra" << '\n';
+					}
+				}
             }
         }
     } while(respuesta != "salir");
@@ -341,7 +351,7 @@ void Menu::instruccionesCola(){
 
 }
 void Menu::iniciarC(){
-    cola1 = new Cola();
+    cola1 = new Cola <int>();
     cout << "La cola ha sido inicializada " <<endl;
 }
 void Menu::destruirC(){
@@ -383,6 +393,15 @@ void Menu::ultimoC(){
 /// Métodos de Prueba de los algoritmos ///
 void Menu::llenarArbol1(){
     arbol1 = new Arbol();
+	
+	//arbol1->ponerRaiz(06);
+    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 21,1);
+    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 2 ,2);
+    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(21), 56,1);
+    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(56), 14,1);
+    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(21), 98,1);
+    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 4,1);
+	
     arbol1->ponerRaiz(10);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 19,1);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 28,2);
@@ -398,7 +417,7 @@ void Menu::llenarArbol2(){
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 21,1);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 2 ,2);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(21), 56,1);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(56), 14,1);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(56), 98,1);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(21), 98,1);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 3,1);
 
@@ -412,7 +431,7 @@ void Menu::pruebaAlgoritmos(){
     if(arbol2 == 0){
         llenarArbol2();
     }
-    instruccionesCola();
+    instruccionesAlgoritmos();
     int instruccion;
 
     do {
@@ -448,16 +467,16 @@ void Menu::pruebaAlgoritmos(){
                                                 iguales();
                                             }else{
                                                 if(instruccion == 11){
-                                                    listarArbolPreorden();
+                                                    //listarArbolPreorden();
                                                 }else{
                                                     if(instruccion == 12){
-                                                        listarArbolPostOrden();
+                                                        //listarArbolPostOrden();
                                                     }else{
                                                         if(instruccion == 13){
-                                                            listarArbolNiveles();
+                                                            //listarArbolNiveles();
                                                         }else{
                                                             if(instruccion == 14){
-                                                                buscarEtiquetaRetNodo();
+                                                                //buscarEtiquetaRetNodo();
                                                             }
                                                         }
                                                     }
@@ -497,7 +516,7 @@ void Menu::instruccionesAlgoritmos(){
 
 void Menu::hermanoIzquierdo(){
     int nodo = 0;
-    cout << "Digite el nodo que desea averiguar su hijo izquierdo" << endl
+    cout << "Digite el nodo que desea averiguar su hijo izquierdo" << endl;
     cin >> nodo;
 }
 void Menu::hayRepetidos(){
@@ -527,8 +546,8 @@ void Menu::profundidadNodo(){
 }
 void Menu::listarEtiquetas_iesimoNivel(){
     int nivel = 0;
-    coud << "Digite el nivel que desea desplegar " <<endl;
-    cin nivel;
+    cout << "Digite el nivel que desea desplegar " <<endl;
+    cin >> nivel;
     algoritmos->listarEtiquetas_iesimoNivel(arbol1, nivel);
 }
 void Menu::listarEtiquetasDeNodo(){
@@ -548,10 +567,10 @@ void Menu::copiarArbol(){
     if(arbol2 == 0){ //No está inicializado
         arbol2 = new Arbol();
     }else{
-        delete arbol2;
+        delete arbol1;
     }
-    arbol2 = algoritmos->copiarArbol(arbol1);
-    cout << "El árbol ha sido copiado satisfactoriamente"<<endl
+    arbol1 = algoritmos->copiarArbol(arbol2);
+    cout << "El árbol ha sido copiado satisfactoriamente"<<endl;
 }
 void Menu::iguales(){
     if (algoritmos->iguales(arbol1,arbol2)){
@@ -560,6 +579,7 @@ void Menu::iguales(){
         cout << "Los árboles no son iguales" <<endl;
     }
 }
+/*
 void Menu::listarArbolPreorden(){
     algoritmos->listarArbolPreorden(arbol1);
 }
@@ -576,3 +596,4 @@ void Menu::buscarEtiquetaRetNodo(){
     cin >>etiqueta;
     cout << algoritmos->buscarEtiquetaRetNodo(arbol1, etiqueta)<< endl;
 }
+*/
