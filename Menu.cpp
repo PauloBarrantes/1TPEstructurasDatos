@@ -13,6 +13,8 @@ void Menu::controlador(){
     cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
     cout<< "Escriba arbol para hacer pruebas con el arbol" <<endl;
     cout<< "Escriba cola para hacer pruebas con la cola"<<endl;
+    cout<< "Escriba algoritmos para hacer pruebas con los algoritmos de los árboles"<<endl;
+
     cout<< "Escriba salir para cuando desee acabar con las pruebas"<<endl;
 
     string respuesta = "";
@@ -363,4 +365,134 @@ void Menu::frenteC(){
 }
 void Menu::ultimoC(){
     cout << "El último de la cola es: " <<cola1->ultimo() << endl;
+}
+/// Métodos de Prueba de los algoritmos ///
+void Menu::pruebaAlgoritmos(){
+    cout << "Hola!, te guiaré en la prueba de los algoritmos del modelo árbol" <<endl;
+    instruccionesCola();
+    int instruccion;
+
+    do {
+        cin >> instruccion;
+        if(instruccion == 1){
+            hermanoIzquierdo();
+        }else{
+            if(instruccion == 2){
+                hayRepetidos();
+            }else{
+                if(instruccion == 3){
+                    averiguarNivelesEnRecorridoPorNiveles();
+                }else{
+                    if(instruccion == 4){
+                        averiguarNivelsPreOrden();
+                    }else{
+                        if(instruccion == 5){
+                            profundidadNodo();
+                        }else{
+                            if(instruccion == 6){
+                                listarEtiquetas_iesimoNivel();
+                            }else{
+                                if(instruccion == 7){
+                                    listarEtiquetasDeNodo();
+                                }else{
+                                    if(instruccion == 8){
+                                        borrarSubArbol();
+                                    }else{
+                                        if(instruccion == 9){
+                                            copiarArbol();
+                                        }else{
+                                            if(instruccion == 10){
+                                                iguales();
+                                            }else{
+                                                if(instruccion == 11){
+                                                    listarArbolPreorden();
+                                                }else{
+                                                    if(instruccion == 12){
+                                                        listarArbolPostOrden();
+                                                    }else{
+                                                        if(instruccion == 13){
+                                                            listarArbolNiveles();
+                                                        }else{
+                                                            if(instruccion == 14){
+
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    } while(instruccion != 15);
+}
+void Menu::instruccionesAlgoritmos(){
+    cout << "-------------- Instrucciones --------------" <<endl;
+    cout << "Escriba (1) para averiguar el hermano izquierdo de un nodo" <<endl;
+    cout << "Escriba (2) para averiguar si el árbol tiene etiquetas repetidas" <<endl;
+    cout << "Escriba (3) para averiguar cuántos niveles tiene el árbol haciendo un recorrido por niveles" <<endl;
+    cout << "Escriba (4) para averiguar cuántos niveles tiene el árbol haciendo un recorridoen pre-orden " <<endl;
+    cout << "Escriba (5) para averiguar la profundidad del nodo n" <<endl;
+    cout << "Escriba (6) para listar las etiquetas del i- ́esimo nivel del  ́arbol" <<endl;
+    cout << "Escriba (7) para listar las etiquetas	de los hijos del nodo n" <<endl;
+    cout << "Escriba (8) para borrar el sub-árbol que se genera a partir del nodo n " <<endl;
+    cout << "Escriba (9) para copiar un árbol " <<endl;
+    cout << "Escriba (10) para averiguar si dos árboles son iguales" <<endl;
+    cout << "Escriba (11) para listar el árbol en pre-orden" <<endl;
+    cout << "Escriba (12) para listar el árbol en post-orden " <<endl;
+    cout << "Escriba (13) para listar el árbol por niveles " <<endl;
+    cout << "Escriba (14) para buscar una etiqueta y devolver el nodo correspondiente" <<endl;
+    cout << "Escriba (15) para volver al menú principal " <<endl;
+}
+
+void Menu::hermanoIzquierdo(){
+    int nodo = 0;
+    cout << "Digite el nodo que desea averiguar su hijo izquierdo" << endl
+    cin >> nodo;
+}
+void Menu::hayRepetidos(){
+
+}
+void Menu::averiguarNivelesEnRecorridoPorNiveles(){
+
+}
+void Menu::averiguarNivelsPreOrden(){
+
+}
+void Menu::profundidadNodo(){
+
+}
+void Menu::listarEtiquetas_iesimoNivel(){
+
+}
+void Menu::listarEtiquetasDeNodo(){
+
+}
+void Menu::borrarSubArbol(){
+
+}
+void Menu::copiarArbol(){
+
+}
+void Menu::iguales(){
+
+}
+void Menu::listarArbolPreorden(){
+
+}
+void Menu::listarArbolPostOrden(){
+
+}
+void Menu::listarArbolNiveles(){
+
+}
+void Menu::buscarEtiquetaRetNodo(){
+    
 }

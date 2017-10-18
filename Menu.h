@@ -203,6 +203,33 @@ class Menu {
            \return "No retorna nada"
         */
         void ultimoC();
+        /*!
+           \brief "Description"
+           \param "Param description"s
+           \return "Return of the function"
+        */
+        void pruebaAlgoritmos();
+        /*!
+           \brief "Description"
+           \param "Param description"s
+           \return "Return of the function"
+        */
+        void instruccionesAlgoritmos();
+
+        void hermanoIzquierdo(); // 1
+        void hayRepetidos(); // 2
+        void averiguarNivelesEnRecorridoPorNiveles(); //3
+        void averiguarNivelsPreOrden(); //4
+        void profundidadNodo(); //5
+        void listarEtiquetas_iesimoNivel(); //6
+        void listarEtiquetasDeNodo(); //7
+        void borrarSubArbol(); //8
+        void copiarArbol();//9
+        void iguales();//10
+        void listarArbolPreorden(); //11
+        void listarArbolPostOrden(); //12
+        void listarArbolNiveles(); //13
+        void Menu::buscarEtiquetaRetNodo();//14
 };
 // g++ main.cpp cola.cpp arbolsalpadre.cpp menu.cpp -o ejecutable
 
