@@ -1,3 +1,4 @@
+#include "ArbolLDL.h"
 using namespace std;
 
 
@@ -84,7 +85,7 @@ ostream& Arbol::Caja::imprimir(ostream& salida){
    \param "Entra un Nodo al que hace referencia la Cajita buscada"
    \return "Retorna la Cajita que apunta al Nodo que entró como parámetro"
 */
-Arbol::Cajita* Arbol::buscarCajita(Nodo nodoRef){
+Arbol::Cajita* Arbol::buscarCajita(Caja* nodoRef){
   Cajita* buscado = 0;
   Nodo padreActual = raizArbol;
   Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
