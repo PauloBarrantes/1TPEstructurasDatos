@@ -1,6 +1,3 @@
-#import <iostream>
-#import "ArbolLDL.h"
-
 using namespace std;
 
 

@@ -4,19 +4,10 @@
    \author "Paulo B - Fabian A - André F"
    \date "17"/"10"/"2017"
 */
+
 #ifndef Algoritmos_2017
 #define Algoritmos_2017
-#include "ArbolLDL.h"
-class Algoritmos{
-    private:
-        int nodoNulo;
-        Arbol* arbol1;
-        void borrarSubArbolRec(Arbol::Nodo);
-    public:
-        Algoritmos();
-        ~Algoritmos();
-		#ifndef Algoritmos_2017
-#define Algoritmos_2017
+//#include "ArbolLDL.h"
 #include "ArbolSalPadre.h"
 class Algoritmos{
     private:
@@ -107,18 +98,20 @@ class Algoritmos{
         void borrarSubArbol(Arbol*, Arbol::Nodo);
 		
 		/*!
+			\brief "Borra el su Árbol, que se forma apartir dl nodo que se recibe como parámetro"
+			\param "Entra el Árbol al que le vamos a borrar el Sub Árbol"
+			\param "Entra el Nodo donde comienza el sub Árbol a borrar"
+			\return "No retorna nada"
+		*/
+        void borrarSubArbolRec(Arbol*, Arbol::Nodo);
+		
+		/*!
 			\brief "Dice sí los Árboles que se reciben como parámetros son iguales"
 			\param "Entra el primero de los Árbles que se va a comparar"
 			\param "Entra el segundo de los Árboles que se va a comparar"
 			\return "N1 si los Árboles son iguales"
 		*/
         int iguales(Arbol*, Arbol*);
-
-
-};
-
-#endif
-
 
 
 };
