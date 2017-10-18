@@ -1,3 +1,4 @@
+//g++ main.cpp Menu.cpp Algoritmos.cpp Cola.h ArbolHMI_HD.cpp
 /*!
    \file "Menu.h"
    \brief "Menu con el que el usuario va poder utilizar las estructuras de datos y sus operadores básicos"
@@ -8,9 +9,9 @@
 #define Menu_Usuario2017
 //#include "ArbolSalPadre.h"
 //#include "ArbolHMI_HD_puntHIzq_Padre.h"
-//#include "ArbolHMI_HD.h"
+#include "ArbolHMI_HD.h"
 //#include "ArbolHMI_HD_utimoPadre.h"
-#include "ArbolLDL.h"
+//#include "ArbolLDL.h"
 #include "Cola.h"
 #include "Algoritmos.h"
 class Menu {

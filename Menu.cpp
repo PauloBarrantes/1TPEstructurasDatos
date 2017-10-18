@@ -480,6 +480,10 @@ void Menu::pruebaAlgoritmos(){
                                                         }else{
                                                             if(instruccion == 14){
                                                                 //buscarEtiquetaRetNodo();
+                                                            }else{
+                                                                if(instruccion == 0){
+                                                                    instruccionesAlgoritmos();
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -500,6 +504,7 @@ void Menu::pruebaAlgoritmos(){
 }
 void Menu::instruccionesAlgoritmos(){
     cout << "-------------- Instrucciones --------------" <<endl;
+    cout << "Escriba (0) para desplegar la lista de instrucciones nuevamente" <<endl;
     cout << "Escriba (1) para averiguar el hermano izquierdo de un nodo" <<endl;
     cout << "Escriba (2) para averiguar si el árbol tiene etiquetas repetidas" <<endl;
     cout << "Escriba (3) para averiguar cuántos niveles tiene el árbol haciendo un recorrido por niveles" <<endl;
