@@ -14,7 +14,6 @@
 #include "Cola.h"
 class Algoritmos{
     private:
-        int nodoNulo;
         Arbol* arbol1;
     public:
         Algoritmos();
@@ -147,6 +146,14 @@ class Algoritmos{
        \return "No retorna nada"
     */
         void listarArbolPostOrdenRec(Arbol*, Arbol::Nodo);
+    /*!
+       \brief "Description"
+       \param "Param description"
+       \pre "Pre-conditions"
+       \post "Post-conditions"
+       \return "Return of the function"
+    */
+        void listarArbolNiveles(Arbol*);
 
 };
 

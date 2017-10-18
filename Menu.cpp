@@ -7,10 +7,10 @@ using namespace std;
 Menu::Menu(){
 	arbol1 = 0;
 	arbol2 = 0;
-	
+
 	cola1 = 0;
 	algoritmos = 0;
-	
+
     controlador();
 }
 Menu::~Menu(){
@@ -393,7 +393,7 @@ void Menu::ultimoC(){
 /// Métodos de Prueba de los algoritmos ///
 void Menu::llenarArbol1(){
     arbol1 = new Arbol();
-	
+
 	arbol1->ponerRaiz(06);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 21,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 02,2);
@@ -404,7 +404,7 @@ void Menu::llenarArbol1(){
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 05,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 02,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(02), 20,1);
-	
+
     //arbol1->ponerRaiz(10);
     //arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 19,1);
     //arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 28,2);
@@ -521,6 +521,7 @@ void Menu::hermanoIzquierdo(){
     int nodo = 0;
     cout << "Digite el nodo que desea averiguar su hijo izquierdo" << endl;
     cin >> nodo;
+		cout << "El hermano izquierdo de " << nodo << " es: "<< algoritmos->hermanoIzquierdo(arbol1) << endl;
 }
 void Menu::hayRepetidos(){
     if(algoritmos->hayRepetidos(arbol1)){

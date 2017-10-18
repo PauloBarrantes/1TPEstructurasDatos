@@ -6,12 +6,12 @@ using namespace std;
 
 
 Algoritmos::Algoritmos(){
-    nodoNulo = 0;
 }
 Algoritmos::~Algoritmos(){
 }
 
-Arbol::Nodo hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
+int hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
+  int etqta = 0;
   Arbol::Nodo hermanoIzq = 0;
   Arbol::Nodo actual = arbol->hijoMasIzq(arbol->padre(nodo));
   if(actual != nodo){
@@ -19,8 +19,12 @@ Arbol::Nodo hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
       actual = arbol->hermanoDer(actual);
     }
     hermanoIzq = actual;
+    etqta = arbol->etiqueta(hermanoIzq);
   }
-  return hermanoIzq;
+  if(hermanoIzq == 0){
+    cout << "No se encontró hermano izquerdo" << endl;
+  }
+  return etqta;
 }
 
 int Algoritmos::hayRepetidos(Arbol* arbol){
@@ -258,4 +262,43 @@ void Algoritmos::listarArbolPostOrdenRec(Arbol* arbol, Arbol::Nodo nodoActual) {
     }
     cout << arbol->etiqueta(nodoActual) << ", "<<endl;
   }
+}
+
+void Algoritmos::listarArbolNiveles(Arbol* arbol){
+  if(!arbol->vacia()){
+      Cola<Arbol::Nodo> cola;
+      cola.encolar(arbol->raiz());
+      cout << arbol->etiqueta(arbol->raiz()) << endl;
+      while(!cola.vacia()){
+          Arbol::Nodo nodo = cola.desencolar();
+          Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+          while(nh != 0){
+              cout << ", " << arbol->etiqueta(nh)<<endl;
+              cola.encolar(nh);
+              nh = arbol->hermanoDer(nh);
+          }
+      }
+  }
+}
+
+Arbol::Nodo Algoritmos::buscarEtiquetaRetNodo(Arbol* arbol, int etqta){
+  Arbol::Nodo buscado = 0;
+  bool encontrado = false;
+  if(!arbol->vacia()){
+      Cola<Arbol::Nodo> cola;
+      cola.encolar(arbol->raiz());
+      while(!cola.vacia()){
+          Arbol::Nodo nodo = cola.desencolar();
+          Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+          while(nh != 0 && !encontrado){
+              if(arbol->etiqueta(nh) == etqta){
+                  buscado = nh;
+                  encontrado = true;
+              }
+              cola.encolar(nh);
+              nh = arbol->hermanoDer(nh);
+          }
+      }
+  }
+  return buscado;
 }

@@ -44,12 +44,12 @@ class Arbol {
     public:
 
         typedef Caja* Nodo;
+        Nodo nodoNulo;
 
         Arbol();
         ~Arbol();
         void vaciar();
         int vacia();
-
 
         Nodo  raiz();
         Nodo  hijoMasIzq(Nodo);
