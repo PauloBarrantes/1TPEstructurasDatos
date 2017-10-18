@@ -171,9 +171,16 @@ void Algoritmos::borrarSubArbol(Arbol* arbol,Arbol::Nodo nodo){
         arbol->borrarHoja(nodo);
     }
 }
-void Algoritmos::borrarSubArbolRec(Arbol::Nodo nodo){
-
+void Algoritmos::borrarSubArbolRec(Arbol* arbol, Arbol::Nodo nodo){
+	Arbol::Nodo nh = arbol->HijoMasIzq(arbol);
+	while (!Arbol->esHoja(nh)){
+		borrarSubArbolRec(arbol,nh);
+		nh = Arbol->hijoMasIzq(arbol,nodo);
+	}
+	Arbol->borrarHoja(nodo);
+	
 }
+
 int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
     int iguales = 0;
     if(arbol1->numNodos() == arbol2->numNodos()){
