@@ -12,10 +12,14 @@
 #include "ArbolHMI_HD_utimoPadre.h"
 //#include "ArbolLDL.h"
 #include "Cola.h"
+#include "Algoritmos.h"
 class Menu {
     private:
-        Arbol* arbol1;
-        Cola* cola1;
+        Arbol* arbol1 = 0;
+        Arbol* arbol2 = 0;
+
+        Cola* cola1 = 0;
+        Algoritmos* algoritmos = 0;
     public:
         Menu();
         ~Menu();

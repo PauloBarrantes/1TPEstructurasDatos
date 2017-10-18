@@ -8,6 +8,18 @@ Menu::Menu(){
     controlador();
 }
 Menu::~Menu(){
+    if(arbol1 != 0){
+        delete arbol1;
+    }
+    if(arbol2 != 0){
+        delete arbol2;
+    }
+    if(cola1 != 0){
+        delete cola1;
+    }
+    if(algoritmos != 0){
+        delete algoritmos;
+    }
 }
 void Menu::controlador(){
     cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
@@ -366,9 +378,25 @@ void Menu::frenteC(){
 void Menu::ultimoC(){
     cout << "El último de la cola es: " <<cola1->ultimo() << endl;
 }
+
+
 /// Métodos de Prueba de los algoritmos ///
+void Menu::llenarArbol1(){
+    arbol1 = new Arbol();
+
+}
+
+void Menu::llenarArbol2(){
+    arbol2 = new Arbol();
+}
 void Menu::pruebaAlgoritmos(){
     cout << "Hola!, te guiaré en la prueba de los algoritmos del modelo árbol" <<endl;
+    if(arbol1 == 0){
+        llenarArbol1();
+    }
+    if(arbol2 == 0){
+        llenarArbol2();
+    }
     instruccionesCola();
     int instruccion;
 
@@ -414,7 +442,7 @@ void Menu::pruebaAlgoritmos(){
                                                             listarArbolNiveles();
                                                         }else{
                                                             if(instruccion == 14){
-
+                                                                buscarEtiquetaRetNodo();
                                                             }
                                                         }
                                                     }
@@ -458,31 +486,64 @@ void Menu::hermanoIzquierdo(){
     cin >> nodo;
 }
 void Menu::hayRepetidos(){
+    if(algoritmos->hayRepetidos(arbol1)){
+        cout << "En el árbol hay repetidos" <<endl;
+    }else{
+        cout<< "En el árbol no hay repetidos"<<endl;
+    }
 
 }
 void Menu::averiguarNivelesEnRecorridoPorNiveles(){
+    cout << "La cantidad de niveles del árbol es: " << algoritmos->averiguarNivelesEnRecorridoPorNiveles(arbol1)<<endl;
 
 }
 void Menu::averiguarNivelsPreOrden(){
+    cout << "La cantidad de niveles del árbol es: " << algoritmos->averiguarNivelsPreOrden(arbol1)<<endl;
 
 }
 void Menu::profundidadNodo(){
-
+    int nodo = 0;
+    int profundidad =0;
+    cout << "Digite el nodo al que le desea averiguar la profundidad" <<endl;
+    cin >>nodo;
+    cout<<"La profundidad del nodo es: "<<endl;
+    profundidad = algoritmos->profundidadNodo(arbol1, arbol1->buscarNodo(nodo));
+    cout << " " <<profundidad <<endl;
 }
 void Menu::listarEtiquetas_iesimoNivel(){
-
+    int nivel = 0;
+    coud << "Digite el nivel que desea desplegar " <<endl;
+    cin nivel;
+    algoritmos->listarEtiquetas_iesimoNivel(arbol1, nivel);
 }
 void Menu::listarEtiquetasDeNodo(){
-
+    int nodo = 0;
+    cout << "Digite el nodo que desea listar todas las etiquetas de sus hijos" <<endl;
+    cin >>nodo;
+    algoritmos->listarEtiquetasDeNodo(arbol1, arbol1->buscarNodo(nodo));
 }
 void Menu::borrarSubArbol(){
-
+    int nodo = 0;
+    cout << "Digite el nodo donde desea borrar el subArbol" <<endl;
+    cin >>nodo;
+    algoritmos->borrarSubArbol(arbol1, arbol1->buscarNodo(nodo));
+    cout<< "El subárbol se ha borrado satisfactoriamente" <<endl;
 }
 void Menu::copiarArbol(){
-
+    if(arbol2 == 0){ //No está inicializado
+        arbol2 = new Arbol();
+    }else{
+        delete arbol2;
+    }
+    arbol2 = algoritmos->copiarArbol(arbol1);
+    cout << "El árbol ha sido copiado satisfactoriamente"<<endl
 }
 void Menu::iguales(){
-
+    if (algoritmos->iguales(arbol1,arbol2)){
+        cout << "Los árboles son iguales" <<endl;
+    }else{
+        cout << "Los árboles no son iguales" <<endl;
+    }
 }
 void Menu::listarArbolPreorden(){
 
@@ -494,5 +555,7 @@ void Menu::listarArbolNiveles(){
 
 }
 void Menu::buscarEtiquetaRetNodo(){
-    
+    int etiqueta = 0;
+    cout << "Digite el nodo que desea listar todas las etiquetas de sus hijos" <<endl;
+    cin >>etiqueta;
 }
