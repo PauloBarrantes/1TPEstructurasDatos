@@ -110,7 +110,7 @@ Arbol::Cajita* Arbol::buscarCajita(Caja* nodoRef){
 */
 Arbol::Arbol(){
   this->_init();
-  this->nodoNulo = 0;
+  nodoNulo = 0;
 }
 
 /*!
