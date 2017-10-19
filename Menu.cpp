@@ -398,14 +398,14 @@ void Menu::llenarArbol1(){
 
 	arbol1->ponerRaiz(06);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 21,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 02,2);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 18,2);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(21), 56,1);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(56), 14,1);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(21), 98,1);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 04,3);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 05,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 02,2);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(02), 20,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(18), 20,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(05), 91,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(05), 07,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(91), 40,1);
@@ -422,19 +422,24 @@ void Menu::llenarArbol1(){
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(19), 23,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(23), 51,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 60,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 61,2);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 32,2);
     arbol1->imprimir(cout);
 }
 
 void Menu::llenarArbol2(){
     arbol2 = new Arbol();
-    arbol2->ponerRaiz(06);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 21,1);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 2 ,2);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(21), 56,1);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(56), 98,1);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(21), 98,2);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 3,3);
+    arbol2->ponerRaiz(10);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(10), 35,1);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(10), 20,2);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(10), 18,3);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(35), 04,1);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(04), 09,1);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(20), 65,1);
+	arbol2->agregarHijoIesimo(arbol2->buscarNodo(65), 12,1);
+	arbol2->agregarHijoIesimo(arbol2->buscarNodo(18), 76,1);
+	arbol2->agregarHijoIesimo(arbol2->buscarNodo(76), 58,1);
+	arbol2->agregarHijoIesimo(arbol2->buscarNodo(76), 26,2);
+	arbol2->agregarHijoIesimo(arbol2->buscarNodo(76), 24,2);
 
 
 }
