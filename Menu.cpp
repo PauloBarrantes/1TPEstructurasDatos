@@ -433,7 +433,7 @@ void Menu::llenarArbol2(){
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(10), 20,2);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(10), 18,3);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(35), 04,1);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(04), 09,1);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(04), 9,1);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(20), 65,1);
 	arbol2->agregarHijoIesimo(arbol2->buscarNodo(65), 12,1);
 	arbol2->agregarHijoIesimo(arbol2->buscarNodo(18), 76,1);
