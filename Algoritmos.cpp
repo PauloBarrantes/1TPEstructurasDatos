@@ -205,14 +205,8 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                     Arbol::Nodo nodo1 = cola1.desencolar();
                     Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
                     Arbol::Nodo nodo2 = cola2.desencolar();
-<<<<<<< HEAD
-                    Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
-                    cout << nodoh1 << endl;
-=======
                     Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo2);
->>>>>>> 84728aae34d7ee168543ea57e0149aa3163d989c
                     while(nodoh1 != arbol1->nodoNulo && nodoh2 != arbol2->nodoNulo && iguales){
-                        cout << "entra al while"<<endl;
                         if(arbol1->etiqueta(nodoh1) == arbol2->etiqueta(nodoh2)){
                             cola1.encolar(nodoh1);
                             nodoh1 = arbol1->hermanoDer(nodoh1);
