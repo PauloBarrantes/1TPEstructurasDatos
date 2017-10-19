@@ -83,7 +83,7 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 				nh = arbol->hermanoDer(nh);
 			}
 		}
-		
+
 		niveles = profundidadNodo(arbol,actual);
 	}
 	return niveles;
@@ -189,7 +189,7 @@ void Algoritmos::borrarSubArbolRec(Arbol* arbol, Arbol::Nodo nodo){
 }
 
 int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
-    int iguales = 0;
+    int iguales = 1;
     if(arbol1->vacia() && arbol2->vacia()){
         iguales = 1;
     }else{
@@ -199,19 +199,19 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                 Cola<Arbol::Nodo> cola2;
                 cola1.encolar(arbol1->raiz());
                 cola2.encolar(arbol2->raiz());
-                while (!cola1.vacia() && !cola2.vacia() && !iguales) {
+                while (!cola1.vacia() && !cola2.vacia() && iguales) {
                     Arbol::Nodo nodo1 = cola1.desencolar();
                     Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
                     Arbol::Nodo nodo2 = cola2.desencolar();
                     Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
-                    while(nodoh1 != arbol1->nodoNulo && nodoh2 != arbol2->nodoNulo && !iguales){
+                    while(nodoh1 != arbol1->nodoNulo && nodoh2 != arbol2->nodoNulo && iguales){
                         if(nodoh1 == nodoh2){
                             cola1.encolar(nodoh1);
                             nodoh1 = arbol1->hermanoDer(nodoh1);
                             cola2.encolar(nodoh2);
                             nodoh2 = arbol2->hermanoDer(nodo2);
                         }else{
-                            iguales = 1;
+                            iguales = 0;
                         }
                     }
                 }

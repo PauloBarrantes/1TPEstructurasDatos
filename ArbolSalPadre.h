@@ -26,7 +26,7 @@ class Arbol {
 
     public:
         typedef int Nodo;
-        int nodoNulo;
+        Nodo nodoNulo;
         Arbol(); //Constructor
         ~Arbol(); //Destructor
         /*!

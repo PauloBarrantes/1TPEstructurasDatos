@@ -28,15 +28,15 @@ Menu::~Menu(){
     }
 }
 void Menu::controlador(){
-    cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
-    cout<< "Escriba arbol para hacer pruebas con el arbol" <<endl;
-    cout<< "Escriba cola para hacer pruebas con la cola"<<endl;
-    cout<< "Escriba algoritmos para hacer pruebas con los algoritmos de los árboles"<<endl;
-
-    cout<< "Escriba salir para cuando desee acabar con las pruebas"<<endl;
 
     string respuesta = "";
     do {
+        cout << "Bienvenido al menú de pruebas de los modelos Arbol y Cola" <<endl;
+        cout<< "Escriba arbol para hacer pruebas con el arbol" <<endl;
+        cout<< "Escriba cola para hacer pruebas con la cola"<<endl;
+        cout<< "Escriba algoritmos para hacer pruebas con los algoritmos de los árboles"<<endl;
+        cout<< "Escriba salir para cuando desee acabar con las pruebas"<<endl;
+
         cin >>respuesta;
         if( respuesta == "arbol"){
             pruebaArbol();
@@ -60,9 +60,9 @@ void Menu::controlador(){
 
 void Menu::pruebaArbol(){
     cout << "Hola!, te guiaré en la prueba del modelo arbol" <<endl;
-    instruccionesArbol();
     string instruccion;
     do {
+        instruccionesArbol();
         cin >> instruccion;
 
         if(instruccion == "iniciar"){
@@ -139,7 +139,7 @@ void Menu::pruebaArbol(){
 void Menu::instruccionesArbol(){
     cout << "-------------- Instrucciones --------------" <<endl;
     cout << "Escriba help para ver las instrucciones de nuevo" <<endl;
-    cout << "Escriba salir para volver al menú principals" <<endl;
+    cout << "Escriba salir para volver al menú principal" <<endl;
     cout << "Escriba iniciar" <<endl;
     cout << "Escriba destruir" <<endl;
     cout << "Escriba vaciar" <<endl;
@@ -156,6 +156,7 @@ void Menu::instruccionesArbol(){
     cout << "Escriba agregarhijoiesimo para " <<endl;
     cout << "Escriba borrarhoja para " <<endl;
     cout << "Escriba ponerraiz para " <<endl;
+	cout << "Escriba imprimir para " <<endl;
 
 }
 void Menu::iniciar(){
@@ -287,10 +288,11 @@ void Menu::imprimir(){
 /// Métodos de Prueba de la Cola ///
 void Menu::pruebaCola(){
     cout << "Hola!, te guiaré en la prueba del modelo cola" <<endl;
-    instruccionesCola();
+
     string instruccion;
 
     do {
+        instruccionesCola();
         cin >> instruccion;
         if(instruccion == "iniciar"){
             iniciarC();
@@ -400,28 +402,28 @@ void Menu::llenarArbol1(){
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(21), 56,1);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(56), 14,1);
     arbol1->agregarHijoIesimo(arbol1->buscarNodo(21), 98,1);
-    arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 04,1);
+    arbol1->agregarHijoIesimo(arbol1->buscarNodo(06), 04,3);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 05,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 02,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 02,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(02), 20,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(05), 91,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(05), 07,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(05), 07,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(91), 40,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(91), 41,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 30,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 31,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 32,3);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 12,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 19,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 19,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(12), 01,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 75,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 78,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 78,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(78), 70,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(19), 23,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(23), 51,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 60,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 61,1);
-
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 61,2);
+    arbol1->imprimir(cout);
 }
 
 void Menu::llenarArbol2(){
@@ -431,8 +433,8 @@ void Menu::llenarArbol2(){
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 2 ,2);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(21), 56,1);
     arbol2->agregarHijoIesimo(arbol2->buscarNodo(56), 98,1);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(21), 98,1);
-    arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 3,1);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(21), 98,2);
+    arbol2->agregarHijoIesimo(arbol2->buscarNodo(06), 3,3);
 
 
 }

@@ -27,7 +27,7 @@ class Algoritmos{
 		   \return "Retorna el nodo correspondiente al hermano izquierdo"
 		*/
 		int hermanoIzquierdo(Arbol*, Arbol::Nodo);
-		
+
 		/*!
 			\brief "Verifica si el árbol tiene etiquetas repetidos"
 			\param "Entra el Árbol en el cual se buscaran etiquetas repetidas"

@@ -21,9 +21,9 @@ using namespace std;
     Arbol::Arbol(){ //Iniciamos
         ultima = 0;
         nNodos = 0;
+        nodoNulo = -1;
         arreglo = new Arbol::Caja[M];
         tamano = M;
-        nodoNulo = 0;
     }
     Arbol::~Arbol(){ //destruimos
         delete arreglo;
@@ -137,7 +137,7 @@ using namespace std;
     std::ostream& Arbol::imprimir(std::ostream& salida){
 
         for (int i = 0; i <= ultima; ++i){
-            salida << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[i].padre <<'\n';
+            salida << "Indice:" << i <<" " << "Etiqueta: " << arreglo[i].etiqueta << " Padre: " << arreglo[arreglo[i].padre].etiqueta <<'\n';
         }
         return salida;
     }
@@ -167,8 +167,9 @@ using namespace std;
         while(nodo < tamano && !encontrado){
             if(arreglo[nodo].etiqueta == etiqueta){
                 encontrado = 1;
+            }else{
+                ++nodo;
             }
-            ++nodo;
         }
         if(nodo == tamano){
             nodo = -1;
