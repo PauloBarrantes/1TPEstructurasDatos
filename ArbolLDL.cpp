@@ -10,7 +10,6 @@ using namespace std;
 Arbol::Cajita::Cajita(Nodo nodo){
   this->nodo = nodo;
   this->hermanoDerecho = 0;
-  this->nodoNulo = 0;
 }
 
 /*!
@@ -109,6 +108,7 @@ Arbol::Cajita* Arbol::buscarCajita(Caja* nodoRef){
 */
 Arbol::Arbol(){
   this->_init();
+  this->nodoNulo = 0;
 }
 
 /*!
