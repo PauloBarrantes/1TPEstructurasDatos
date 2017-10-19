@@ -120,7 +120,11 @@ using namespace std;
                 }
                 if(pos == posicion){ // hay que insertar en medio del array lógico
                     for(int i = ultima; i >= contador-1; --i){
+                        if(arreglo[i].padre >= contador-1){
+                            arreglo[i].padre = arreglo[i].padre +1;
+                        }
                         arreglo[i+1] = arreglo[i];
+
                     }
                     arreglo[contador-1].padre = nodoArbol;
                     arreglo[contador-1].etiqueta = etiqueta;

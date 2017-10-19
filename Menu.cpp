@@ -414,10 +414,10 @@ void Menu::llenarArbol1(){
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 31,2);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 32,3);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 12,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 19,2);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 19,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(12), 01,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 75,1);
-	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 78,2);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 78,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(78), 70,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(19), 23,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(23), 51,1);
