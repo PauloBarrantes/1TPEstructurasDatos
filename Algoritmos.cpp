@@ -218,7 +218,7 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
             }
         }
     }
-    return iguales;
+    return !iguales;
 }
 
 void Algoritmos::listarArbolPreOrden(Arbol* arbol) {
