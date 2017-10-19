@@ -150,7 +150,7 @@ using namespace std;
         if (vacia()){
             std::cerr << "El arbol está vacio" << '\n';
         }else{
-            for(int i = nodoArbol; i < ultima; ++i){
+            for(int i = nodoArbol; i <= ultima; ++i){
                 arreglo[i] = arreglo[i+1];
             }
             ultima -= 1;
