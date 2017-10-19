@@ -421,7 +421,6 @@ void Menu::llenarArbol1(){
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(23), 51,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 60,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 32,2);
-    arbol1->imprimir(cout);
 }
 
 void Menu::llenarArbol2(){
@@ -616,7 +615,7 @@ void Menu::listarArbolNiveles(){
 }
 void Menu::buscarEtiquetaRetNodo(){
     int etiqueta = 0;
-    cout << "Digite el nodo que desea listar todas las etiquetas de sus hijos" <<endl;
+    cout << "Digite la etiqueta que desea buscar y que se retorne el nodo" <<endl;
     cin >>etiqueta;
-    cout << algoritmos->buscarEtiquetaRetNodo(arbol1, etiqueta)<< endl;
+    cout << algoritmos->buscarEtiquetaRetNodo(arbol1, etiqueta) << endl;
 }
