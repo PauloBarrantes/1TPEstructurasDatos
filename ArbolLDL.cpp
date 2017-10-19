@@ -175,7 +175,7 @@ Arbol::Nodo Arbol::hermanoDer(Nodo nodoRef){
   Arbol::Nodo hermanoDer = 0;
   Cajita* cajita = buscarCajita(nodoRef);
   if(cajita){
-    cajita->hermanoDerecho->nodo;
+    hermanoDer = cajita->hermanoDerecho->nodo;
   }
   return hermanoDer;
 }
