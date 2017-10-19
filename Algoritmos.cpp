@@ -15,7 +15,7 @@ int Algoritmos::hermanoIzquierdo(Arbol* arbol, Arbol::Nodo nodo){
   Arbol::Nodo hermanoIzq = arbol->nodoNulo;
   Arbol::Nodo actual = arbol->hijoMasIzq(arbol->padre(nodo));
   if(actual != nodo){
-    while(arbol->hermanoDer(actual) != nodo){
+    while(arbol->etiqueta(arbol->hermanoDer(actual)) != arbol->etiqueta(nodo)){
       actual = arbol->hermanoDer(actual);
     }
     hermanoIzq = actual;
@@ -137,7 +137,7 @@ Arbol* Algoritmos::copiarArbol(Arbol* arbol1){
             int contador = 1;
             while(nodoh1 != arbol1->nodoNulo){
                 cola1.encolar(nodoh1);
-                cola2.encolar( arbol2->agregarHijoIesimo(nodo2, arbol1->etiqueta(nodoh1), contador) );
+                cola2.encolar( arbol2->agregarHijoIesimo(nodo2, arbol1->etiqueta(nodoh1), contador));
                 nodoh1 = arbol1->hermanoDer(nodoh1);
                 ++contador;
             }
@@ -204,7 +204,9 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                     Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
                     Arbol::Nodo nodo2 = cola2.desencolar();
                     Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
+                    cout << nodoh1 << endl;
                     while(nodoh1 != arbol1->nodoNulo && nodoh2 != arbol2->nodoNulo && iguales){
+                        cout << "entra al while"<<endl;
                         if(arbol1->etiqueta(nodoh1) == arbol2->etiqueta(nodoh2)){
                             cola1.encolar(nodoh1);
                             nodoh1 = arbol1->hermanoDer(nodoh1);

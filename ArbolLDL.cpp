@@ -18,9 +18,6 @@ Arbol::Cajita::Cajita(Nodo nodo){
    \return ""
 */
 Arbol::Cajita::~Cajita(){
-  if(this->nodo){
-    delete this->nodo;
-  }
   if(this->hermanoDerecho != 0){
     delete this->hermanoDerecho;
   }
@@ -166,7 +163,7 @@ Arbol::Nodo Arbol::raiz(){
 */
 Arbol::Nodo Arbol::hijoMasIzq(Arbol::Nodo nodoRef){
   Arbol::Nodo hijoMasI = 0;
-  if (nodoRef->hijoMasIzquierdo) {
+  if (nodoRef->hijoMasIzquierdo != 0) {
     hijoMasI = nodoRef->hijoMasIzquierdo->nodo;
   }
   return hijoMasI;
@@ -180,7 +177,7 @@ Arbol::Nodo Arbol::hijoMasIzq(Arbol::Nodo nodoRef){
 Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoRef){
   Arbol::Nodo hermanoDer = 0;
   Cajita* cajita = buscarCajita(nodoRef);
-  if(cajita){
+  if(cajita && cajita->hermanoDerecho != 0){
     hermanoDer = cajita->hermanoDerecho->nodo;
   }
   return hermanoDer;
@@ -193,13 +190,15 @@ Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoRef){
 */
 Arbol::Nodo Arbol::padre(Arbol::Nodo nodoRef){
   Arbol::Nodo padre = 0;
+  bool encontro = false;
   Arbol::Nodo padreActual = raizArbol;
   Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
-  while (padreActual->siguiente != 0) {
-    while (cajitaActual != 0){
+  while (padreActual->siguiente != 0 && !encontro) {
+    while (cajitaActual != 0 && !encontro){
       if(cajitaActual->nodo == nodoRef){
-        padre = padreActual;
+        encontro = true;
       }
+      padre = padreActual;
       cajitaActual = cajitaActual->hermanoDerecho;
     }
     padreActual = padreActual->siguiente;
@@ -274,7 +273,7 @@ Arbol::Nodo Arbol::agregarHijoIesimo(Arbol::Nodo padre, int etiqueta, int posici
   Cajita* nuevaCajita = new Cajita(nuevoNodo);
   Cajita* cajitaActual = padre->hijoMasIzquierdo;
   if(posicion > 1){
-    for(int i = 1; i < posicion-1; ++i){
+    for(int i = 1; i < posicion-1 && cajitaActual->hermanoDerecho != 0; ++i){
       cajitaActual = cajitaActual->hermanoDerecho;
     }
     nuevaCajita->hermanoDerecho = cajitaActual->hermanoDerecho;
