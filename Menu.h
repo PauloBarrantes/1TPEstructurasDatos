@@ -331,38 +331,25 @@ class Menu {
            \param "No recibe nada"
            \return "No retorna nada"
          */
-<<<<<<< HEAD
-        //void listarArbolPreorden(); //11
-
-=======
         void listarArbolPreorden(); //11
-		
->>>>>>> 332479683683d5741f54a9a976fbde1d4ccd8a7c
+
 		 /*!
            \brief "Metodo correspondiente al algoritmo lista árbol en post orden del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-<<<<<<< HEAD
-        //void listarArbolPostOrden(); //12
 
-=======
+
         void listarArbolPostOrden(); //12
-		
->>>>>>> 332479683683d5741f54a9a976fbde1d4ccd8a7c
+
 		 /*!
            \brief "Metodo correspondiente al algoritmo listar árbol por niveles del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"
         */
-<<<<<<< HEAD
-        //void listarArbolNiveles(); //13
 
-=======
         void listarArbolNiveles(); //13
-		
->>>>>>> 332479683683d5741f54a9a976fbde1d4ccd8a7c
-		 /*!
+         /*!
            \brief "Metodo correspondiente al algoritmo buscar etiqueta y retorna su nodo del modelo árbol"
            \param "No recibe nada"
            \return "No retorna nada"

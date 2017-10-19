@@ -23,6 +23,7 @@ using namespace std;
         nNodos = 0;
         arreglo = new Arbol::Caja[M];
         tamano = M;
+        nodoNulo = 0;
     }
     Arbol::~Arbol(){ //destruimos
         delete arreglo;
@@ -52,7 +53,7 @@ using namespace std;
         }
         return hijoMasIzq;
     }
-    
+
     Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoArbol){
         Arbol::Nodo hermanoDerecho = nodoArbol+1;
         int encontrado = 0;
