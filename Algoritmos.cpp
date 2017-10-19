@@ -194,7 +194,9 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
         iguales = 1;
     }else{
         if(arbol1->numNodos() == arbol2->numNodos()){
-            if(arbol1->etiqueta(arbol1->raiz()) == arbol2->etiqueta(arbol2->raiz()) ){
+            if(arbol1->etiqueta(arbol1->raiz()) != arbol2->etiqueta(arbol2->raiz()) ){
+                iguales = 0;
+            }else{
                 Cola<Arbol::Nodo> cola1;
                 Cola<Arbol::Nodo> cola2;
                 cola1.encolar(arbol1->raiz());
@@ -203,8 +205,12 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                     Arbol::Nodo nodo1 = cola1.desencolar();
                     Arbol::Nodo nodoh1 = arbol1->hijoMasIzq(nodo1);
                     Arbol::Nodo nodo2 = cola2.desencolar();
+<<<<<<< HEAD
                     Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
                     cout << nodoh1 << endl;
+=======
+                    Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo2);
+>>>>>>> 84728aae34d7ee168543ea57e0149aa3163d989c
                     while(nodoh1 != arbol1->nodoNulo && nodoh2 != arbol2->nodoNulo && iguales){
                         cout << "entra al while"<<endl;
                         if(arbol1->etiqueta(nodoh1) == arbol2->etiqueta(nodoh2)){
@@ -218,9 +224,11 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                     }
                 }
             }
+        }else{
+            iguales = 0;
         }
     }
-    return !iguales;
+    return iguales;
 }
 
 void Algoritmos::listarArbolPreOrden(Arbol* arbol) {
