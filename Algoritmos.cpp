@@ -76,27 +76,15 @@ int Algoritmos::averiguarNivelesEnRecorridoPorNiveles(Arbol* arbol){
 		while(!cola.vacia()){
 			actual = cola.desencolar();
 			nh = arbol->hijoMasIzq(actual);
-
 			++niveles;
-			cout << "B" <<endl;
 
 			while(nh != arbol->nodoNulo){
 				cola.encolar(nh);
 				nh = arbol->hermanoDer(nh);
 			}
-
-			if(!cola.vacia()){
-				if(arbol->hermanoDer(actual) == cola.frente()){
-					cout << "restar1" <<endl;
-					--niveles;
-				}else{
-					if(arbol->hermanoDer(arbol->padre(nh)) == arbol->padre(cola.frente())){
-						cout << "restar2" <<endl;
-						--niveles;
-					}
-				}
-			}
 		}
+		
+		niveles = profundidadNodo(arbol,actual);
 	}
 	return niveles;
 }

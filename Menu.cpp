@@ -404,13 +404,23 @@ void Menu::llenarArbol1(){
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 05,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(04), 02,1);
 	arbol1->agregarHijoIesimo(arbol1->buscarNodo(02), 20,1);
-
-    //arbol1->ponerRaiz(10);
-    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 19,1);
-    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(10), 28,2);
-    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(28), 10,1);
-    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(19), 9,1);
-    //arbol1->agregarHijoIesimo(arbol1->buscarNodo(9), 8,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(05), 91,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(05), 07,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(91), 40,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(91), 41,2);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 30,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 31,2);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(41), 32,3);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 12,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(14), 19,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(12), 01,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 75,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(01), 78,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(78), 70,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(19), 23,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(23), 51,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 60,1);
+	arbol1->agregarHijoIesimo(arbol1->buscarNodo(20), 61,1);
 
 }
 
