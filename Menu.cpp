@@ -617,5 +617,6 @@ void Menu::buscarEtiquetaRetNodo(){
     int etiqueta = 0;
     cout << "Digite la etiqueta que desea buscar y que se retorne el nodo" <<endl;
     cin >>etiqueta;
-    cout << algoritmos->buscarEtiquetaRetNodo(arbol1, etiqueta) << endl;
+		arbol1->etiqueta(algoritmos->buscarEtiquetaRetNodo(arbol1, etiqueta));
+    cout << "Se encontró el nodo correspondiente a la etiqueta: "<<etiqueta<< endl;
 }
