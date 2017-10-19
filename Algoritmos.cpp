@@ -39,7 +39,7 @@ int Algoritmos::hayRepetidos(Arbol* arbol){
 		vec[posN] = actual;
 		Arbol::Nodo nh = arbol->nodoNulo;
 
-		while(actual && !hayRep){
+		while(actual != arbol->nodoNulo && !hayRep){
 			nh = arbol->hijoMasIzq(actual);
 			while(nh != arbol->nodoNulo && !hayRep){
 				++posNh;
