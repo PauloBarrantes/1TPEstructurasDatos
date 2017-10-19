@@ -87,12 +87,14 @@ ostream& Arbol::Caja::imprimir(ostream& salida){
 */
 Arbol::Cajita* Arbol::buscarCajita(Caja* nodoRef){
   Cajita* buscado = 0;
+  bool encontro = false;
   Nodo padreActual = raizArbol;
   Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
-  while (padreActual->siguiente != 0) {
-    while (cajitaActual != 0){
+  while (padreActual->siguiente != 0 && !encontro) {
+    while (cajitaActual != 0 && !encontro){
       if(cajitaActual->nodo == nodoRef){
         buscado = cajitaActual;
+        encontro = true;
       }
       cajitaActual = cajitaActual->hermanoDerecho;
     }
@@ -163,7 +165,11 @@ Arbol::Nodo Arbol::raiz(){
    \return "Retorna el hijoMasIzquierdo del Nodo que entró como parámetro"
 */
 Arbol::Nodo Arbol::hijoMasIzq(Nodo nodoRef){
-  return nodoRef->hijoMasIzquierdo->nodo;
+  Arbol::Nodo hijoMasI = 0;
+  if (nodoRef->hijoMasIzquierdo != 0) {
+    hijoMasI = nodoRef->hijoMasIzquierdo->nodo;
+  }
+  return hijoMasI;
 }
 
 /*!
