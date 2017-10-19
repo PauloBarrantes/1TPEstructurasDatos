@@ -10,8 +10,8 @@
 //#include "ArbolHMI_HD_puntHIzq_Padre.h"
 //#include "ArbolHMI_HD.h"
 //#include "ArbolHMI_HD_utimoPadre.h"
-#include "ArbolLDL.h"
-//#include "ArbolSalPadre.h"
+//#include "ArbolLDL.h"
+#include "ArbolSalPadre.h"
 #include "Cola.h"
 class Algoritmos{
     private:

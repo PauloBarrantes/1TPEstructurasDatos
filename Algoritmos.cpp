@@ -255,7 +255,7 @@ void Algoritmos::listarArbolNiveles(Arbol* arbol){
   if(!arbol->vacia()){
       Cola<Arbol::Nodo> cola;
       cola.encolar(arbol->raiz());
-      cout << arbol->etiqueta(arbol->raiz()) << endl;
+      cout << "-> "<<arbol->etiqueta(arbol->raiz()) << endl;
       while(!cola.vacia()){
           Arbol::Nodo nodo = cola.desencolar();
           Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
