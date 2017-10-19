@@ -205,7 +205,7 @@ int Algoritmos::iguales(Arbol* arbol1, Arbol* arbol2){
                     Arbol::Nodo nodo2 = cola2.desencolar();
                     Arbol::Nodo nodoh2 = arbol2->hijoMasIzq(nodo1);
                     while(nodoh1 != arbol1->nodoNulo && nodoh2 != arbol2->nodoNulo && iguales){
-                        if(nodoh1 == nodoh2){
+                        if(arbol1->etiqueta(nodoh1) == arbol2->etiqueta(nodoh2)){
                             cola1.encolar(nodoh1);
                             nodoh1 = arbol1->hermanoDer(nodoh1);
                             cola2.encolar(nodoh2);
