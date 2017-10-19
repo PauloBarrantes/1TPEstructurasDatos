@@ -172,7 +172,12 @@ Arbol::Nodo Arbol::hijoMasIzq(Nodo nodoRef){
    \return "Retorna el hermanoDerecho del Nodo que entró como parámetro"
 */
 Arbol::Nodo Arbol::hermanoDer(Nodo nodoRef){
-  return buscarCajita(nodoRef)->hermanoDerecho->nodo;
+  Arbol::Nodo hermanoDer = 0;
+  Cajita* cajita = buscarCajita(nodoRef);
+  if(cajita){
+    cajita->hermanoDerecho->nodo;
+  }
+  return hermanoDer;
 }
 
 /*!
@@ -321,7 +326,7 @@ void Arbol::ponerRaiz(int etiqueta){
 /*!
    \brief "Busca el nodo que tiene la etiqueta que entra como parámetro"
    \param "Una etiqueta"
-   \return ""
+   \return "No retorna nada"
 */
 Arbol::Nodo Arbol::buscarNodo(int etiqueta){
   Nodo buscado = raizArbol;
