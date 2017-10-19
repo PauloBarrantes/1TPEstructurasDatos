@@ -18,7 +18,7 @@ Arbol::Cajita::Cajita(Nodo nodo){
    \return ""
 */
 Arbol::Cajita::~Cajita(){
-  if(nodo){
+  if(this->nodo){
     delete this->nodo;
   }
   if(this->hermanoDerecho != 0){
@@ -88,7 +88,7 @@ ostream& Arbol::Caja::imprimir(ostream& salida){
 Arbol::Cajita* Arbol::buscarCajita(Caja* nodoRef){
   Cajita* buscado = 0;
   bool encontro = false;
-  Nodo padreActual = raizArbol;
+  Arbol::Nodo padreActual = raizArbol;
   Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
   while (padreActual->siguiente != 0 && !encontro) {
     while (cajitaActual != 0 && !encontro){
@@ -164,9 +164,9 @@ Arbol::Nodo Arbol::raiz(){
    \param "Entra un Nodo para buscar su hijoMasIzquierdo"
    \return "Retorna el hijoMasIzquierdo del Nodo que entró como parámetro"
 */
-Arbol::Nodo Arbol::hijoMasIzq(Nodo nodoRef){
+Arbol::Nodo Arbol::hijoMasIzq(Arbol::Nodo nodoRef){
   Arbol::Nodo hijoMasI = 0;
-  if (nodoRef->hijoMasIzquierdo != 0) {
+  if (nodoRef->hijoMasIzquierdo) {
     hijoMasI = nodoRef->hijoMasIzquierdo->nodo;
   }
   return hijoMasI;
@@ -177,7 +177,7 @@ Arbol::Nodo Arbol::hijoMasIzq(Nodo nodoRef){
    \param "Entra un Nodo de referencia del que se busa el hermanoDerecho"
    \return "Retorna el hermanoDerecho del Nodo que entró como parámetro"
 */
-Arbol::Nodo Arbol::hermanoDer(Nodo nodoRef){
+Arbol::Nodo Arbol::hermanoDer(Arbol::Nodo nodoRef){
   Arbol::Nodo hermanoDer = 0;
   Cajita* cajita = buscarCajita(nodoRef);
   if(cajita){
@@ -191,9 +191,9 @@ Arbol::Nodo Arbol::hermanoDer(Nodo nodoRef){
    \param "Entra el Nodo del que se va a buscar el padre"
    \return "Retorna el nodo padre"
 */
-Arbol::Nodo Arbol::padre(Nodo nodoRef){
-  Nodo padre = 0;
-  Nodo padreActual = raizArbol;
+Arbol::Nodo Arbol::padre(Arbol::Nodo nodoRef){
+  Arbol::Nodo padre = 0;
+  Arbol::Nodo padreActual = raizArbol;
   Cajita* cajitaActual = padreActual->hijoMasIzquierdo;
   while (padreActual->siguiente != 0) {
     while (cajitaActual != 0){
@@ -212,7 +212,7 @@ Arbol::Nodo Arbol::padre(Nodo nodoRef){
    \param "Entra un Nodo a verificar si es hoja"
    \return "Retorna 1 si es hoja, 0 si no"
 */
-int Arbol::esHoja(Nodo nodoRef){
+int Arbol::esHoja(Arbol::Nodo nodoRef){
   return nodoRef->hijoMasIzquierdo == 0;
 }
 
@@ -221,7 +221,7 @@ int Arbol::esHoja(Nodo nodoRef){
    \param "Entra un Nodo del que se quiere obtener la etiqueta"
    \return "Retorna la etiqueta del Nodo"
 */
-int Arbol::etiqueta(Nodo nodoRef){
+int Arbol::etiqueta(Arbol::Nodo nodoRef){
     return nodoRef->etiqueta;
 }
 
@@ -239,7 +239,7 @@ int Arbol::numNodos(){
    \param "Entra el Nodo del que se quieren contar los hijos"
    \return "Retorna la cantidad de hijos"
 */
-int Arbol::numHijos(Nodo nodoRef){
+int Arbol::numHijos(Arbol::Nodo nodoRef){
   int numeroHijos = 0;
   Arbol::Cajita* siguiente = nodoRef->hijoMasIzquierdo;
   while (siguiente != 0) {
@@ -254,7 +254,7 @@ int Arbol::numHijos(Nodo nodoRef){
    \param "El Nodo al que se quiere modificar y su nueva etiqueta"
    \return ""
 */
-void Arbol::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
+void Arbol::modificarEtiq(Arbol::Nodo nodoRef, int nuevaEtiqueta){
   nodoRef->etiqueta = nuevaEtiqueta;
 }
 
@@ -263,11 +263,11 @@ void Arbol::modificarEtiq(Nodo nodoRef, int nuevaEtiqueta){
    \param "Entra un Nodo padre, la etiqueta del nuevo nodo y su posicion en la sublista de hijos"
    \return "Retorna el Nodo creado"
 */
-Arbol::Nodo Arbol::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
-  Nodo nuevoNodo = new Caja(etiqueta);
+Arbol::Nodo Arbol::agregarHijoIesimo(Arbol::Nodo padre, int etiqueta, int posicion){
+  Arbol::Nodo nuevoNodo = new Caja(etiqueta);
   nuevoNodo->siguiente = raizArbol->siguiente;
   raizArbol->siguiente = nuevoNodo;
-  Nodo nodoActual = raizArbol;
+  Arbol::Nodo nodoActual = raizArbol;
   while(nodoActual != padre){
     nodoActual = nodoActual->siguiente;
   }
@@ -293,8 +293,8 @@ Arbol::Nodo Arbol::agregarHijoIesimo(Nodo padre, int etiqueta, int posicion){
    \param "Nodo hoja que se quiere borrar"
    \return ""
 */
-void Arbol::borrarHoja(Nodo hoja){
-  Nodo nodoActual = raizArbol;
+void Arbol::borrarHoja(Arbol::Nodo hoja){
+  Arbol::Nodo nodoActual = raizArbol;
   while(nodoActual->siguiente != hoja){
     nodoActual = nodoActual->siguiente;
   }
@@ -335,7 +335,7 @@ void Arbol::ponerRaiz(int etiqueta){
    \return "No retorna nada"
 */
 Arbol::Nodo Arbol::buscarNodo(int etiqueta){
-  Nodo buscado = raizArbol;
+  Arbol::Nodo buscado = raizArbol;
   while(buscado->etiqueta != etiqueta && buscado){
     buscado = buscado->siguiente;
   }
