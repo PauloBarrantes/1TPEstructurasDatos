@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 Arbol*  GeneradorArbol::arbolPino(int n){
   Arbol* arbol = new Arbol();
   arbol->ponerRaiz(1);
@@ -20,7 +19,7 @@ Arbol*  GeneradorArbol::arbolArbusto(int n){
   arbol->ponerRaiz(1);
   Arbol::Nodo raiz = arbol->raiz();
   for(int i = 2; i <= n; ++i){
-    padre = arbol->agregarHijoIesimo(raiz,i,1);
+    arbol->agregarHijoIesimo(raiz,i,1);
   }
   return arbol;
 }
