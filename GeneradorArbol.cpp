@@ -32,6 +32,7 @@ Arbol*  GeneradorArbol::arbolPromedio(int n){
   Arbol * arbol = new Arbol();
   int contador = 1;
   arbol->ponerRaiz(1);
+  ++contador;
   if(!arbol->vacia()){
       Cola<Arbol::Nodo> cola;
       cola.encolar(arbol->raiz());
@@ -44,7 +45,7 @@ Arbol*  GeneradorArbol::arbolPromedio(int n){
           Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
           while(nh != arbol->nodoNulo){
               cola.encolar(nh);
-              for(int i = 1; i<=rand()%4;++i){
+              for(int i = 1; i<=rand()%4 && contador <= n;++i){
                 arbol->agregarHijoIesimo(nh,contador,1);
                 ++contador;
               }
@@ -59,6 +60,7 @@ Arbol*  GeneradorArbol::arbolBinario(int n){
   Arbol * arbol = new Arbol();
   int contador = 1;
   arbol->ponerRaiz(1);
+  ++contador;
   if(!arbol->vacia()){
       Cola<Arbol::Nodo> cola;
       cola.encolar(arbol->raiz());
@@ -71,7 +73,7 @@ Arbol*  GeneradorArbol::arbolBinario(int n){
           Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
           while(nh != arbol->nodoNulo){
               cola.encolar(nh);
-              for(int i = 0; i<2;++i){
+              for(int i = 0; i<2 && contador <= n;++i){
                 arbol->agregarHijoIesimo(nh,contador,1);
                 ++contador;
               }
