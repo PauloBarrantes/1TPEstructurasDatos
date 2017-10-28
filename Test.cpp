@@ -1,6 +1,18 @@
 #include "Test.h"
 #include <iostream>
 #include <time.h>
+#include "Cola.h"
+#define TIME_THIS(X,Y)                                         \
+  {                                                          \
+    struct timespec ts1, ts2;                                \
+    clock_gettime( CLOCK_REALTIME, &ts1 );                   \
+    X;                                                       \
+    clock_gettime( CLOCK_REALTIME, &ts2 );                   \
+                                                            \
+     Y = (float) ( 1.0*(1.0*ts2.tv_nsec - ts1.tv_nsec*1.0)*1e-9 \
+      + 1.0*ts2.tv_sec - 1.0*ts1.tv_sec ) );                 \
+  }
+
 #define N1 1000
 #define N2 10000
 #define N3 40000
@@ -40,25 +52,36 @@ using namespace std;
           this->testBinario();
         }
         //Hermano Derecho
-        Test::testOpBasico1(Arbol* arbol){
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-            int tam = arbol->numNodos();
-            int contador = 0;
-            while(contador <= tam ){
-                //Hay que hacer un recorrido en preOrden haciendo un llamado al OpBa
-                tiempoInicio = time(&timer);
-                arbol->hermanoDerecho();
-                tiempoFinal = time(&timer);
+        double Test::testOpBasico1(Arbol* arbol){
+            clock_t t_ini, t_fin;
+            double tiempoGlobal;
+            double tiempoPromedio;
+            double segundos;
+            if(!arbol->vacia()){
+                Cola<Arbol::Nodo> cola;
+                TIME_THIS(arbol->hermanoDer(arbol->raiz()), segundos);
+                tiempoGlobal += segundos;
 
-                tiempoTotal = tiempoFinal - tiempoInicio;
-                ++contador;
+                cola.encolar(arbol->raiz());
+                while(!cola.vacia()){
+                    Arbol::Nodo nodo = cola.desencolar();
+                    Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+                    while(nh != arbol->nodoNulo){
+                        TIME_THIS(arbol->hermanoDer(nh), segundos);
+                        tiempoGlobal += segundos;
+                        cola.encolar(nh);
+                        nh = arbol->hermanoDer(nh);
+                    }
+                }
             }
+            tiempoPromedio = tiempoGlobal/arbol->numNodos();
 
+
+
+            return tiempoPromedio;
         }
-        //
-        Test::testOpBasico2(Arbol* arbol){
+        //Padre
+        double Test::testOpBasico2(Arbol* arbol){
             double tiempoInicio = 0.0;
             double tiempoFinal = 0.0;
             double tiempoTotal = 0.0;
