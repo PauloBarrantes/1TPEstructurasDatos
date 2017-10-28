@@ -28,24 +28,16 @@ using namespace std;
             arbolN2A4 = 0;
             arbolN3A4 = 0;
             arbolN4A4 = 0;
-
-            //árbolBinario
-            arbolN1A3 = genArbol->arbolBinario(N1);
-            arbolN2A3 = genArbol->arbolBinario(N2);
-            arbolN3A3 = genArbol->arbolBinario(N3);
-            arbolN4A3 = genArbol->arbolBinario(N4);
-            //árbolPromedio
-            arbolN1A4 = genArbol->arbolPromedio(N1);
-            arbolN2A4 = genArbol->arbolPromedio(N2);
-            arbolN3A4 = genArbol->arbolPromedio(N3);
-            arbolN4A4 = genArbol->arbolPromedio(N4);
-
         }
+
         Test::~Test(){
         }
         //Debería enviar a probar el árbol con sus 4 tamaños, y cada uno de sus OB y algoritmos.
         Test::testGeneral(){
-
+          this->testPino();
+          this->testArbusto();
+          this->testPromedio();
+          this->testBinario();
         }
         //Hermano Derecho
         Test::testOpBasico1(Arbol* arbol){
@@ -222,7 +214,6 @@ using namespace std;
           delete arbolN4A1;
 
         }
-
         void Test::testArbusto(){
           /// INICIO DEL ÁRBOL ARBUSTO
 
@@ -486,18 +477,4 @@ using namespace std;
           delete arbolN2A4;
           delete arbolN3A4;
           delete arbolN4A4;
-=======
-        //averiguarNivelesporNiveles
-        double Test::testAlgoritmo4(Arbol* arbol){
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-            tiempoInicio = time(&timer);
-            arbol->averiguarNivelesEnRecorridoPorNiveles();
-            tiempoFinal = time(&timer);
-            tiempoTotal = tiempoFinal - tiempoInicio;
-            return tiempoTotal;
-
-            return tiempoTotal;
->>>>>>> 63387984812e250521f3e5573cc66823b01f3241
         }

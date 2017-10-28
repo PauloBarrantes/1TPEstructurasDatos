@@ -39,6 +39,11 @@ class Test {
 
         GeneradorArbol* genArbol;
 
+        void testPino();
+        void testArbusto();
+        void testPromedio();
+        void testBinario();
+
     public:
         Test();
         ~Test();
