@@ -118,9 +118,17 @@ using namespace std;
 
             return tiempoTotal;
         }
-<<<<<<< HEAD
         Test::testAlgoritmo4(Arbol* arbol){
+            clock_t t_ini, t_fin;
+              double secs;
 
+              t_ini = clock();
+              /* ...hacer algo... */
+              t_fin = clock();
+
+              secs = (double)(t_fin - t_ini) / CLOCKS_PER_SEC;
+              printf("%.16g milisegundos\n", secs * 1000.0);
+              return 0;
         }
 
         void Test::testPino(){
