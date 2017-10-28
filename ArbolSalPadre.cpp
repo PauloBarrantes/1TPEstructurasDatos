@@ -1,6 +1,5 @@
 #include <iostream>
 #include "ArbolSalPadre.h"
-#define M 1000
 using namespace std;
 
 
@@ -22,8 +21,8 @@ using namespace std;
         ultima = 0;
         nNodos = 0;
         nodoNulo = -1;
-        arreglo = new Arbol::Caja[M];
-        tamano = M;
+        arreglo = new Arbol::Caja[T];
+        tamano = T;
     }
     Arbol::~Arbol(){ //destruimos
         delete arreglo;
