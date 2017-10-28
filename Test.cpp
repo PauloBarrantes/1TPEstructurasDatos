@@ -1,9 +1,9 @@
 #include "Test.h"
 #include <iostream>
-#define N1 20
-#define N2 200
-#define N3 1000
-#define N4 2500
+#define N1 1000
+#define N2 10000
+#define N3 40000
+#define N4 100000
 using namespace std;
 
         Test::Test(){
@@ -190,12 +190,13 @@ using namespace std;
         }
         //Hermano Derecho
         Test::testOpBasico1(Arbol* arbol){
-            double tiempoInicio = 0;
-            double tiempoFinal = 0;
-            double tiempoTotal = 0;
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
             int tam = arbol->numNodos();
             int contador = 0;
             while(contador <= tam ){
+                //Hay que hacer un recorrido en preOrden haciendo un llamado al OpBa
                 tiempoInicio = //GetTime
                 arbol->hermanoDerecho();
                 tiempoFinal = //GetTime
@@ -205,7 +206,7 @@ using namespace std;
             }
 
         }
-        // Padre
+        //
         Test::testOpBasico2(Arbol* arbol){
 
         }
@@ -213,15 +214,21 @@ using namespace std;
         Test::testOpBasico3(Arbol* arbol){
 
         }
+        //Algoritmos//
+        
+        //listarArbolPreOrden
         Test::testAlgoritmo1(Arbol* arbol){
 
         }
+        //listarArbolNiveles
         Test::testAlgoritmo2(Arbol* arbol){
 
         }
+        //
         Test::testAlgoritmo3(Arbol* arbol){
 
         }
+        //
         Test::testAlgoritmo4(Arbol* arbol){
-            
+
         }
