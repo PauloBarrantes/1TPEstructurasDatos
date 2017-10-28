@@ -1,5 +1,6 @@
 #include "Test.h"
 #include <iostream>
+#include <time.h>
 #define N1 1000
 #define N2 10000
 #define N3 40000
@@ -197,9 +198,9 @@ using namespace std;
             int contador = 0;
             while(contador <= tam ){
                 //Hay que hacer un recorrido en preOrden haciendo un llamado al OpBa
-                tiempoInicio = //GetTime
+                tiempoInicio = time(&timer);
                 arbol->hermanoDerecho();
-                tiempoFinal = //GetTime
+                tiempoFinal = time(&timer);
 
                 tiempoTotal = tiempoFinal - tiempoInicio;
                 ++contador;
@@ -208,27 +209,67 @@ using namespace std;
         }
         //
         Test::testOpBasico2(Arbol* arbol){
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
 
         }
         //agregarHijoIesimo
         Test::testOpBasico3(Arbol* arbol){
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
 
         }
         //Algoritmos//
-        
-        //listarArbolPreOrden
-        Test::testAlgoritmo1(Arbol* arbol){
 
+        //listarArbolPreOrden
+        double Test::testAlgoritmo1(Arbol* arbol){
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
+            tiempoInicio = time(&timer);
+            arbol->listarArbolPreOrden();
+            tiempoFinal = time(&timer);
+            tiempoTotal = tiempoFinal - tiempoInicio;
+            return tiempoTotal;
         }
         //listarArbolNiveles
-        Test::testAlgoritmo2(Arbol* arbol){
+        double Test::testAlgoritmo2(Arbol* arbol){
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
+            tiempoInicio = time(&timer);
+            arbol->listarArbolNiveles();
+            tiempoFinal = time(&timer);
+            tiempoTotal = tiempoFinal - tiempoInicio;
+            return tiempoTotal;
 
         }
-        //
-        Test::testAlgoritmo3(Arbol* arbol){
+        //averiguarNivelesPreOrden
+        double Test::testAlgoritmo3(Arbol* arbol){
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
+            tiempoInicio = time(&timer);
+            arbol->averiguarNivelesPreOrden();
+            tiempoFinal = time(&timer);
+            tiempoTotal = tiempoFinal - tiempoInicio;
+            return tiempoTotal;
 
+
+            return tiempoTotal;
         }
-        //
-        Test::testAlgoritmo4(Arbol* arbol){
+        //averiguarNivelesporNiveles
+        double Test::testAlgoritmo4(Arbol* arbol){
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
+            tiempoInicio = time(&timer);
+            arbol->averiguarNivelesEnRecorridoPorNiveles();
+            tiempoFinal = time(&timer);
+            tiempoTotal = tiempoFinal - tiempoInicio;
+            return tiempoTotal;
 
+            return tiempoTotal;
         }

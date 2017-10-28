@@ -7,11 +7,15 @@
 #ifndef Test_2017
 #define Test_2017
 #include "ArbolSalPadre.h"
+#include <time.h>
+
 //#include "ArbolHMI_HD.h"
 #include "GeneradorArbol.h"
 
 class Test {
     private:
+        //Clase time
+        time_t timer;
         //arbolPino
         Arbol * arbolN1A1;
         Arbol * arbolN2A1;
