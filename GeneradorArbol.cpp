@@ -4,8 +4,12 @@
 
 using namespace std;
 
+GeneradorArbol::GeneradorArbol(){}
+
+GeneradorArbol::~GeneradorArbol(){}
+
 Arbol*  GeneradorArbol::arbolPino(int n){
-  Arbol* arbol = new Arbol();
+  Arbol * arbol = new Arbol();
   arbol->ponerRaiz(1);
   Arbol::Nodo padre = arbol->raiz();
   for(int i = 2; i <= n; ++i){
@@ -15,7 +19,7 @@ Arbol*  GeneradorArbol::arbolPino(int n){
 }
 
 Arbol*  GeneradorArbol::arbolArbusto(int n){
-  Arbol arbol = new Arbol();
+  Arbol * arbol = new Arbol();
   arbol->ponerRaiz(1);
   Arbol::Nodo raiz = arbol->raiz();
   for(int i = 2; i <= n; ++i){
@@ -25,7 +29,7 @@ Arbol*  GeneradorArbol::arbolArbusto(int n){
 }
 
 Arbol*  GeneradorArbol::arbolPromedio(int n){
-  Arbol arbol = new Arbol();
+  Arbol * arbol = new Arbol();
   int contador = 1;
   arbol->ponerRaiz(1);
   if(!arbol->vacia()){
@@ -52,7 +56,7 @@ Arbol*  GeneradorArbol::arbolPromedio(int n){
 }
 
 Arbol*  GeneradorArbol::arbolBinario(int n){
-  Arbol arbol = new Arbol();
+  Arbol * arbol = new Arbol();
   int contador = 1;
   arbol->ponerRaiz(1);
   if(!arbol->vacia()){
