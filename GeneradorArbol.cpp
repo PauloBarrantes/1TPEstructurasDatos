@@ -30,6 +30,7 @@ Arbol*  GeneradorArbol::arbolArbusto(int n){
 
 Arbol*  GeneradorArbol::arbolPromedio(int n){
   Arbol * arbol = new Arbol();
+  srand (time(NULL));
   int contador = 1;
   arbol->ponerRaiz(1);
   ++contador;
