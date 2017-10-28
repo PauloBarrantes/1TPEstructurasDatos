@@ -7,7 +7,7 @@
 
 #ifndef _Cola2017
 #define _Cola2017
-#define M 1000
+#define M 100000
 #include <iostream>
 using namespace std;
 template <class T>
