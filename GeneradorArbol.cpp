@@ -4,6 +4,10 @@
 
 using namespace std;
 
+GeneradorArbol::GeneradorArbol(){}
+
+GeneradorArbol::~GeneradorArbol(){}
+
 Arbol*  GeneradorArbol::arbolPino(int n){
   Arbol* arbol = new Arbol();
   arbol->ponerRaiz(1);
