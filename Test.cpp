@@ -61,6 +61,7 @@ using namespace std;
                 Cola<Arbol::Nodo> cola;
                 TIME_THIS(arbol->hermanoDer(arbol->raiz()), segundos);
                 tiempoGlobal += segundos;
+                cout << "Segundos Raíz:  " << tiempoGlobal <<endl;
 
                 cola.encolar(arbol->raiz());
                 while(!cola.vacia()){
@@ -74,8 +75,11 @@ using namespace std;
                     }
                 }
             }
+            cout << "Tiempo Global " << tiempoGlobal <<endl;
+
             tiempoPromedio = tiempoGlobal/arbol->numNodos();
 
+            cout << "Tiempo Promedio " << tiempoPromedio <<endl;
 
 
             return tiempoPromedio;
