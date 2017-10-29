@@ -1,3 +1,5 @@
+//g++ main.cpp GeneradorArbol.cpp ArbolHMI_HD.cpp Algoritmos.cpp Test.cpp
+
 #include "Test.h"
 #include <iostream>
 #include <time.h>
