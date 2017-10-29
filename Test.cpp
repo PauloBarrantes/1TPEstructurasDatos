@@ -146,6 +146,7 @@ using namespace std;
             double tiempoPromedio;
             double segundos;
             Arbol::Nodo nodo = arbol->raiz();
+			Arbol::Nodo nh = arbol->hijoMasIzq
 
 
 			cout << tiempoTotal << endl;
