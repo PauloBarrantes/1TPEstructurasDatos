@@ -55,8 +55,8 @@ using namespace std;
         void Test::testGeneral(){
 			GeneradorArbol generador;
 			arbolN1A1 = generador.arbolPromedio(N1);
-			testOpBasico1(arbolN1A1);
-			//arbolN1A1->imprimir(cout);
+			testAlgoritmo1(arbolN1A1);
+			arbolN1A1->imprimir(cout);
           //this->testPino();
           //this->testArbusto();
           //this->testPromedio();
@@ -83,6 +83,8 @@ using namespace std;
                     }
                 }
             }
+			
+			tiempoPromedio = tiempoGlobal/arbol->numNodos();
             cout << "Tiempo Promedio " << tiempoPromedio <<endl;
 		}
 
@@ -110,18 +112,26 @@ using namespace std;
             tiempoPromedio = tiempoGlobal/arbol->numNodos();
 
 
-            cout << tiempoPromedio << endl;
+            cout << "Tiempo Promedio " << tiempoPromedio << endl;
         }
-        //
+        //Borrar Hoja
         void Test::testOpBasico3(Arbol* arbol){
             double tiempoGlobal;
             double tiempoPromedio;
             double segundos;
+			
             Arbol::Nodo nodo = arbol->raiz();
-			Arbol::Nodo nh = arbol->hijoMasIzq
+			Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+			
+			while(nh != arbol->nodoNulo){
+				nodo = nh;
+				nh = arbol->hijoMasIzq(nodo);
+			}
 
-
-			cout << tiempoTotal << endl;
+			TIME_THIS(arbol->borrarHoja(nodo),segundos);
+			tiempoGlobal += segundos;
+			
+			cout << "Tiempo Global " << tiempoGlobal << endl;
         }
         //Algoritmos//
 
