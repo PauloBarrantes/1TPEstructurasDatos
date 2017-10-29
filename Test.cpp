@@ -53,14 +53,10 @@ using namespace std;
         }
         //Debería enviar a probar el árbol con sus 4 tamaños, y cada uno de sus OB y algoritmos.
         void Test::testGeneral(){
-			GeneradorArbol generador;
-			arbolN1A1 = generador.arbolPromedio(N1);
-			testAlgoritmo1(arbolN1A1);
-			arbolN1A1->imprimir(cout);
-          //this->testPino();
-          //this->testArbusto();
-          //this->testPromedio();
-          //this->testBinario();
+			this->testPino();
+			this->testArbusto();
+			this->testPromedio();
+			this->testBinario();
         }
         //Hermano Derecho
         void Test::testOpBasico1(Arbol* arbol){
@@ -156,7 +152,7 @@ using namespace std;
         }
         void Test::testAlgoritmo4(Arbol* arbol){
             double segundos = 0.0;
-            TIME_THIS(algoritmo->averiguarNivelsPreOrden(arbol), segundos);
+            TIME_THIS(algoritmo->averiguarNivelesEnRecorridoPorNiveles(arbol), segundos);
             cout << segundos << endl;
         }
 
@@ -213,7 +209,8 @@ using namespace std;
           testAlgoritmo1(arbolN3A1);//Tiempo de ejecución del operadorBásico3 con n3
           cout << "N4" <<endl;
           testAlgoritmo1(arbolN4A1);//Tiempo de ejecución del operadorBásico3 con n4
-          // ----- Algorithm 2 --- ArbolPino //
+
+		  // ----- Algorithm 2 --- ArbolPino //
           cout << "Prueba de los árboles pino con el algoritmo 2 - ÁrbolSalPadre" <<endl;
           cout << "N1" << endl;
           testAlgoritmo2(arbolN1A1); //Tiempo de ejecución del operadorBásico3 con n1
@@ -223,7 +220,8 @@ using namespace std;
           testAlgoritmo2(arbolN3A1);//Tiempo de ejecución del operadorBásico3 con n3
           cout << "N4" <<endl;
           testAlgoritmo2(arbolN4A1);//Tiempo de ejecución del operadorBásico3 con n4
-          // ----- Algorithm 3 --- ArbolPino //
+
+		  // ----- Algorithm 3 --- ArbolPino //
           cout << "Prueba de los árboles pino con el algoritmo 3 - ÁrbolSalPadre" <<endl;
           cout << "N1" << endl;
           testAlgoritmo3(arbolN1A1); //Tiempo de ejecución del operadorBásico3 con n1
@@ -233,7 +231,8 @@ using namespace std;
           testAlgoritmo3(arbolN3A1);//Tiempo de ejecución del operadorBásico3 con n3
           cout << "N4" <<endl;
           testAlgoritmo3(arbolN4A1);//Tiempo de ejecución del operadorBásico3 con n4
-          // ----- Algorithm 4 --- ArbolPino //
+
+		  // ----- Algorithm 4 --- ArbolPino //
           cout << "Prueba de los árboles pino con el algoritmo 4 - ÁrbolSalPadre" <<endl;
           cout << "N1" << endl;
           testAlgoritmo4(arbolN1A1); //Tiempo de ejecución del operadorBásico3 con n1

@@ -1,9 +1,6 @@
 #include <iostream>
 
 #include "Test.h"
-#include "GeneradorArbol.h"
-#include "ArbolHMI_HD.h"
-//#include "ArbolSalPadre.h"
 
 #include <time.h>
 using namespace std;

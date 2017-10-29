@@ -231,7 +231,7 @@ void Algoritmos::listarArbolPreOrden(Arbol* arbol) {
 
 void Algoritmos::listarArbolPreOrdenRec(Arbol* arbol, Arbol::Nodo nodoActual) {
   if(nodoActual != arbol->nodoNulo){
-    cout << "-> "<< arbol->etiqueta(nodoActual) <<endl;
+    //cout << "-> "<< arbol->etiqueta(nodoActual) <<endl;
     Arbol::Nodo nh = arbol->hijoMasIzq(nodoActual);
     while(nh != arbol->nodoNulo){
       listarArbolPreOrdenRec(arbol,nh);
@@ -251,7 +251,7 @@ void Algoritmos::listarArbolPostOrdenRec(Arbol* arbol, Arbol::Nodo nodoActual) {
       listarArbolPostOrdenRec(arbol, nh);
       nh = arbol->hermanoDer(nh);
     }
-    cout << "-> " << arbol->etiqueta(nodoActual) <<endl;
+    //cout << "-> " << arbol->etiqueta(nodoActual) <<endl;
   }
 }
 
@@ -259,12 +259,12 @@ void Algoritmos::listarArbolNiveles(Arbol* arbol){
   if(!arbol->vacia()){
       Cola<Arbol::Nodo> cola;
       cola.encolar(arbol->raiz());
-      cout << "-> "<<arbol->etiqueta(arbol->raiz()) << endl;
+      //cout << "-> "<<arbol->etiqueta(arbol->raiz()) << endl;
       while(!cola.vacia()){
           Arbol::Nodo nodo = cola.desencolar();
           Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
           while(nh != arbol->nodoNulo){
-              cout << "-> " << arbol->etiqueta(nh)<<endl;
+              //cout << "-> " << arbol->etiqueta(nh)<<endl;
               cola.encolar(nh);
               nh = arbol->hermanoDer(nh);
           }

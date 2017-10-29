@@ -6,10 +6,10 @@
 */
 #ifndef Test_2017
 #define Test_2017
-//#include "ArbolSalPadre.h"
 #include <time.h>
 
-#include "ArbolHMI_HD.h"
+#include "ArbolSalPadre.h"
+//#include "ArbolHMI_HD.h"
 #include "GeneradorArbol.h"
 #include "Algoritmos.h"
 
