@@ -33,12 +33,12 @@ using namespace std;
             arbolN2A2 = 0;
             arbolN3A2 = 0;
             arbolN4A2 = 0;
-            //árbolBinario
+            //árbolPromedio
             arbolN1A3 = 0;
             arbolN2A3 = 0;
             arbolN3A3 = 0;
             arbolN4A3 = 0;
-            //árbolPromedio
+            //árbolBinario
             arbolN1A4 = 0;
             arbolN2A4 = 0;
             arbolN3A4 = 0;
@@ -329,10 +329,10 @@ using namespace std;
         void Test::testPromedio(){
           /// INICIO DEL ÁRBOL ARBUSTO
 
-          arbolN1A2 = genArbol->arbolPromedio(N1);
-          arbolN2A2 = genArbol->arbolPromedio(N2);
-          arbolN3A2 = genArbol->arbolPromedio(N3);
-          arbolN4A2 = genArbol->arbolPromedio(N4);
+          arbolN1A3 = genArbol->arbolPromedio(N1);
+          arbolN2A3 = genArbol->arbolPromedio(N2);
+          arbolN3A3 = genArbol->arbolPromedio(N3);
+          arbolN4A3 = genArbol->arbolPromedio(N4);
 
           //Pruebas de los operadores básicos
           cout << "Prueba de los árboles promedio con el operador básico 1 - ÁrbolSalPadre" <<endl;
@@ -417,10 +417,10 @@ using namespace std;
         void Test::testBinario(){
           /// INICIO DEL ÁRBOL BINARIO
 
-          arbolN1A2 = genArbol->arbolBinario(N1);
-          arbolN2A2 = genArbol->arbolBinario(N2);
-          arbolN3A2 = genArbol->arbolBinario(N3);
-          arbolN4A2 = genArbol->arbolBinario(N4);
+          arbolN1A4 = genArbol->arbolBinario(N1);
+          arbolN2A4 = genArbol->arbolBinario(N2);
+          arbolN3A4 = genArbol->arbolBinario(N3);
+          arbolN4A4 = genArbol->arbolBinario(N4);
 
           //Pruebas de los operadores básicos
           cout << "Prueba de los árboles binarios con el operador básico 1 - ÁrbolSalPadre" <<endl;
