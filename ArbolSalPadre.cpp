@@ -21,8 +21,8 @@ using namespace std;
         ultima = 0;
         nNodos = 0;
         nodoNulo = -1;
-        arreglo = new Arbol::Caja[T];
-        tamano = T;
+        arreglo = new Arbol::Caja[M];
+        tamano = M;
     }
     Arbol::~Arbol(){ //destruimos
         delete arreglo;

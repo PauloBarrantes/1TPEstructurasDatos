@@ -6,14 +6,16 @@
 */
 #ifndef Test_2017
 #define Test_2017
-#include "ArbolSalPadre.h"
+//#include "ArbolSalPadre.h"
 #include <time.h>
 
-//#include "ArbolHMI_HD.h"
+#include "ArbolHMI_HD.h"
 #include "GeneradorArbol.h"
+#include "Algoritmos.h"
 
 class Test {
     private:
+		Algoritmos * algoritmo;
         //Clase time
         time_t timer;
         //arbolPino
@@ -48,13 +50,13 @@ class Test {
         Test();
         ~Test();
         void testGeneral();
-        double testOpBasico1();
-        double testOpBasico2();
-        double testOpBasico3();
-        double testAlgoritmo1();
-        double testAlgoritmo2();
-        double testAlgoritmo3();
-        double testAlgoritmo4();
+        double testOpBasico1(Arbol*);
+        double testOpBasico2(Arbol*);
+        double testOpBasico3(Arbol*);
+        double testAlgoritmo1(Arbol*);
+        double testAlgoritmo2(Arbol*);
+        double testAlgoritmo3(Arbol*);
+        double testAlgoritmo4(Arbol*);
 };
 
 

@@ -7,7 +7,7 @@
 
 #ifndef _Cola2017
 #define _Cola2017
-#define M 100000
+#define K 100000
 #include <iostream>
 using namespace std;
 template <class T>
@@ -20,8 +20,8 @@ class Cola {
         int ultima;
     public:
         Cola(){ //Iniciar
-            arregloCircular = new T [M];
-            tamano = M;
+            arregloCircular = new T [K];
+            tamano = K;
             numElem = 0;
             primera = 1;
             ultima = 0;
