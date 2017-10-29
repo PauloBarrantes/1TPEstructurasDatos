@@ -96,7 +96,6 @@ using namespace std;
         }
         //Padre
         double Test::testOpBasico2(Arbol* arbol){
-<<<<<<< HEAD
             double tiempoGlobal;
             double tiempoPromedio;
             double segundos;
@@ -129,28 +128,15 @@ using namespace std;
 
         }
         //agregarHijoIesimo
-        Test::testOpBasico3(Arbol* arbol){
-            Arbol::Nodo nodo = arbol->raiz();
-
-            while(nodo != arbol->nodoNulo()){
-
-            }
-
-=======
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-			return 0;
-
-        }
-        //agregarHijoIesimo
         double Test::testOpBasico3(Arbol* arbol){
->>>>>>> 97889c57d8c975f26003331ff82948f2896f4cfd
             double tiempoInicio = 0.0;
             double tiempoFinal = 0.0;
             double tiempoTotal = 0.0;
 			return 0;
+
         }
+      
+	  
         //Algoritmos//
 
         //listarArbolPreOrden
