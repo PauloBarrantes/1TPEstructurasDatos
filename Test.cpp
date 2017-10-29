@@ -90,10 +90,8 @@ using namespace std;
             tiempoPromedio = tiempoGlobal/arbol->numNodos();
 
             cout << "Tiempo Promedio " << tiempoPromedio <<endl;
-
-
-            cout << tiempoTotal << endl;
-        }
+		}
+		
         //Padre
         void Test::testOpBasico2(Arbol* arbol){
             double tiempoGlobal;
@@ -104,6 +102,7 @@ using namespace std;
                 TIME_THIS(arbol->padre(arbol->raiz()), segundos);
                 tiempoGlobal += segundos;
                 cout << "Segundos Raíz:  " << tiempoGlobal <<endl;
+<<<<<<< HEAD
 
                 cola.encolar(arbol->raiz());
                 while(!cola.vacia()){
@@ -123,8 +122,28 @@ using namespace std;
 
 
             cout << tiempoTotal << endl;
+=======
+>>>>>>> 471300354b8732ce392058e82cd8fe5cc8a8dd28
 
+                cola.encolar(arbol->raiz());
+                while(!cola.vacia()){
+                    Arbol::Nodo nodo = cola.desencolar();
+                    Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+                    while(nh != arbol->nodoNulo){
+                        TIME_THIS(arbol->padre(nh), segundos);
+                        tiempoGlobal += segundos;
+                        cola.encolar(nh);
+                        nh = arbol->hermanoDer(nh);
+                    }
+                }
+            }
+            cout << "Tiempo Global " << tiempoGlobal <<endl;
+
+            tiempoPromedio = tiempoGlobal/arbol->numNodos();
+
+            cout << "Tiempo Promedio " << tiempoPromedio <<endl;
         }
+<<<<<<< HEAD
         //
         void Test::testOpBasico3(Arbol* arbol){
             double tiempoGlobal;
@@ -135,6 +154,17 @@ using namespace std;
 
 			cout << tiempoTotal << endl;
         }
+=======
+		
+        //agregarHijoIesimo
+        void Test::testOpBasico3(Arbol* arbol){
+            double tiempoInicio = 0.0;
+            double tiempoFinal = 0.0;
+            double tiempoTotal = 0.0;
+		}
+      
+	  
+>>>>>>> 471300354b8732ce392058e82cd8fe5cc8a8dd28
         //Algoritmos//
 
         //listarArbolPreOrden
