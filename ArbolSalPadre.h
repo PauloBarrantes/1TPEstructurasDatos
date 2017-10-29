@@ -6,7 +6,7 @@
 */
 #ifndef ArbolSalPadre2017
 #define ArbolSalPadre2017
-#define T 1000
+#define M 100000
 #include <iostream>
 class Arbol {
     class Caja; //Forward declaration
