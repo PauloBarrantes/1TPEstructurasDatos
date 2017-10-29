@@ -71,8 +71,6 @@ using namespace std;
                 Cola<Arbol::Nodo> cola;
                 TIME_THIS(arbol->hermanoDer(arbol->raiz()), segundos);
                 tiempoGlobal += segundos;
-                cout << "Segundos Raíz:  " << tiempoGlobal <<endl;
-
                 cola.encolar(arbol->raiz());
                 while(!cola.vacia()){
                     Arbol::Nodo nodo = cola.desencolar();
@@ -85,10 +83,6 @@ using namespace std;
                     }
                 }
             }
-            cout << "Tiempo Global " << tiempoGlobal <<endl;
-
-            tiempoPromedio = tiempoGlobal/arbol->numNodos();
-
             cout << "Tiempo Promedio " << tiempoPromedio <<endl;
 		}
 
@@ -101,8 +95,6 @@ using namespace std;
                 Cola<Arbol::Nodo> cola;
                 TIME_THIS(arbol->padre(arbol->raiz()), segundos);
                 tiempoGlobal += segundos;
-                cout << "Segundos Raíz:  " << tiempoGlobal <<endl;
-
                 cola.encolar(arbol->raiz());
                 while(!cola.vacia()){
                     Arbol::Nodo nodo = cola.desencolar();
@@ -115,30 +107,10 @@ using namespace std;
                     }
                 }
             }
-            cout << "Tiempo Global " << tiempoGlobal <<endl;
-
             tiempoPromedio = tiempoGlobal/arbol->numNodos();
 
 
-            cout << tiempoTotal << endl;
-
-                cola.encolar(arbol->raiz());
-                while(!cola.vacia()){
-                    Arbol::Nodo nodo = cola.desencolar();
-                    Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
-                    while(nh != arbol->nodoNulo){
-                        TIME_THIS(arbol->padre(nh), segundos);
-                        tiempoGlobal += segundos;
-                        cola.encolar(nh);
-                        nh = arbol->hermanoDer(nh);
-                    }
-                }
-            }
-            cout << "Tiempo Global " << tiempoGlobal <<endl;
-
-            tiempoPromedio = tiempoGlobal/arbol->numNodos();
-
-            cout << "Tiempo Promedio " << tiempoPromedio <<endl;
+            cout << tiempoPromedio << endl;
         }
         //
         void Test::testOpBasico3(Arbol* arbol){
