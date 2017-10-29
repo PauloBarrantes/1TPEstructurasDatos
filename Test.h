@@ -50,13 +50,13 @@ class Test {
         Test();
         ~Test();
         void testGeneral();
-        double testOpBasico1(Arbol*);
-        double testOpBasico2(Arbol*);
-        double testOpBasico3(Arbol*);
-        double testAlgoritmo1(Arbol*);
-        double testAlgoritmo2(Arbol*);
-        double testAlgoritmo3(Arbol*);
-        double testAlgoritmo4(Arbol*);
+        void testOpBasico1(Arbol*);
+        void testOpBasico2(Arbol*);
+        void testOpBasico3(Arbol*);
+        void testAlgoritmo1(Arbol*);
+        void testAlgoritmo2(Arbol*);
+        void testAlgoritmo3(Arbol*);
+        void testAlgoritmo4(Arbol*);
 };
 
 
