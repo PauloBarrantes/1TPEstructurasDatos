@@ -96,56 +96,70 @@ using namespace std;
         }
         //Padre
         void Test::testOpBasico2(Arbol* arbol){
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-			      cout << tiempoTotal << endl;
+            double tiempoGlobal;
+            double tiempoPromedio;
+            double segundos;
+            if(!arbol->vacia()){
+                Cola<Arbol::Nodo> cola;
+                TIME_THIS(arbol->padre(arbol->raiz()), segundos);
+                tiempoGlobal += segundos;
+                cout << "Segundos Raíz:  " << tiempoGlobal <<endl;
+
+                cola.encolar(arbol->raiz());
+                while(!cola.vacia()){
+                    Arbol::Nodo nodo = cola.desencolar();
+                    Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+                    while(nh != arbol->nodoNulo){
+                        TIME_THIS(arbol->padre(nh), segundos);
+                        tiempoGlobal += segundos;
+                        cola.encolar(nh);
+                        nh = arbol->hermanoDer(nh);
+                    }
+                }
+            }
+            cout << "Tiempo Global " << tiempoGlobal <<endl;
+
+            tiempoPromedio = tiempoGlobal/arbol->numNodos();
+
+
+            cout << tiempoTotal << endl;
 
         }
-        //agregarHijoIesimo
+        //
         void Test::testOpBasico3(Arbol* arbol){
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-			      cout << tiempoTotal << endl;
+            double tiempoGlobal;
+            double tiempoPromedio;
+            double segundos;
+            Arbol::Nodo nodo = arbol->raiz();
+
+
+			cout << tiempoTotal << endl;
         }
         //Algoritmos//
 
         //listarArbolPreOrden
         void Test::testAlgoritmo1(Arbol* arbol){
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-            tiempoInicio = time(&timer);
-            algoritmo->listarArbolPreOrden(arbol);
-            tiempoFinal = time(&timer);
-            tiempoTotal = tiempoFinal - tiempoInicio;
-            cout << tiempoTotal << endl;
+            double segundos;
+            TIME_THIS(algoritmo->listarArbolPreOrden(arbol), segundos);
+            cout << segundos << endl;
         }
         //listarArbolNiveles
         void Test::testAlgoritmo2(Arbol* arbol){
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-            tiempoInicio = time(&timer);
-            algoritmo->listarArbolNiveles(arbol);
-            tiempoFinal = time(&timer);
-            tiempoTotal = tiempoFinal - tiempoInicio;
-            cout << tiempoTotal << endl;
+            double segundos = 0.0;
+            TIME_THIS(algoritmo->listarArbolNiveles(arbol), segundos);
+            cout << segundos << endl;
 
         }
         //averiguarNivelesPreOrden
         void Test::testAlgoritmo3(Arbol* arbol){
-            double tiempoInicio = 0.0;
-            double tiempoFinal = 0.0;
-            double tiempoTotal = 0.0;
-            tiempoInicio = time(&timer);
-            algoritmo->averiguarNivelsPreOrden(arbol);
-            tiempoFinal = time(&timer);
-            tiempoTotal = tiempoFinal - tiempoInicio;
-            cout << tiempoTotal << endl;
+            double segundos = 0.0;
+            TIME_THIS(algoritmo->averiguarNivelsPreOrden(arbol), segundos);
+            cout << segundos << endl;
         }
         void Test::testAlgoritmo4(Arbol* arbol){
+            double segundos = 0.0;
+            TIME_THIS(algoritmo->averiguarNivelsPreOrden(arbol), segundos);
+            cout << segundos << endl;
         }
 
         void Test::testPino(){
