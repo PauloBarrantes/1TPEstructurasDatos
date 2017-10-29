@@ -96,6 +96,47 @@ using namespace std;
         }
         //Padre
         double Test::testOpBasico2(Arbol* arbol){
+<<<<<<< HEAD
+            double tiempoGlobal;
+            double tiempoPromedio;
+            double segundos;
+            if(!arbol->vacia()){
+                Cola<Arbol::Nodo> cola;
+                TIME_THIS(arbol->padre(arbol->raiz()), segundos);
+                tiempoGlobal += segundos;
+                cout << "Segundos Raíz:  " << tiempoGlobal <<endl;
+
+                cola.encolar(arbol->raiz());
+                while(!cola.vacia()){
+                    Arbol::Nodo nodo = cola.desencolar();
+                    Arbol::Nodo nh = arbol->hijoMasIzq(nodo);
+                    while(nh != arbol->nodoNulo){
+                        TIME_THIS(arbol->padre(nh), segundos);
+                        tiempoGlobal += segundos;
+                        cola.encolar(nh);
+                        nh = arbol->hermanoDer(nh);
+                    }
+                }
+            }
+            cout << "Tiempo Global " << tiempoGlobal <<endl;
+
+            tiempoPromedio = tiempoGlobal/arbol->numNodos();
+
+            cout << "Tiempo Promedio " << tiempoPromedio <<endl;
+
+
+            return tiempoPromedio;
+
+        }
+        //agregarHijoIesimo
+        Test::testOpBasico3(Arbol* arbol){
+            Arbol::Nodo nodo = arbol->raiz();
+
+            while(nodo != arbol->nodoNulo()){
+
+            }
+
+=======
             double tiempoInicio = 0.0;
             double tiempoFinal = 0.0;
             double tiempoTotal = 0.0;
@@ -104,6 +145,7 @@ using namespace std;
         }
         //agregarHijoIesimo
         double Test::testOpBasico3(Arbol* arbol){
+>>>>>>> 97889c57d8c975f26003331ff82948f2896f4cfd
             double tiempoInicio = 0.0;
             double tiempoFinal = 0.0;
             double tiempoTotal = 0.0;
@@ -496,7 +538,7 @@ using namespace std;
           cout << "N3"<<endl;
           testAlgoritmo4(arbolN3A4);//Tiempo de ejecución del operadorBásico3 con n3
           cout << "N4" <<endl;
-          testAlgoritmo4(arbolN4A4);//Tiempo de ejecución del operadorBásico3 con n4
+          cout << testAlgoritmo4(arbolN4A4) <<endl;//Tiempo de ejecución del operadorBásico3 con n4
 
           //liberamos la memoria
           delete arbolN1A4;
